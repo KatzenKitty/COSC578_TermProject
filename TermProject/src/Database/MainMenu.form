@@ -236,23 +236,26 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ModifyWarning" min="-2" pref="661" max="-2" attributes="0"/>
                           <Component id="lblModifyTableList" min="-2" max="-2" attributes="0"/>
                           <Component id="ModifyTableListContainer" min="-2" pref="239" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="562" max="32767" attributes="0"/>
+                      <EmptySpace pref="120" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ModifyWarning" min="-2" pref="72" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblModifyTableList" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="ModifyTableListContainer" min="-2" pref="262" max="-2" attributes="0"/>
-                      <EmptySpace pref="199" max="32767" attributes="0"/>
+                      <EmptySpace pref="132" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -301,9 +304,17 @@
                 <Property name="text" type="java.lang.String" value="Which table would you like to modify?"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="ModifyWarning">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;b&gt;WARNING:&lt;/b&gt; The information housed in this database comes directly from the Issuer Templates uploaded to SERFF. The only reason a user should modify a template is to correct information that was incorrectly added to the database via either an automated process or manual data entry. This database is meant to be a source of truth for MHBE and should only ever contain information pulled directly from the templates on SERFF. Thank you.&lt;/html&gt;"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel3">
+        <Container class="javax.swing.JPanel" name="InsertTabContainer">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Insert Template">
@@ -319,14 +330,14 @@
                       <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblStep2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" pref="185" max="-2" attributes="0"/>
+                              <Component id="buttonPlanTbl" min="-2" pref="185" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lvlStep1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="185" max="-2" attributes="0"/>
+                              <Component id="buttonProviderTbl" min="-2" pref="185" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -335,35 +346,35 @@
                       <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel3" min="-2" pref="744" max="-2" attributes="0"/>
+                              <Component id="InsertInstructions" min="-2" pref="744" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblStep3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblStep4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblStep5" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblStep6" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButton8" max="32767" attributes="0"/>
-                                  <Component id="jButton9" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButton6" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButton13" alignment="0" pref="185" max="32767" attributes="0"/>
+                                  <Component id="buttonMOOPTbl" max="32767" attributes="0"/>
+                                  <Component id="buttonRefReqTbl" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="buttonPremiumTbl" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="buttonOutPocketCostsTbl" alignment="0" pref="185" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButton12" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jButton11" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jButton10" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jButton3" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="buttonBenefitCostTbl" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="buttonOutNetDeductTbl" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="buttonInNetDeductTbl" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="buttonBenefitsTbl" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButton4" max="32767" attributes="0"/>
-                                  <Component id="jButton7" max="32767" attributes="0"/>
-                                  <Component id="jButton5" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="buttonPlanlvlProgramsTbl" max="32767" attributes="0"/>
+                                  <Component id="buttonGeoCovTbl" max="32767" attributes="0"/>
+                                  <Component id="buttonCostShareTbl" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                           </Group>
@@ -375,43 +386,43 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="InsertInstructions" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonProviderTbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lvlStep1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonPlanTbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStep2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonPremiumTbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonBenefitsTbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStep3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCostShareTbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonBenefitCostTbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStep4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonRefReqTbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonPlanlvlProgramsTbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonOutNetDeductTbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStep5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonMOOPTbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonGeoCovTbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="63" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonOutPocketCostsTbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonInNetDeductTbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStep6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                   </Group>
@@ -419,148 +430,148 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="InsertInstructions">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Template data must be entered in a specific order to maintain database integrity.&lt;/br&gt; &#xa;Please add data to the tables in the order provided below.&lt;/html&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="buttonProviderTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Provider Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonProviderTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="buttonPlanTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Plan Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPlanTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="buttonBenefitsTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Benefits Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonBenefitsTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="buttonPlanlvlProgramsTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Plan Level Programs Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPlanlvlProgramsTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="buttonCostShareTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cost Sharing Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCostShareTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JButton" name="buttonPremiumTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Premium Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPremiumTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton7">
+            <Component class="javax.swing.JButton" name="buttonGeoCovTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Geographic Coverage Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGeoCovTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton8">
+            <Component class="javax.swing.JButton" name="buttonMOOPTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Max Out of Pocket Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMOOPTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton9">
+            <Component class="javax.swing.JButton" name="buttonRefReqTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Referral Required Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefReqTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton10">
+            <Component class="javax.swing.JButton" name="buttonInNetDeductTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="In Network Deductible Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonInNetDeductTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton11">
+            <Component class="javax.swing.JButton" name="buttonOutNetDeductTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Out-of-Network Deductible Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton11ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOutNetDeductTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton12">
+            <Component class="javax.swing.JButton" name="buttonBenefitCostTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Benefit Service Cost Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton12ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonBenefitCostTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="lvlStep1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Step 1:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="lblStep2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Step 2:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="lblStep3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Step 3:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="lblStep4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Step 4:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel6">
+            <Component class="javax.swing.JLabel" name="lblStep5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Step 5:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton13">
+            <Component class="javax.swing.JButton" name="buttonOutPocketCostsTbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Out of Pocket Table"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton13ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOutPocketCostsTblActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
+            <Component class="javax.swing.JLabel" name="lblStep6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Step 6:"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel4">
+        <Container class="javax.swing.JPanel" name="QueryTabContainer">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Query Database">

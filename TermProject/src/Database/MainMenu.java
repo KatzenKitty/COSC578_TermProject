@@ -39,28 +39,29 @@ public class MainMenu extends javax.swing.JFrame {
         ModifyTableListContainer = new javax.swing.JScrollPane();
         ModifyTableList = new javax.swing.JList<>();
         lblModifyTableList = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton13 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        ModifyWarning = new javax.swing.JLabel();
+        InsertTabContainer = new javax.swing.JPanel();
+        InsertInstructions = new javax.swing.JLabel();
+        buttonProviderTbl = new javax.swing.JButton();
+        buttonPlanTbl = new javax.swing.JButton();
+        buttonBenefitsTbl = new javax.swing.JButton();
+        buttonPlanlvlProgramsTbl = new javax.swing.JButton();
+        buttonCostShareTbl = new javax.swing.JButton();
+        buttonPremiumTbl = new javax.swing.JButton();
+        buttonGeoCovTbl = new javax.swing.JButton();
+        buttonMOOPTbl = new javax.swing.JButton();
+        buttonRefReqTbl = new javax.swing.JButton();
+        buttonInNetDeductTbl = new javax.swing.JButton();
+        buttonOutNetDeductTbl = new javax.swing.JButton();
+        buttonBenefitCostTbl = new javax.swing.JButton();
+        lvlStep1 = new javax.swing.JLabel();
+        lblStep2 = new javax.swing.JLabel();
+        lblStep3 = new javax.swing.JLabel();
+        lblStep4 = new javax.swing.JLabel();
+        lblStep5 = new javax.swing.JLabel();
+        buttonOutPocketCostsTbl = new javax.swing.JButton();
+        lblStep6 = new javax.swing.JLabel();
+        QueryTabContainer = new javax.swing.JPanel();
         FileMenu = new javax.swing.JMenuBar();
         FileDropdown = new javax.swing.JMenu();
         HelpDropdown = new javax.swing.JMenu();
@@ -156,234 +157,240 @@ public class MainMenu extends javax.swing.JFrame {
         lblModifyTableList.setLabelFor(ModifyTabContainer);
         lblModifyTableList.setText("Which table would you like to modify?");
 
+        ModifyWarning.setForeground(new java.awt.Color(255, 0, 0));
+        ModifyWarning.setText("<html> <b>WARNING:</b> The information housed in this database comes directly from the Issuer Templates uploaded to SERFF. The only reason a user should modify a template is to correct information that was incorrectly added to the database via either an automated process or manual data entry. This database is meant to be a source of truth for MHBE and should only ever contain information pulled directly from the templates on SERFF. Thank you.</html>");
+
         javax.swing.GroupLayout ModifyTabContainerLayout = new javax.swing.GroupLayout(ModifyTabContainer);
         ModifyTabContainer.setLayout(ModifyTabContainerLayout);
         ModifyTabContainerLayout.setHorizontalGroup(
             ModifyTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ModifyTabContainerLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(92, 92, 92)
                 .addGroup(ModifyTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ModifyWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblModifyTableList)
                     .addComponent(ModifyTableListContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(562, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         ModifyTabContainerLayout.setVerticalGroup(
             ModifyTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ModifyTabContainerLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
+                .addComponent(ModifyWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblModifyTableList)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ModifyTableListContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         MainMenuTab.addTab("Modify Templates", ModifyTabContainer);
 
-        jLabel3.setText("<html>Template data must be entered in a specific order to maintain database integrity.</br> \nPlease add data to the tables in the order provided below.</html>");
+        InsertInstructions.setText("<html>Template data must be entered in a specific order to maintain database integrity.</br> \nPlease add data to the tables in the order provided below.</html>");
 
-        jButton1.setText("Provider Table");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonProviderTbl.setText("Provider Table");
+        buttonProviderTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonProviderTblActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Plan Table");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonPlanTbl.setText("Plan Table");
+        buttonPlanTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonPlanTblActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Benefits Table");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonBenefitsTbl.setText("Benefits Table");
+        buttonBenefitsTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                buttonBenefitsTblActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Plan Level Programs Table");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonPlanlvlProgramsTbl.setText("Plan Level Programs Table");
+        buttonPlanlvlProgramsTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                buttonPlanlvlProgramsTblActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Cost Sharing Table");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        buttonCostShareTbl.setText("Cost Sharing Table");
+        buttonCostShareTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                buttonCostShareTblActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Premium Table");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        buttonPremiumTbl.setText("Premium Table");
+        buttonPremiumTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                buttonPremiumTblActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Geographic Coverage Table");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        buttonGeoCovTbl.setText("Geographic Coverage Table");
+        buttonGeoCovTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                buttonGeoCovTblActionPerformed(evt);
             }
         });
 
-        jButton8.setText("Max Out of Pocket Table");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        buttonMOOPTbl.setText("Max Out of Pocket Table");
+        buttonMOOPTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                buttonMOOPTblActionPerformed(evt);
             }
         });
 
-        jButton9.setText("Referral Required Table");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        buttonRefReqTbl.setText("Referral Required Table");
+        buttonRefReqTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                buttonRefReqTblActionPerformed(evt);
             }
         });
 
-        jButton10.setText("In Network Deductible Table");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        buttonInNetDeductTbl.setText("In Network Deductible Table");
+        buttonInNetDeductTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                buttonInNetDeductTblActionPerformed(evt);
             }
         });
 
-        jButton11.setText("Out-of-Network Deductible Table");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        buttonOutNetDeductTbl.setText("Out-of-Network Deductible Table");
+        buttonOutNetDeductTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                buttonOutNetDeductTblActionPerformed(evt);
             }
         });
 
-        jButton12.setText("Benefit Service Cost Table");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        buttonBenefitCostTbl.setText("Benefit Service Cost Table");
+        buttonBenefitCostTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                buttonBenefitCostTblActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Step 1:");
+        lvlStep1.setText("Step 1:");
 
-        jLabel2.setText("Step 2:");
+        lblStep2.setText("Step 2:");
 
-        jLabel4.setText("Step 3:");
+        lblStep3.setText("Step 3:");
 
-        jLabel5.setText("Step 4:");
+        lblStep4.setText("Step 4:");
 
-        jLabel6.setText("Step 5:");
+        lblStep5.setText("Step 5:");
 
-        jButton13.setText("Out of Pocket Table");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        buttonOutPocketCostsTbl.setText("Out of Pocket Table");
+        buttonOutPocketCostsTbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                buttonOutPocketCostsTblActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Step 6:");
+        lblStep6.setText("Step 6:");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout InsertTabContainerLayout = new javax.swing.GroupLayout(InsertTabContainer);
+        InsertTabContainer.setLayout(InsertTabContainerLayout);
+        InsertTabContainerLayout.setHorizontalGroup(
+            InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertTabContainerLayout.createSequentialGroup()
                 .addGap(290, 290, 290)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(InsertTabContainerLayout.createSequentialGroup()
+                        .addComponent(lblStep2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(buttonPlanTbl, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InsertTabContainerLayout.createSequentialGroup()
+                        .addComponent(lvlStep1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonProviderTbl, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertTabContainerLayout.createSequentialGroup()
                 .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertTabContainerLayout.createSequentialGroup()
+                        .addComponent(InsertInstructions, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(87, 87, 87))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertTabContainerLayout.createSequentialGroup()
+                        .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblStep3)
+                            .addComponent(lblStep4)
+                            .addComponent(lblStep5)
+                            .addComponent(lblStep6))
                         .addGap(5, 5, 5)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
+                        .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonMOOPTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonRefReqTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonPremiumTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonOutPocketCostsTbl, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
                         .addGap(55, 55, 55)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonBenefitCostTbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonOutNetDeductTbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonInNetDeductTbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonBenefitsTbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(60, 60, 60)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonPlanlvlProgramsTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonGeoCovTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonCostShareTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(81, 81, 81))))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        InsertTabContainerLayout.setVerticalGroup(
+            InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertTabContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(InsertInstructions, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
+                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonProviderTbl)
+                    .addComponent(lvlStep1))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel2))
+                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonPlanTbl)
+                    .addComponent(lblStep2))
                 .addGap(38, 38, 38)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton3)
-                    .addComponent(jLabel4)
-                    .addComponent(jButton5))
+                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonPremiumTbl)
+                    .addComponent(buttonBenefitsTbl)
+                    .addComponent(lblStep3)
+                    .addComponent(buttonCostShareTbl))
                 .addGap(51, 51, 51)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton12)
-                    .addComponent(jLabel5)
-                    .addComponent(jButton9)
-                    .addComponent(jButton4))
+                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonBenefitCostTbl)
+                    .addComponent(lblStep4)
+                    .addComponent(buttonRefReqTbl)
+                    .addComponent(buttonPlanlvlProgramsTbl))
                 .addGap(55, 55, 55)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jLabel6)
-                    .addComponent(jButton8)
-                    .addComponent(jButton7))
+                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonOutNetDeductTbl)
+                    .addComponent(lblStep5)
+                    .addComponent(buttonMOOPTbl)
+                    .addComponent(buttonGeoCovTbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton13)
-                    .addComponent(jButton10)
-                    .addComponent(jLabel7))
+                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonOutPocketCostsTbl)
+                    .addComponent(buttonInNetDeductTbl)
+                    .addComponent(lblStep6))
                 .addGap(74, 74, 74))
         );
 
-        MainMenuTab.addTab("Insert Template", jPanel3);
+        MainMenuTab.addTab("Insert Template", InsertTabContainer);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout QueryTabContainerLayout = new javax.swing.GroupLayout(QueryTabContainer);
+        QueryTabContainer.setLayout(QueryTabContainerLayout);
+        QueryTabContainerLayout.setHorizontalGroup(
+            QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 873, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        QueryTabContainerLayout.setVerticalGroup(
+            QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 509, Short.MAX_VALUE)
         );
 
-        MainMenuTab.addTab("Query Database", jPanel4);
+        MainMenuTab.addTab("Query Database", QueryTabContainer);
 
         FileMenu.setBackground(new java.awt.Color(255, 255, 255));
         FileMenu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -411,57 +418,57 @@ public class MainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonProviderTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProviderTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonProviderTblActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonPlanTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlanTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonPlanTblActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void buttonBenefitsTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBenefitsTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_buttonBenefitsTblActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void buttonBenefitCostTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBenefitCostTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_buttonBenefitCostTblActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void buttonPremiumTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPremiumTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_buttonPremiumTblActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void buttonPlanlvlProgramsTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlanlvlProgramsTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_buttonPlanlvlProgramsTblActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void buttonMOOPTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMOOPTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_buttonMOOPTblActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void buttonOutNetDeductTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOutNetDeductTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_buttonOutNetDeductTblActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void buttonCostShareTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCostShareTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_buttonCostShareTblActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void buttonGeoCovTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGeoCovTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_buttonGeoCovTblActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void buttonInNetDeductTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInNetDeductTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_buttonInNetDeductTblActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void buttonRefReqTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefReqTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_buttonRefReqTblActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void buttonOutPocketCostsTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOutPocketCostsTblActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_buttonOutPocketCostsTblActionPerformed
 
     /**
      * @param args the command line arguments
@@ -502,6 +509,8 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenu FileDropdown;
     private javax.swing.JMenuBar FileMenu;
     private javax.swing.JMenu HelpDropdown;
+    private javax.swing.JLabel InsertInstructions;
+    private javax.swing.JPanel InsertTabContainer;
     private javax.swing.JLabel InsertTabDescription;
     private javax.swing.JPanel MMOuterContainer;
     private javax.swing.JLabel MMWelcome;
@@ -512,29 +521,28 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel ModifyTabDescription;
     private javax.swing.JList<String> ModifyTableList;
     private javax.swing.JScrollPane ModifyTableListContainer;
+    private javax.swing.JLabel ModifyWarning;
+    private javax.swing.JPanel QueryTabContainer;
     private javax.swing.JLabel QueryTabDescription;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton buttonBenefitCostTbl;
+    private javax.swing.JButton buttonBenefitsTbl;
+    private javax.swing.JButton buttonCostShareTbl;
+    private javax.swing.JButton buttonGeoCovTbl;
+    private javax.swing.JButton buttonInNetDeductTbl;
+    private javax.swing.JButton buttonMOOPTbl;
+    private javax.swing.JButton buttonOutNetDeductTbl;
+    private javax.swing.JButton buttonOutPocketCostsTbl;
+    private javax.swing.JButton buttonPlanTbl;
+    private javax.swing.JButton buttonPlanlvlProgramsTbl;
+    private javax.swing.JButton buttonPremiumTbl;
+    private javax.swing.JButton buttonProviderTbl;
+    private javax.swing.JButton buttonRefReqTbl;
     private javax.swing.JLabel lblModifyTableList;
+    private javax.swing.JLabel lblStep2;
+    private javax.swing.JLabel lblStep3;
+    private javax.swing.JLabel lblStep4;
+    private javax.swing.JLabel lblStep5;
+    private javax.swing.JLabel lblStep6;
+    private javax.swing.JLabel lvlStep1;
     // End of variables declaration//GEN-END:variables
 }
