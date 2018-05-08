@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Database;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
 /**
  *
  * @author nunya
@@ -469,11 +470,25 @@ public class MainMenu extends javax.swing.JFrame {
     private void buttonOutPocketCostsTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOutPocketCostsTblActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonOutPocketCostsTblActionPerformed
+    //connect to DB
+    public Connection getConnection()
+	   {
+	       Connection con;
 
+	       try {
+	           con = DriverManager.getConnection("jdbc:mysql://triton.towson.edu/eleo1db", "eleo1","Cosc*ry68");
+	           return con;
+	       } 
+	      catch (Exception e) {
+	           e.printStackTrace();
+	           return null;
+	       }
+	   }
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
