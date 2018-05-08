@@ -156,7 +156,6 @@ public class Benefits extends javax.swing.JPanel {
     public ArrayList<Benefits> getBenefitsList()
 	   {
 	       ArrayList<Benefits> BenefitsList = new ArrayList<Benefits>();
-	       Connection connection = getConnection();
 	       
 	       String query = "SELECT * FROM  `Benefits` ";//Table name
 	       Statement st;
