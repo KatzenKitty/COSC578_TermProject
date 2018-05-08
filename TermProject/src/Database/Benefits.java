@@ -5,6 +5,24 @@
  */
 package Database;
 
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.Color;
+
 /**
  *
  * @author nunya
@@ -134,7 +152,30 @@ public class Benefits extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+//Need to figure out how/where to incorporate this in the generated code
+    public ArrayList<Benefits> getBenefitsList()
+	   {
+	       ArrayList<Benefits> BenefitsList = new ArrayList<Benefits>();
+	       Connection connection = getConnection();
+	       
+	       String query = "SELECT * FROM  `Benefits` ";//Table name
+	       Statement st;
+	       ResultSet rs;
+	       
+	       try {
+	           st = connection.createStatement();
+	           rs = st.executeQuery(query);
+	           Benefits benefits;
+	           while(rs.next())
+	           {
+	               benefits= new Benefits(rs.getInt("id"),rs.getString("EhbFlag"),rs.getString("CoveredFlag"),rs.getNString("EhbVarianceReason"), rs.getString("QuantServLmt"), rs.getString("Service"), rs.getString("BeneDescription"));
+	               BenefitsList.add(benefits);
+	           }
+	       } catch (Exception e) {
+	           e.printStackTrace();
+	       }
+	       return BenefitsList;
+	   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
