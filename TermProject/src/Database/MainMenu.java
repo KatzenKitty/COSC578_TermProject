@@ -106,20 +106,25 @@ public class MainMenu extends javax.swing.JFrame {
         MMOuterContainer.setBackground(new java.awt.Color(255, 255, 255));
 
         MMWelcome.setBackground(new java.awt.Color(255, 255, 255));
-        MMWelcome.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        MMWelcome.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        MMWelcome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MMWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/MHBElogo.jpg"))); // NOI18N
-        MMWelcome.setText("<html>Welcome to the Rate and Plan Template Database </br>for the Maryland Health Benefit Exchange</html>");
+        MMWelcome.setText("<html><BLOCKQUOTE>Welcome to the Rate and Plan Template Database </br>for the Maryland Health Benefit Exchange</BLOCKQUOTE></html>");
 
         MMinnerContainer.setBackground(new java.awt.Color(255, 255, 255));
 
+        MMintroText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         MMintroText.setText("<html>This application allows the user to send queries to the Rate and Plan Database to retrieve information </br> about the Insurance Plans offered by Issuers participating in the Maryland HBX. Please select and option below to continue.</html>");
 
+        ModifyTabDescription.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ModifyTabDescription.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/mhbelogo_thumb.png"))); // NOI18N
         ModifyTabDescription.setText("<html><b>Modify Templates:</b></br> </br> This tab will allow users to modify any existing tables within the template database. Navigate to this tab if you need to update specific template information OR if you need to delete any template information from the database.</br> </br></html>");
 
+        InsertTabDescription.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         InsertTabDescription.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/mhbelogo_thumb.png"))); // NOI18N
         InsertTabDescription.setText("<html><b>Insert Template:</b></br> </br> This tab allows users to insert a new template into the database, table by table.</br> </html>");
 
+        QueryTabDescription.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         QueryTabDescription.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/mhbelogo_thumb.png"))); // NOI18N
         QueryTabDescription.setText("<html><b>Query Database:</b></br> </br> This tab allows users to ask specific questions of the database. Some common pre-generated queries are available and there is an option for advanced users to supply a SQL query to the database to answer more complex questions.</br> </html>");
 
@@ -127,40 +132,37 @@ public class MainMenu extends javax.swing.JFrame {
         MMinnerContainer.setLayout(MMinnerContainerLayout);
         MMinnerContainerLayout.setHorizontalGroup(
             MMinnerContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MMinnerContainerLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MMinnerContainerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(MMintroText, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
-            .addGroup(MMinnerContainerLayout.createSequentialGroup()
-                .addGap(125, 125, 125)
                 .addGroup(MMinnerContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ModifyTabDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InsertTabDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(QueryTabDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(QueryTabDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MMintroText, javax.swing.GroupLayout.PREFERRED_SIZE, 871, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         MMinnerContainerLayout.setVerticalGroup(
             MMinnerContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MMinnerContainerLayout.createSequentialGroup()
-                .addComponent(MMintroText, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addComponent(MMintroText, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addComponent(ModifyTabDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(InsertTabDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(QueryTabDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 155, Short.MAX_VALUE))
+                .addGap(0, 115, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MMOuterContainerLayout = new javax.swing.GroupLayout(MMOuterContainer);
         MMOuterContainer.setLayout(MMOuterContainerLayout);
         MMOuterContainerLayout.setHorizontalGroup(
             MMOuterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MMOuterContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(MMWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 1107, Short.MAX_VALUE)
-                .addContainerGap())
             .addComponent(MMinnerContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(MMOuterContainerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MMWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MMOuterContainerLayout.setVerticalGroup(
             MMOuterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +285,7 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(ModifyTabContainerLayout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addComponent(ModSidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -421,7 +423,7 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(buttonProviderTbl, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertTabContainerLayout.createSequentialGroup()
-                .addContainerGap(293, Short.MAX_VALUE)
+                .addContainerGap(311, Short.MAX_VALUE)
                 .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertTabContainerLayout.createSequentialGroup()
                         .addComponent(InsertInstructions, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -538,7 +540,7 @@ public class MainMenu extends javax.swing.JFrame {
                     .addComponent(btnPrintTblQuery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCustomSQLQuery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblCustomSQLQueryBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(QueryTableContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 837, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(QueryTabContainerLayout.createSequentialGroup()
