@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.sql.ResultSetMetaData;
 import javax.swing.JOptionPane;
 import model.*;
+import Entities.*;
 /**
  *
  * @author nunya
@@ -834,7 +835,7 @@ public class MainMenu extends javax.swing.JFrame {
         String sql = null;
         if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Display Query")) {
             // create a pop-up window to take input 
-            new DisplayDialog().setVisible(true);
+            
         }
         if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Find Min/Max Query")) {
             // create a pop-up window to take input 
