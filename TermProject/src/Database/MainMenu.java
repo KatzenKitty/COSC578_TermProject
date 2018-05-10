@@ -10,8 +10,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.ResultSetMetaData;
 import javax.swing.JOptionPane;
-import model.*;
-import Entities.*;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 /**
  *
  * @author nunya
@@ -54,7 +58,9 @@ public class MainMenu extends javax.swing.JFrame {
         btnMax = new javax.swing.JRadioButton();
         FindMinMaxMHBELogo = new javax.swing.JLabel();
         CompareDialog = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
         PrintTableDIalog = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
         CustomSQLdialog = new javax.swing.JDialog();
         MainMenuTab = new javax.swing.JTabbedPane();
         MMOuterContainer = new javax.swing.JPanel();
@@ -94,6 +100,7 @@ public class MainMenu extends javax.swing.JFrame {
         btnInsertNEXT1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         InsertProviderTable = new javax.swing.JTable();
+        PopulateProviderTable = new javax.swing.JToggleButton();
         InsertStp2Tab = new javax.swing.JPanel();
         InsertStp2Header = new javax.swing.JLabel();
         lblInsertPlanID = new javax.swing.JLabel();
@@ -123,6 +130,7 @@ public class MainMenu extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         InsertResultTable2 = new javax.swing.JTable();
         IssuerIDdropdown = new javax.swing.JComboBox<>();
+        PopulatePlanTable = new javax.swing.JToggleButton();
         InsertStep3Tab = new javax.swing.JPanel();
         lblInsertPremium = new javax.swing.JLabel();
         lblInsertPlanID3 = new javax.swing.JLabel();
@@ -158,6 +166,9 @@ public class MainMenu extends javax.swing.JFrame {
         InsertPlanID3 = new javax.swing.JComboBox<>();
         InsertBenePlanID = new javax.swing.JComboBox<>();
         InsertCSPlanID = new javax.swing.JComboBox<>();
+        PopulatePremiumTable = new javax.swing.JToggleButton();
+        PopulateBenefitsTable = new javax.swing.JToggleButton();
+        PopulateCSTable = new javax.swing.JToggleButton();
         InsertStep4Tab = new javax.swing.JPanel();
         InsertRefReqHeader = new javax.swing.JLabel();
         lblInsertRefPlanID = new javax.swing.JLabel();
@@ -188,6 +199,9 @@ public class MainMenu extends javax.swing.JFrame {
         InsertDiseaseMgmt = new javax.swing.JTextArea();
         jScrollPane6 = new javax.swing.JScrollPane();
         InsertSpecialistsRequired = new javax.swing.JTextArea();
+        PopulateReferralTable = new javax.swing.JToggleButton();
+        PopulateBenefitCostTable = new javax.swing.JToggleButton();
+        PopulatePlanLvlProgramsTable = new javax.swing.JToggleButton();
         InsertStep5Tab = new javax.swing.JPanel();
         InsertMOOPHeader = new javax.swing.JLabel();
         lblMOOPplanID = new javax.swing.JLabel();
@@ -217,6 +231,9 @@ public class MainMenu extends javax.swing.JFrame {
         InsertOOPcopay = new javax.swing.JTextField();
         lblInsertHSAHRA = new javax.swing.JLabel();
         InsertOOPHSAHRA = new javax.swing.JTextField();
+        PopulateMOOPTable = new javax.swing.JToggleButton();
+        PopulateOOPTable = new javax.swing.JToggleButton();
+        PopulateGeoTable = new javax.swing.JToggleButton();
         InsertStep6Tab = new javax.swing.JPanel();
         InsertINDeductHeader = new javax.swing.JLabel();
         lblINnetPlanID = new javax.swing.JLabel();
@@ -246,6 +263,8 @@ public class MainMenu extends javax.swing.JFrame {
         CombinedDeductCheck = new javax.swing.JCheckBox();
         lblINnetCombined = new javax.swing.JLabel();
         InsertOONComboDeduct = new javax.swing.JTextField();
+        PopulateINnetDeductTable = new javax.swing.JToggleButton();
+        PopulateOONDeductTable = new javax.swing.JToggleButton();
         QueryTabContainer = new javax.swing.JPanel();
         QueryTableContainer = new javax.swing.JScrollPane();
         QueryResultTable = new javax.swing.JTable();
@@ -301,6 +320,7 @@ public class MainMenu extends javax.swing.JFrame {
         );
 
         FindMinMaxDialog.setBackground(new java.awt.Color(255, 255, 255));
+        FindMinMaxDialog.setMinimumSize(new java.awt.Dimension(500, 400));
 
         lblMinMaxTblList.setBackground(new java.awt.Color(255, 255, 255));
         lblMinMaxTblList.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -377,26 +397,44 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
+        CompareDialog.setMinimumSize(new java.awt.Dimension(600, 400));
+
+        jLabel1.setText("Select the ");
+
         javax.swing.GroupLayout CompareDialogLayout = new javax.swing.GroupLayout(CompareDialog.getContentPane());
         CompareDialog.getContentPane().setLayout(CompareDialogLayout);
         CompareDialogLayout.setHorizontalGroup(
             CompareDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(CompareDialogLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addContainerGap(470, Short.MAX_VALUE))
         );
         CompareDialogLayout.setVerticalGroup(
             CompareDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(CompareDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(355, Short.MAX_VALUE))
         );
+
+        jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout PrintTableDIalogLayout = new javax.swing.GroupLayout(PrintTableDIalog.getContentPane());
         PrintTableDIalog.getContentPane().setLayout(PrintTableDIalogLayout);
         PrintTableDIalogLayout.setHorizontalGroup(
             PrintTableDIalogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(PrintTableDIalogLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLabel2)
+                .addContainerGap(307, Short.MAX_VALUE))
         );
         PrintTableDIalogLayout.setVerticalGroup(
             PrintTableDIalogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(PrintTableDIalogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(271, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout CustomSQLdialogLayout = new javax.swing.GroupLayout(CustomSQLdialog.getContentPane());
@@ -467,7 +505,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(InsertTabDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(QueryTabDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 155, Short.MAX_VALUE))
+                .addGap(0, 165, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MMOuterContainerLayout = new javax.swing.GroupLayout(MMOuterContainer);
@@ -590,7 +628,7 @@ public class MainMenu extends javax.swing.JFrame {
             ModOuterTblContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ModOuterTblContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ModTblScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
+                .addComponent(ModTblScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -601,7 +639,7 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(ModifyTabContainerLayout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addComponent(ModSidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(ModOuterTblContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -616,6 +654,12 @@ public class MainMenu extends javax.swing.JFrame {
         );
 
         MainMenuTab.addTab("Modify Templates", ModifyTabContainer);
+
+        InsertTabOuterContainer.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InsertTabOuterContainerFocusGained(evt);
+            }
+        });
 
         InsertStartTab.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -641,7 +685,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(InsertMHBELogo1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStartTabLayout.createSequentialGroup()
-                .addGap(0, 131, Short.MAX_VALUE)
+                .addGap(0, 139, Short.MAX_VALUE)
                 .addGroup(InsertStartTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblInsertInstructions2)
                     .addComponent(lblInsertInstructions1)
@@ -694,8 +738,10 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        btnInsertINSERT1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnInsertINSERT1.setText("Insert");
 
+        btnInsertNEXT1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnInsertNEXT1.setText("Next");
         btnInsertNEXT1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -716,6 +762,14 @@ public class MainMenu extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(InsertProviderTable);
 
+        PopulateProviderTable.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        PopulateProviderTable.setText("Populate Table");
+        PopulateProviderTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulateProviderTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout InsertStp1TabLayout = new javax.swing.GroupLayout(InsertStp1Tab);
         InsertStp1Tab.setLayout(InsertStp1TabLayout);
         InsertStp1TabLayout.setHorizontalGroup(
@@ -723,28 +777,36 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(InsertStp1TabLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(InsertStp1Header)
                     .addGroup(InsertStp1TabLayout.createSequentialGroup()
-                        .addComponent(lblInsertServiceArea)
-                        .addGap(18, 18, 18)
-                        .addComponent(InsertServiceArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(InsertStp1TabLayout.createSequentialGroup()
+                                .addComponent(lblInsertServiceArea)
+                                .addGap(18, 18, 18)
+                                .addComponent(InsertServiceArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(InsertStp1TabLayout.createSequentialGroup()
+                                .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblInsertIssuerID)
+                                    .addComponent(lblInsertIssuerName))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(InsertIssuerID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(InsertIssuerName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(51, 51, 51))
                     .addGroup(InsertStp1TabLayout.createSequentialGroup()
-                        .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblInsertIssuerID)
-                            .addComponent(lblInsertIssuerName))
+                        .addComponent(InsertStp1Header)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InsertIssuerID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(InsertIssuerName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(51, 51, 51)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStp1TabLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnInsertINSERT1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnInsertNEXT1)
-                .addGap(49, 49, 49))
+                        .addComponent(PopulateProviderTable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStp1TabLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(InsertStp1TabLayout.createSequentialGroup()
+                        .addGap(10, 536, Short.MAX_VALUE)
+                        .addComponent(btnInsertINSERT1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnInsertNEXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
         );
         InsertStp1TabLayout.setVerticalGroup(
             InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -752,7 +814,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InsertStp1TabLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(InsertStp1Header)
+                        .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InsertStp1Header)
+                            .addComponent(PopulateProviderTable))
                         .addGap(18, 18, 18)
                         .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblInsertIssuerID)
@@ -765,12 +829,12 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblInsertServiceArea)
                             .addComponent(InsertServiceArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertINSERT1)
                     .addComponent(btnInsertNEXT1))
-                .addGap(40, 40, 40))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         InsertTabOuterContainer.addTab("Step 1", InsertStp1Tab);
@@ -807,6 +871,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         lblPlanIssuerID.setText("Issuer ID");
 
+        btnInsertINSERT2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnInsertINSERT2.setText("Insert");
         btnInsertINSERT2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -814,6 +879,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        btnInsertNEXT2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnInsertNEXT2.setText("Next");
         btnInsertNEXT2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -861,71 +927,85 @@ public class MainMenu extends javax.swing.JFrame {
 
         IssuerIDdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        PopulatePlanTable.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        PopulatePlanTable.setText("Populate Table");
+        PopulatePlanTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulatePlanTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout InsertStp2TabLayout = new javax.swing.GroupLayout(InsertStp2Tab);
         InsertStp2Tab.setLayout(InsertStp2TabLayout);
         InsertStp2TabLayout.setHorizontalGroup(
             InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InsertStp2TabLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStp2TabLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(InsertStp2TabLayout.createSequentialGroup()
-                                .addComponent(lblInsertPlanID)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(PlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStp2TabLayout.createSequentialGroup()
-                                .addComponent(lblInsertPlanType, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(InsertPlanType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStp2TabLayout.createSequentialGroup()
-                                .addComponent(lblInsertQHPStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(InsertQHPStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(InsertStp2TabLayout.createSequentialGroup()
-                                .addComponent(lblInsertPlanURL)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(InsertPlanURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(InsertStp2TabLayout.createSequentialGroup()
-                                .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEHBPercentPremium)
-                                    .addComponent(lblPlanServiceArea)
-                                    .addComponent(lblPlanIssuerID))
-                                .addGap(13, 13, 13)
-                                .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(InsertEHBPercPremium)
-                                    .addGroup(InsertStp2TabLayout.createSequentialGroup()
-                                        .addComponent(InsertPlanServArea, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(IssuerIDdropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(InsertStp2TabLayout.createSequentialGroup()
-                                .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(InsertChildOnlyCheck)
-                                    .addComponent(InsertStp2Header)
-                                    .addGroup(InsertStp2TabLayout.createSequentialGroup()
-                                        .addComponent(lblChildOnlyPlanID)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(InsertChildPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addComponent(InsertStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InsertStp2TabLayout.createSequentialGroup()
                         .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblInsertStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPlanName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblMetalLevel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                         .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InsertPlanName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InsertStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(InsertMetalLvl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(InsertPlanName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStp2TabLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnInsertINSERT2)
-                .addGap(32, 32, 32)
-                .addComponent(btnInsertNEXT2)
-                .addGap(35, 35, 35))
+                            .addComponent(InsertChildPlan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InsertPlanServArea, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                                .addGap(563, 563, 563)
+                                .addComponent(btnInsertINSERT2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(btnInsertNEXT2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                            .addComponent(lblInsertPlanID)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(23, 23, 23))
+                        .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                            .addComponent(lblInsertPlanType, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InsertPlanType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(23, 23, 23))
+                        .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                            .addComponent(lblInsertQHPStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InsertQHPStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(23, 23, 23))
+                        .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                            .addComponent(lblInsertPlanURL)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InsertPlanURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(23, 23, 23))
+                        .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                            .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblEHBPercentPremium)
+                                .addComponent(lblPlanServiceArea)
+                                .addComponent(lblPlanIssuerID))
+                            .addGap(54, 54, 54)
+                            .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(InsertEHBPercPremium)
+                                .addComponent(IssuerIDdropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(23, 23, 23))
+                        .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                            .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                                    .addComponent(InsertStp2Header)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(PopulatePlanTable))
+                                .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                                    .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(InsertChildOnlyCheck)
+                                        .addComponent(lblChildOnlyPlanID))
+                                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addContainerGap()))))
         );
         InsertStp2TabLayout.setVerticalGroup(
             InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -933,7 +1013,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InsertStp2TabLayout.createSequentialGroup()
-                        .addComponent(InsertStp2Header)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InsertStp2Header)
+                            .addComponent(PopulatePlanTable))
                         .addGap(18, 18, 18)
                         .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblInsertPlanID)
@@ -982,10 +1064,10 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(IssuerIDdropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInsertINSERT2)
-                    .addComponent(btnInsertNEXT2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnInsertNEXT2)
+                    .addComponent(btnInsertINSERT2))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         InsertTabOuterContainer.addTab("Step 2", InsertStp2Tab);
@@ -1037,6 +1119,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         lblIssuerActuarial.setText("Issuer Acturial Value");
 
+        jButton16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton16.setText("Insert");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1044,6 +1127,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        jButton21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton21.setText("Next");
 
         InsertBeneServ.setText("                                           ");
@@ -1083,11 +1167,35 @@ public class MainMenu extends javax.swing.JFrame {
 
         InsertCSPlanID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        PopulatePremiumTable.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        PopulatePremiumTable.setText("Populate Table");
+        PopulatePremiumTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulatePremiumTableActionPerformed(evt);
+            }
+        });
+
+        PopulateBenefitsTable.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        PopulateBenefitsTable.setText("Populate Table");
+        PopulateBenefitsTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulateBenefitsTableActionPerformed(evt);
+            }
+        });
+
+        PopulateCSTable.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        PopulateCSTable.setText("Populate Table");
+        PopulateCSTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulateCSTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout InsertStep3TabLayout = new javax.swing.GroupLayout(InsertStep3Tab);
         InsertStep3Tab.setLayout(InsertStep3TabLayout);
         InsertStep3TabLayout.setHorizontalGroup(
             InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep3TabLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel33)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1096,73 +1204,86 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(lblInsertPlanID3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(InsertPlanID3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91))
+                        .addGap(86, 86, 86))
                     .addGroup(InsertStep3TabLayout.createSequentialGroup()
                         .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(InsertStep3TabLayout.createSequentialGroup()
-                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblBeneService)
-                                    .addComponent(lblBenePlanID))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(InsertBenePlanID, 0, 171, Short.MAX_VALUE)
-                                    .addComponent(InsertBeneServ, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
+                                .addComponent(lblInsertPremium)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(PopulatePremiumTable))
+                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                .addComponent(InsertBeneHeader)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(PopulateBenefitsTable))
+                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                .addComponent(InsertCostShareHeader)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(PopulateCSTable))
                             .addGroup(InsertStep3TabLayout.createSequentialGroup()
                                 .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblReasonEHB)
-                                    .addComponent(lblQuantServ)
-                                    .addComponent(lblBeneDescrip))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(InsertBeneDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(BeneQuantServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(InsertBeneReasonEHB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
-                                .addComponent(lblIssuerActuarial)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(InsertActuarialValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(InsertCostShareHeader)
-                            .addComponent(lblInsertPremium)
-                            .addComponent(InsertBeneHeader)
-                            .addComponent(InsertBeneEHBCheck)
-                            .addComponent(InsertBeneCoveredCheck)
-                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
-                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblInsertCSPlanID)
-                                    .addComponent(lblCSRvar)
-                                    .addComponent(lblAdvPayment))
-                                .addGap(22, 22, 22)
-                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(InsertAdvancedPayment)
-                                    .addComponent(InsertCSRvar)
-                                    .addComponent(InsertCSPlanID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
-                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblIndivRate)
-                                    .addComponent(lblAgeRange))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(InsertAgeRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(InsertIndivRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)))
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblBeneService)
+                                            .addComponent(lblBenePlanID))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(InsertBenePlanID, 0, 171, Short.MAX_VALUE)
+                                            .addComponent(InsertBeneServ, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
+                                    .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblReasonEHB)
+                                            .addComponent(lblQuantServ)
+                                            .addComponent(lblBeneDescrip))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(InsertBeneDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(BeneQuantServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(InsertBeneReasonEHB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                        .addComponent(lblIssuerActuarial)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(InsertActuarialValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(InsertBeneEHBCheck)
+                                    .addComponent(InsertBeneCoveredCheck)
+                                    .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblInsertCSPlanID)
+                                            .addComponent(lblCSRvar)
+                                            .addComponent(lblAdvPayment))
+                                        .addGap(22, 22, 22)
+                                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(InsertAdvancedPayment)
+                                            .addComponent(InsertCSRvar)
+                                            .addComponent(InsertCSPlanID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblIndivRate)
+                                            .addComponent(lblAgeRange))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(InsertAgeRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(InsertIndivRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 30, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                        .addGap(478, 478, 478)
+                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep3TabLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton21)
-                .addGap(54, 54, 54))
         );
         InsertStep3TabLayout.setVerticalGroup(
             InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InsertStep3TabLayout.createSequentialGroup()
-                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3)
+                .addContainerGap()
+                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(InsertStep3TabLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(lblInsertPremium)
-                        .addGap(5, 5, 5)
+                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInsertPremium)
+                            .addComponent(PopulatePremiumTable))
+                        .addGap(23, 23, 23)
                         .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(InsertPlanID3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblInsertPlanID3))
@@ -1175,8 +1296,10 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(lblAgeRange)
                             .addComponent(InsertAgeRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(InsertBeneHeader)
-                        .addGap(9, 9, 9)
+                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InsertBeneHeader)
+                            .addComponent(PopulateBenefitsTable))
+                        .addGap(44, 44, 44)
                         .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(InsertStep3TabLayout.createSequentialGroup()
                                 .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1191,19 +1314,22 @@ public class MainMenu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(InsertBeneEHBCheck)
                                 .addGap(1, 1, 1)
-                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblReasonEHB)
-                                    .addComponent(InsertBeneReasonEHB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(BeneQuantServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblQuantServ))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(InsertBeneDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblBeneDescrip))
-                                .addGap(18, 18, 18)
-                                .addComponent(InsertCostShareHeader)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lblReasonEHB)
+                                            .addComponent(InsertBeneReasonEHB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(BeneQuantServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblQuantServ))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(InsertBeneDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblBeneDescrip))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(InsertCostShareHeader))
+                                    .addComponent(PopulateCSTable))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblInsertCSPlanID)
@@ -1222,12 +1348,13 @@ public class MainMenu extends javax.swing.JFrame {
                                     .addComponent(InsertActuarialValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(InsertStep3TabLayout.createSequentialGroup()
                                 .addGap(158, 158, 158)
-                                .addComponent(jLabel33)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel33))))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton16)
                     .addComponent(jButton21))
-                .addGap(0, 70, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         InsertTabOuterContainer.addTab("Step 3", InsertStep3Tab);
@@ -1261,8 +1388,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         lblDiseaseMgmt.setText("Disease Management");
 
+        jButton17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton17.setText("Insert");
 
+        jButton22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton22.setText("Next");
 
         InsertRefPlanID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1303,6 +1432,30 @@ public class MainMenu extends javax.swing.JFrame {
         InsertSpecialistsRequired.setToolTipText("Please list the specialists that require a referral.");
         jScrollPane6.setViewportView(InsertSpecialistsRequired);
 
+        PopulateReferralTable.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        PopulateReferralTable.setText("Populate Table");
+        PopulateReferralTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulateReferralTableActionPerformed(evt);
+            }
+        });
+
+        PopulateBenefitCostTable.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        PopulateBenefitCostTable.setText("Populate Table");
+        PopulateBenefitCostTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulateBenefitCostTableActionPerformed(evt);
+            }
+        });
+
+        PopulatePlanLvlProgramsTable.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        PopulatePlanLvlProgramsTable.setText("Populate Table");
+        PopulatePlanLvlProgramsTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulatePlanLvlProgramsTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout InsertStep4TabLayout = new javax.swing.GroupLayout(InsertStep4Tab);
         InsertStep4Tab.setLayout(InsertStep4TabLayout);
         InsertStep4TabLayout.setHorizontalGroup(
@@ -1310,64 +1463,73 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(InsertStep4TabLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InsertRefReqHeader)
                     .addGroup(InsertStep4TabLayout.createSequentialGroup()
                         .addComponent(lblInsertRefPlanID)
                         .addGap(18, 18, 18)
-                        .addComponent(InsertRefPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(InsertBeneCostHeader)
-                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
-                        .addComponent(lblDiseaseMgmt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
-                            .addComponent(lblBeneCostPlanID)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InsertBeneCostPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(InsertStep4TabLayout.createSequentialGroup()
-                            .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblBeneCoin)
-                                .addComponent(lblInsertCopay))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                            .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(InsertBeneCopay, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(InsertBeneCoinsurance, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
-                            .addComponent(lblInsertBeneServ)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InsertBeneCostService, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
-                            .addComponent(lblPlanLvlPlanID)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InsertPlanLvlPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(InsertPlanlvlProgramsHeader, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
-                            .addComponent(lblRefReq)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InsertRefReq, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
-                            .addComponent(lblTabaccoWell)
-                            .addGap(18, 18, 18)
-                            .addComponent(InsertTabaccoWellness, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
-                        .addComponent(lblSpecReq)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(13, 13, 13)
-                .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addComponent(InsertRefPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton22)
-                        .addGap(144, 144, 144))
+                        .addComponent(PopulateReferralTable))
                     .addGroup(InsertStep4TabLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
+                                .addComponent(lblInsertBeneServ)
+                                .addGap(15, 15, 15)
+                                .addComponent(InsertBeneCostService, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
+                                .addComponent(lblPlanLvlPlanID)
+                                .addGap(43, 43, 43)
+                                .addComponent(InsertPlanLvlPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PopulatePlanLvlProgramsTable))
+                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
+                                .addComponent(lblBeneCostPlanID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(InsertBeneCostPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                                .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblBeneCoin)
+                                    .addComponent(lblInsertCopay))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(InsertBeneCopay, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(InsertBeneCoinsurance, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PopulateBenefitCostTable))
+                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InsertRefReqHeader)
+                            .addComponent(InsertBeneCostHeader)
+                            .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                                .addComponent(lblDiseaseMgmt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
+                                    .addComponent(lblRefReq)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(InsertRefReq, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
+                                    .addComponent(lblTabaccoWell)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(InsertTabaccoWellness, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                                .addComponent(lblSpecReq)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(InsertPlanlvlProgramsHeader))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))))
         );
         InsertStep4TabLayout.setVerticalGroup(
             InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1378,7 +1540,9 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(InsertRefReqHeader)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InsertRefPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(InsertRefPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(PopulateReferralTable))
                             .addComponent(lblInsertRefPlanID))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1390,7 +1554,7 @@ public class MainMenu extends javax.swing.JFrame {
                                     .addComponent(InsertRefReq, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(InsertStep4TabLayout.createSequentialGroup()
                                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 47, Short.MAX_VALUE)))
+                                .addGap(0, 26, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addComponent(InsertBeneCostHeader)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1399,9 +1563,14 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(InsertBeneCostService, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblInsertCopay, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(InsertBeneCopay, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                                .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(InsertBeneCopay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PopulateBenefitCostTable))
+                                .addGap(35, 35, 35))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep4TabLayout.createSequentialGroup()
+                                .addComponent(lblInsertCopay)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblBeneCoin, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(InsertBeneCoinsurance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1414,7 +1583,9 @@ public class MainMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPlanLvlPlanID, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(InsertPlanLvlPlanID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(InsertPlanLvlPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(PopulatePlanLvlProgramsTable)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTabaccoWell)
@@ -1425,10 +1596,11 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(lblDiseaseMgmt)))
                     .addGroup(InsertStep4TabLayout.createSequentialGroup()
                         .addComponent(jScrollPane4)
-                        .addGap(18, 18, 18)
+                        .addGap(9, 9, 9)
                         .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton17)
-                            .addComponent(jButton22))))
+                            .addComponent(jButton22))
+                        .addGap(8, 8, 8)))
                 .addGap(47, 47, 47))
         );
 
@@ -1454,8 +1626,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         NationalNetCoverageCheck.setText("Check this box if the coverage is in the national Network");
 
+        btnInsertINSERT5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnInsertINSERT5.setText("Insert");
 
+        btnInsertNEXT5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnInsertNEXT5.setText("Next");
 
         InsertInNetMOOP.setText("                                                         ");
@@ -1517,6 +1691,30 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        PopulateMOOPTable.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        PopulateMOOPTable.setText("Populate Table");
+        PopulateMOOPTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulateMOOPTableActionPerformed(evt);
+            }
+        });
+
+        PopulateOOPTable.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        PopulateOOPTable.setText("Populate Table");
+        PopulateOOPTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulateOOPTableActionPerformed(evt);
+            }
+        });
+
+        PopulateGeoTable.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        PopulateGeoTable.setText("Populate Table");
+        PopulateGeoTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulateGeoTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout InsertStep5TabLayout = new javax.swing.GroupLayout(InsertStep5Tab);
         InsertStep5Tab.setLayout(InsertStep5TabLayout);
         InsertStep5TabLayout.setHorizontalGroup(
@@ -1526,8 +1724,10 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InsertStep5TabLayout.createSequentialGroup()
                         .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InsertMOOPHeader)
-                            .addComponent(InsertGeoHeader)
+                            .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                .addComponent(InsertMOOPHeader)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(PopulateMOOPTable))
                             .addGroup(InsertStep5TabLayout.createSequentialGroup()
                                 .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblOOScoverage)
@@ -1558,37 +1758,45 @@ public class MainMenu extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(InsertGeoPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(NationalNetCoverageCheck)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE))
-                    .addGroup(InsertStep5TabLayout.createSequentialGroup()
-                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(InsertOOPHeader)
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep5TabLayout.createSequentialGroup()
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(InsertStep5TabLayout.createSequentialGroup()
-                                .addComponent(lblOOPPlanID)
+                                .addComponent(InsertGeoHeader)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(InsertOOPplanID, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(PopulateGeoTable))
                             .addGroup(InsertStep5TabLayout.createSequentialGroup()
-                                .addComponent(lblInsertHSAHRA)
+                                .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(InsertOOPHeader)
+                                    .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                        .addComponent(lblOOPPlanID)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(InsertOOPplanID, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                        .addComponent(lblInsertHSAHRA)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(InsertOOPHSAHRA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                        .addComponent(lblOOPCopay)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(InsertOOPcopay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                        .addComponent(lblInsertOOPCoin)
+                                        .addGap(42, 42, 42)
+                                        .addComponent(InsertOOPcoinsurance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(InsertOOPHSAHRA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(InsertStep5TabLayout.createSequentialGroup()
-                                .addComponent(lblOOPCopay)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(InsertOOPcopay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(InsertStep5TabLayout.createSequentialGroup()
-                                .addComponent(lblInsertOOPCoin)
-                                .addGap(42, 42, 42)
-                                .addComponent(InsertOOPcoinsurance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(PopulateOOPTable)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InsertStep5TabLayout.createSequentialGroup()
-                        .addGap(551, 551, 551)
-                        .addComponent(btnInsertINSERT5)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnInsertNEXT5)
-                        .addGap(33, 33, 33))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep5TabLayout.createSequentialGroup()
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep5TabLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btnInsertINSERT5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnInsertNEXT5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
         InsertStep5TabLayout.setVerticalGroup(
             InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1597,13 +1805,14 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InsertStep5TabLayout.createSequentialGroup()
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(8, 8, 8)
                         .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnInsertNEXT5)
-                            .addComponent(btnInsertINSERT5))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnInsertINSERT5)
+                            .addComponent(btnInsertNEXT5)))
                     .addGroup(InsertStep5TabLayout.createSequentialGroup()
-                        .addComponent(InsertMOOPHeader)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InsertMOOPHeader)
+                            .addComponent(PopulateMOOPTable))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(InsertMOOPplanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1617,8 +1826,10 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(lblOutNetMOOP)
                             .addComponent(InsertOutNetMOOP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(InsertOOPHeader)
-                        .addGap(21, 21, 21)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InsertOOPHeader)
+                            .addComponent(PopulateOOPTable))
+                        .addGap(17, 17, 17)
                         .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblOOPPlanID)
                             .addComponent(InsertOOPplanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1634,8 +1845,10 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblInsertHSAHRA)
                             .addComponent(InsertOOPHSAHRA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
-                        .addComponent(InsertGeoHeader)
+                        .addGap(35, 35, 35)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InsertGeoHeader)
+                            .addComponent(PopulateGeoTable))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblGeoPlanID)
@@ -1649,8 +1862,8 @@ public class MainMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblOOCcoverage)
-                            .addComponent(InsertOOCcoverage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(InsertOOCcoverage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         InsertTabOuterContainer.addTab("Step 5", InsertStep5Tab);
@@ -1670,6 +1883,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         lblINnetComboDeduct.setText("In-network Combined Deductable");
 
+        btnInsertINSERT6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnInsertINSERT6.setText("Insert");
 
         InsertINnetPedDentDeduct.setText("                                            ");
@@ -1691,6 +1905,7 @@ public class MainMenu extends javax.swing.JFrame {
         InsertINnetComboDeduct.setText("                                            ");
 
         btnInsertSAVE.setBackground(new java.awt.Color(0, 204, 204));
+        btnInsertSAVE.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnInsertSAVE.setText("Save");
         btnInsertSAVE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1748,6 +1963,22 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        PopulateINnetDeductTable.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        PopulateINnetDeductTable.setText("Populate Table");
+        PopulateINnetDeductTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulateINnetDeductTableActionPerformed(evt);
+            }
+        });
+
+        PopulateOONDeductTable.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        PopulateOONDeductTable.setText("Populate Table");
+        PopulateOONDeductTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PopulateOONDeductTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout InsertStep6TabLayout = new javax.swing.GroupLayout(InsertStep6Tab);
         InsertStep6Tab.setLayout(InsertStep6TabLayout);
         InsertStep6TabLayout.setHorizontalGroup(
@@ -1755,62 +1986,72 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(InsertStep6TabLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(InsertStep6TabLayout.createSequentialGroup()
-                            .addComponent(lblINnetPedDentDeduct)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(InsertINnetPedDentDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                        .addComponent(InsertINdeductcheck)
-                        .addGroup(InsertStep6TabLayout.createSequentialGroup()
-                            .addComponent(lblINnetComboDeduct)
-                            .addGap(18, 18, 18)
-                            .addComponent(InsertINnetComboDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
-                                .addComponent(lblINnetPlanID)
-                                .addGap(18, 18, 18)
-                                .addComponent(InsertInNetworPlanID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(InsertINDeductHeader, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep6TabLayout.createSequentialGroup()
-                            .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblINnetMedDeduct)
-                                .addComponent(lblINnetDrugDeduct))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(InsertINnetDrugDeduct)
-                                .addComponent(InsertINnetMedDeduct))))
-                    .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
-                            .addComponent(lblOONPlanID)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InsertOONDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(InsertOONDeductHeader, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
-                            .addComponent(lblINnetCombined)
-                            .addGap(18, 18, 18)
-                            .addComponent(InsertOONComboDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                        .addComponent(CombinedDeductCheck, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
-                            .addComponent(lblINnetDrug)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InsertOONDrugDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
-                            .addComponent(lblInNetMed)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(InsertOONnetMed, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
-                            .addComponent(lblinNetPedDent)
-                            .addGap(26, 26, 26)
-                            .addComponent(InsertOONPedDent, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                                    .addComponent(lblINnetPedDentDeduct)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(InsertINnetPedDentDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                .addComponent(InsertINdeductcheck)
+                                .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                                    .addComponent(lblINnetComboDeduct)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(InsertINnetComboDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep6TabLayout.createSequentialGroup()
+                                    .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblINnetMedDeduct)
+                                        .addComponent(lblINnetDrugDeduct))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(InsertINnetDrugDeduct)
+                                        .addComponent(InsertINnetMedDeduct))))
+                            .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                                    .addComponent(lblOONPlanID)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(InsertOONDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                                    .addComponent(lblINnetCombined)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(InsertOONComboDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                .addComponent(CombinedDeductCheck, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                                    .addComponent(lblINnetDrug)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(InsertOONDrugDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                                    .addComponent(lblInNetMed)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(InsertOONnetMed, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                                    .addComponent(lblinNetPedDent)
+                                    .addGap(26, 26, 26)
+                                    .addComponent(InsertOONPedDent, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, Short.MAX_VALUE))
+                    .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                                .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                                        .addComponent(lblINnetPlanID)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(InsertInNetworPlanID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(InsertINDeductHeader, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(PopulateINnetDeductTable))
+                            .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                                .addComponent(InsertOONDeductHeader)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(PopulateOONDeductTable)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                        .addComponent(btnInsertINSERT6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(btnInsertSAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep6TabLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnInsertINSERT6)
-                .addGap(33, 33, 33)
-                .addComponent(btnInsertSAVE)
-                .addGap(92, 92, 92))
         );
         InsertStep6TabLayout.setVerticalGroup(
             InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1818,7 +2059,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(InsertStep6TabLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(InsertOONDeductHeader)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InsertOONDeductHeader)
+                            .addComponent(PopulateOONDeductTable))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblOONPlanID)
@@ -1841,9 +2084,11 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblINnetCombined)
                             .addComponent(InsertOONComboDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addComponent(InsertINDeductHeader)
-                        .addGap(23, 23, 23)
+                        .addGap(20, 20, 20)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InsertINDeductHeader)
+                            .addComponent(PopulateINnetDeductTable))
+                        .addGap(19, 19, 19)
                         .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblINnetPlanID)
                             .addComponent(InsertInNetworPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1866,11 +2111,11 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(lblINnetComboDeduct)
                             .addComponent(InsertINnetComboDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane8))
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertINSERT6)
                     .addComponent(btnInsertSAVE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         InsertTabOuterContainer.addTab("Step 6", InsertStep6Tab);
@@ -1879,13 +2124,13 @@ public class MainMenu extends javax.swing.JFrame {
         InsertTabContainer.setLayout(InsertTabContainerLayout);
         InsertTabContainerLayout.setHorizontalGroup(
             InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1149, Short.MAX_VALUE)
+            .addGap(0, 1157, Short.MAX_VALUE)
             .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(InsertTabOuterContainer))
         );
         InsertTabContainerLayout.setVerticalGroup(
             InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGap(0, 635, Short.MAX_VALUE)
             .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(InsertTabOuterContainer))
         );
@@ -1940,7 +2185,7 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGroup(QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblQueryDropdown)
                             .addComponent(QueryDropdownList, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(QueryTableContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 837, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(QueryTabContainerLayout.createSequentialGroup()
@@ -2354,8 +2599,656 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInsertSAVEActionPerformed
 
     private void MinMaxTblListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinMaxTblListActionPerformed
+        String[] columnNames=null;
+        String sql = null;
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Provider")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Provider";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Plan")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Plan";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Plan-Level Programs")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Plan_lvl_programs";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Benefits")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Benefits";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Cost Sharing")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Cost_sharing";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Service Cost")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Service_cost";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Dates")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Dates";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Exclusions")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Exclusions";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Geographic Coverage")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Geo_covarage";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("In-Network Deductible")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM In_network_deductible";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Out-of-Network Deductible")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Out_network_deductible";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Out-of-pocket Costs")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Out_of_pocket";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Referral Required")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Referral_required";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Maximum Out-of-pocket")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM MOOP";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Premium")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Premium";            
+        }
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
         
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(sql);
+            ResultSet rs = s.executeQuery(sql);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        QueryResultTable.setModel(model);
     }//GEN-LAST:event_MinMaxTblListActionPerformed
+
+    private void InsertTabOuterContainerFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InsertTabOuterContainerFocusGained
+                // TODO add your handling code here:
+    }//GEN-LAST:event_InsertTabOuterContainerFocusGained
+
+    private void PopulateProviderTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulateProviderTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM Provider";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertProviderTable.setModel(model);
+    }//GEN-LAST:event_PopulateProviderTableActionPerformed
+
+    private void PopulatePlanTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulatePlanTableActionPerformed
+       String[] columnNames=null;
+        String query = "SELECT * FROM Plan";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable2.setModel(model);
+    }//GEN-LAST:event_PopulatePlanTableActionPerformed
+
+    private void PopulatePremiumTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulatePremiumTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM Premium";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable3.setModel(model);
+    }//GEN-LAST:event_PopulatePremiumTableActionPerformed
+
+    private void PopulateBenefitsTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulateBenefitsTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM Benefits";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable3.setModel(model);
+    }//GEN-LAST:event_PopulateBenefitsTableActionPerformed
+
+    private void PopulateCSTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulateCSTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM Cost_sharing";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable3.setModel(model);
+    }//GEN-LAST:event_PopulateCSTableActionPerformed
+
+    private void PopulateReferralTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulateReferralTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM Referral_required";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable4.setModel(model);
+    }//GEN-LAST:event_PopulateReferralTableActionPerformed
+
+    private void PopulateBenefitCostTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulateBenefitCostTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM Service_cost";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable4.setModel(model);
+    }//GEN-LAST:event_PopulateBenefitCostTableActionPerformed
+
+    private void PopulatePlanLvlProgramsTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulatePlanLvlProgramsTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM Plan_lvl_programs";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable4.setModel(model);
+    }//GEN-LAST:event_PopulatePlanLvlProgramsTableActionPerformed
+
+    private void PopulateMOOPTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulateMOOPTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM MOOP";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable5.setModel(model);
+    }//GEN-LAST:event_PopulateMOOPTableActionPerformed
+
+    private void PopulateOOPTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulateOOPTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM Out_of_pocket";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable5.setModel(model);
+    }//GEN-LAST:event_PopulateOOPTableActionPerformed
+
+    private void PopulateGeoTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulateGeoTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM Geo_covarage";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable5.setModel(model);
+    }//GEN-LAST:event_PopulateGeoTableActionPerformed
+
+    private void PopulateOONDeductTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulateOONDeductTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM Out_network_deductible";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable6.setModel(model);
+    }//GEN-LAST:event_PopulateOONDeductTableActionPerformed
+
+    private void PopulateINnetDeductTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulateINnetDeductTableActionPerformed
+        String[] columnNames=null;
+        String query = "SELECT * FROM In_network_deductible";
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        InsertResultTable6.setModel(model);
+    }//GEN-LAST:event_PopulateINnetDeductTableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2391,6 +3284,7 @@ public class MainMenu extends javax.swing.JFrame {
                 
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2511,6 +3405,19 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ModifyTableList;
     private javax.swing.JCheckBox NationalNetCoverageCheck;
     private javax.swing.JTextField PlanID;
+    private javax.swing.JToggleButton PopulateBenefitCostTable;
+    private javax.swing.JToggleButton PopulateBenefitsTable;
+    private javax.swing.JToggleButton PopulateCSTable;
+    private javax.swing.JToggleButton PopulateGeoTable;
+    private javax.swing.JToggleButton PopulateINnetDeductTable;
+    private javax.swing.JToggleButton PopulateMOOPTable;
+    private javax.swing.JToggleButton PopulateOONDeductTable;
+    private javax.swing.JToggleButton PopulateOOPTable;
+    private javax.swing.JToggleButton PopulatePlanLvlProgramsTable;
+    private javax.swing.JToggleButton PopulatePlanTable;
+    private javax.swing.JToggleButton PopulatePremiumTable;
+    private javax.swing.JToggleButton PopulateProviderTable;
+    private javax.swing.JToggleButton PopulateReferralTable;
     private javax.swing.JDialog PrintTableDIalog;
     private javax.swing.JComboBox<String> QueryDropdownList;
     private javax.swing.JTable QueryResultTable;
@@ -2532,6 +3439,8 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
