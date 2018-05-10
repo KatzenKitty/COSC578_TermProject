@@ -8,14 +8,11 @@ package Database;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSetMetaData;
-import javax.swing.JOptionPane;
 import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.swing.JOptionPane;
+import javax.swing.table.*;
 /**
  *
  * @author nunya
@@ -23,7 +20,13 @@ import javax.persistence.Query;
 public class MainMenu extends javax.swing.JFrame {
     Connection objDBConnection = null;
     MySQLConnectExample objMySQLDBConnect = null;
-    UpdateData objUpdateData = new UpdateData();
+    UpdateDataDialog objUpdateData = null;
+    String[] columnNames=null;
+    String tableName = null;
+    String selectSQL = null;
+    String deleteSQL = null;
+    
+    DefaultTableModel model = null;
     //ErrorPopUp objError = null;
     /**
      * Creates new form MainMenu
@@ -48,20 +51,26 @@ public class MainMenu extends javax.swing.JFrame {
         lblSelectDisplayTable = new javax.swing.JLabel();
         DisplayTblSelectionMenu = new javax.swing.JComboBox<>();
         DisplayMHBELogo = new javax.swing.JLabel();
-        FindMinMaxDialog = new javax.swing.JDialog();
+        FindMinDialog = new javax.swing.JDialog();
         lblMinMaxTblList = new javax.swing.JLabel();
         lblMinMaxColList = new javax.swing.JLabel();
-        lblMinOrMax = new javax.swing.JLabel();
-        MinMaxTblList = new javax.swing.JComboBox<>();
-        MinMaxColList = new javax.swing.JComboBox<>();
-        btnMin = new javax.swing.JRadioButton();
-        btnMax = new javax.swing.JRadioButton();
+        MinTblList = new javax.swing.JComboBox<>();
+        MinColList = new javax.swing.JComboBox<>();
         FindMinMaxMHBELogo = new javax.swing.JLabel();
         CompareDialog = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         PrintTableDIalog = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
         CustomSQLdialog = new javax.swing.JDialog();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        FindMaxDialog = new javax.swing.JDialog();
+        lblMaxTblList = new javax.swing.JLabel();
+        lblMaxColList = new javax.swing.JLabel();
+        MaxTblList = new javax.swing.JComboBox<>();
+        MaxColList = new javax.swing.JComboBox<>();
+        FindMaxMHBELogo = new javax.swing.JLabel();
         MainMenuTab = new javax.swing.JTabbedPane();
         MMOuterContainer = new javax.swing.JPanel();
         MMWelcome = new javax.swing.JLabel();
@@ -73,13 +82,12 @@ public class MainMenu extends javax.swing.JFrame {
         ModifyTabContainer = new javax.swing.JPanel();
         ModSidePanel = new javax.swing.JPanel();
         lblModifyTableList = new javax.swing.JLabel();
-        ModifyTableList = new javax.swing.JComboBox<>();
-        deleteTblData = new javax.swing.JButton();
-        updateTblData = new javax.swing.JButton();
         lblModifyWarning = new javax.swing.JLabel();
         ModifyMHBELogo = new javax.swing.JLabel();
-        ModOuterTblContainer = new javax.swing.JPanel();
-        ModTblScrollPane = new javax.swing.JScrollPane();
+        deleteTblData = new javax.swing.JButton();
+        updateTblData = new javax.swing.JButton();
+        ModifyTableDropdown = new javax.swing.JComboBox<>();
+        ModifyTableScrollPane = new javax.swing.JScrollPane();
         ModifyResultTable = new javax.swing.JTable();
         InsertTabContainer = new javax.swing.JPanel();
         InsertTabOuterContainer = new javax.swing.JTabbedPane();
@@ -276,8 +284,8 @@ public class MainMenu extends javax.swing.JFrame {
         FileDropdown = new javax.swing.JMenu();
         Exit = new javax.swing.JMenuItem();
         HelpDropdown = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        HelpMenuOption = new javax.swing.JMenuItem();
+        AboutMenuOption = new javax.swing.JMenuItem();
 
         DisplayDialog.setBackground(new java.awt.Color(51, 153, 255));
         DisplayDialog.setMinimumSize(new java.awt.Dimension(320, 200));
@@ -319,8 +327,8 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        FindMinMaxDialog.setBackground(new java.awt.Color(255, 255, 255));
-        FindMinMaxDialog.setMinimumSize(new java.awt.Dimension(500, 400));
+        FindMinDialog.setBackground(new java.awt.Color(255, 255, 255));
+        FindMinDialog.setMinimumSize(new java.awt.Dimension(500, 400));
 
         lblMinMaxTblList.setBackground(new java.awt.Color(255, 255, 255));
         lblMinMaxTblList.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -330,71 +338,52 @@ public class MainMenu extends javax.swing.JFrame {
         lblMinMaxColList.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblMinMaxColList.setText("Please select a column:");
 
-        lblMinOrMax.setBackground(new java.awt.Color(255, 255, 255));
-        lblMinOrMax.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblMinOrMax.setText("Would you like to find the minimum or maximum value?");
-
-        MinMaxTblList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Premium", "Cost Sharing", "In-network deductible", "Out-of-network deductible", "Out-of-pocket costs", "Service Cost" }));
-        MinMaxTblList.addActionListener(new java.awt.event.ActionListener() {
+        MinTblList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Premium", "Cost Sharing", "In-network deductible", "Out-of-network deductible", "Out-of-pocket costs", "Service Cost" }));
+        MinTblList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MinMaxTblListActionPerformed(evt);
+                MinTblListActionPerformed(evt);
             }
         });
 
-        MinMaxColList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        btnMin.setBackground(new java.awt.Color(255, 255, 255));
-        btnMin.setText("Minimum");
-
-        btnMax.setBackground(new java.awt.Color(255, 255, 255));
-        btnMax.setText("Maximum");
+        MinColList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         FindMinMaxMHBELogo.setBackground(new java.awt.Color(255, 255, 255));
         FindMinMaxMHBELogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/mhbelogo_thumb.png"))); // NOI18N
 
-        javax.swing.GroupLayout FindMinMaxDialogLayout = new javax.swing.GroupLayout(FindMinMaxDialog.getContentPane());
-        FindMinMaxDialog.getContentPane().setLayout(FindMinMaxDialogLayout);
-        FindMinMaxDialogLayout.setHorizontalGroup(
-            FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FindMinMaxDialogLayout.createSequentialGroup()
+        javax.swing.GroupLayout FindMinDialogLayout = new javax.swing.GroupLayout(FindMinDialog.getContentPane());
+        FindMinDialog.getContentPane().setLayout(FindMinDialogLayout);
+        FindMinDialogLayout.setHorizontalGroup(
+            FindMinDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FindMinDialogLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addGroup(FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FindMinMaxDialogLayout.createSequentialGroup()
-                        .addGroup(FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(FindMinDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FindMinDialogLayout.createSequentialGroup()
+                        .addGroup(FindMinDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMinMaxTblList)
-                            .addComponent(MinMaxTblList, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(MinTblList, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FindMinMaxMHBELogo))
-                    .addGroup(FindMinMaxDialogLayout.createSequentialGroup()
-                        .addGroup(FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnMax)
-                            .addComponent(btnMin)
-                            .addComponent(lblMinOrMax)
+                    .addGroup(FindMinDialogLayout.createSequentialGroup()
+                        .addGroup(FindMinDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMinMaxColList)
-                            .addComponent(MinMaxColList, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                            .addComponent(MinColList, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(212, Short.MAX_VALUE))))
         );
-        FindMinMaxDialogLayout.setVerticalGroup(
-            FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FindMinMaxDialogLayout.createSequentialGroup()
-                .addGroup(FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        FindMinDialogLayout.setVerticalGroup(
+            FindMinDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FindMinDialogLayout.createSequentialGroup()
+                .addGroup(FindMinDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(FindMinMaxMHBELogo)
-                    .addGroup(FindMinMaxDialogLayout.createSequentialGroup()
+                    .addGroup(FindMinDialogLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblMinMaxTblList)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MinMaxTblList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(MinTblList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40)
                 .addComponent(lblMinMaxColList)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MinMaxColList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(lblMinOrMax)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnMax)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addComponent(MinColList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         CompareDialog.setMinimumSize(new java.awt.Dimension(600, 400));
@@ -437,15 +426,102 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap(271, Short.MAX_VALUE))
         );
 
+        jLabel3.setText("Please Enter your custom SQL query below:");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/mhbelogo_thumb.png"))); // NOI18N
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CustomSQLdialogLayout = new javax.swing.GroupLayout(CustomSQLdialog.getContentPane());
         CustomSQLdialog.getContentPane().setLayout(CustomSQLdialogLayout);
         CustomSQLdialogLayout.setHorizontalGroup(
             CustomSQLdialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(CustomSQLdialogLayout.createSequentialGroup()
+                .addGroup(CustomSQLdialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomSQLdialogLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel4))
+                    .addGroup(CustomSQLdialogLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(CustomSQLdialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField1))
+                        .addGap(0, 69, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         CustomSQLdialogLayout.setVerticalGroup(
             CustomSQLdialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(CustomSQLdialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
+
+        FindMaxDialog.setBackground(new java.awt.Color(255, 255, 255));
+        FindMaxDialog.setMinimumSize(new java.awt.Dimension(500, 400));
+
+        lblMaxTblList.setBackground(new java.awt.Color(255, 255, 255));
+        lblMaxTblList.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblMaxTblList.setText("Please choose a table to query:");
+
+        lblMaxColList.setBackground(new java.awt.Color(255, 255, 255));
+        lblMaxColList.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblMaxColList.setText("Please select a column:");
+
+        MaxTblList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Premium", "Cost Sharing", "In-network deductible", "Out-of-network deductible", "Out-of-pocket costs", "Service Cost" }));
+        MaxTblList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MaxTblListActionPerformed(evt);
+            }
+        });
+
+        MaxColList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        FindMaxMHBELogo.setBackground(new java.awt.Color(255, 255, 255));
+        FindMaxMHBELogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/mhbelogo_thumb.png"))); // NOI18N
+
+        javax.swing.GroupLayout FindMaxDialogLayout = new javax.swing.GroupLayout(FindMaxDialog.getContentPane());
+        FindMaxDialog.getContentPane().setLayout(FindMaxDialogLayout);
+        FindMaxDialogLayout.setHorizontalGroup(
+            FindMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FindMaxDialogLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(FindMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FindMaxDialogLayout.createSequentialGroup()
+                        .addGroup(FindMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMaxTblList)
+                            .addComponent(MaxTblList, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(FindMaxMHBELogo))
+                    .addGroup(FindMaxDialogLayout.createSequentialGroup()
+                        .addGroup(FindMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMaxColList)
+                            .addComponent(MaxColList, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(212, Short.MAX_VALUE))))
+        );
+        FindMaxDialogLayout.setVerticalGroup(
+            FindMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FindMaxDialogLayout.createSequentialGroup()
+                .addGroup(FindMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(FindMaxMHBELogo)
+                    .addGroup(FindMaxDialogLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblMaxTblList)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MaxTblList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(40, 40, 40)
+                .addComponent(lblMaxColList)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MaxColList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -535,15 +611,15 @@ public class MainMenu extends javax.swing.JFrame {
         lblModifyTableList.setLabelFor(ModifyTabContainer);
         lblModifyTableList.setText("Which table would you like to modify?");
 
-        ModifyTableList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Provider Table", "Plan Table", "Plan Level Programs Table", "Benefit Table", "Cost Sharing Table", "Service Cost Table", "Dates Table", "Exclusions Table", "Geographic Coverage Table", "In Network Deductible Table", "Out-of-Network Deductible Table", "Out-of-pocket Table", "Referral Required Table", "Maximum Out-of-pocket Table" }));
-        ModifyTableList.setSelectedItem(null);
-        ModifyTableList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModifyTableListActionPerformed(evt);
-            }
-        });
+        lblModifyWarning.setForeground(new java.awt.Color(255, 0, 0));
+        lblModifyWarning.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/warning-icon.png"))); // NOI18N
+        lblModifyWarning.setText("<html><b>WARNING:</b> The information housed in this database comes directly from the Issuer Templates uploaded to SERFF. The only reason a user should modify a template is to correct information that was incorrectly added to the database via either an automated process or manual data entry. </br>This database is meant to be a source of truth for MHBE and should only ever contain information pulled directly from the templates on SERFF. Thank you.</html>");
+        lblModifyWarning.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.red, java.awt.Color.darkGray));
+
+        ModifyMHBELogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/MHBElogo.jpg"))); // NOI18N
 
         deleteTblData.setText("Delete");
+        deleteTblData.setEnabled(false);
         deleteTblData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteTblDataActionPerformed(evt);
@@ -551,39 +627,47 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         updateTblData.setText("Update");
+        updateTblData.setEnabled(false);
         updateTblData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateTblDataActionPerformed(evt);
             }
         });
 
-        lblModifyWarning.setForeground(new java.awt.Color(255, 0, 0));
-        lblModifyWarning.setText("<html><b>WARNING:</b> The information housed in this database comes directly from the Issuer Templates uploaded to SERFF. </br>The only reason a user should modify a template is to correct information that was incorrectly added to the database via either an automated process or manual data entry. </br>This database is meant to be a source of truth for MHBE and should only ever contain information pulled directly from the templates on SERFF. Thank you.</html>");
-
-        ModifyMHBELogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/MHBElogo.jpg"))); // NOI18N
+        ModifyTableDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Provider Table", "Plan Table", "Plan Level Programs Table", "Benefit Table", "Cost Sharing Table", "Service Cost Table", "Dates Table", "Exclusions Table", "Geographic Coverage Table", "In Network Deductible Table", "Out-of-Network Deductible Table", "Out-of-pocket Table", "Referral Required Table", "Maximum Out-of-pocket Table" }));
+        ModifyTableDropdown.setSelectedItem(null);
+        ModifyTableDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModifyTableDropdownActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ModSidePanelLayout = new javax.swing.GroupLayout(ModSidePanel);
         ModSidePanel.setLayout(ModSidePanelLayout);
         ModSidePanelLayout.setHorizontalGroup(
             ModSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ModSidePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ModifyMHBELogo)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(ModSidePanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(ModSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ModifyTableList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblModifyTableList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModSidePanelLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(ModSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblModifyWarning, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModSidePanelLayout.createSequentialGroup()
+                    .addGroup(ModSidePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ModifyMHBELogo))
+                    .addGroup(ModSidePanelLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
                         .addGroup(ModSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deleteTblData, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(updateTblData, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32))))
+                            .addComponent(deleteTblData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateTblData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 23, Short.MAX_VALUE))
+            .addGroup(ModSidePanelLayout.createSequentialGroup()
+                .addGroup(ModSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModSidePanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(lblModifyWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModSidePanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(ModSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ModifyTableDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblModifyTableList, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         ModSidePanelLayout.setVerticalGroup(
             ModSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -592,45 +676,35 @@ public class MainMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblModifyTableList)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ModifyTableList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ModifyTableDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(lblModifyWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(updateTblData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(deleteTblData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblModifyWarning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
-
-        ModTblScrollPane.setBackground(new java.awt.Color(255, 255, 255));
 
         ModifyResultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        ModTblScrollPane.setViewportView(ModifyResultTable);
-
-        javax.swing.GroupLayout ModOuterTblContainerLayout = new javax.swing.GroupLayout(ModOuterTblContainer);
-        ModOuterTblContainer.setLayout(ModOuterTblContainerLayout);
-        ModOuterTblContainerLayout.setHorizontalGroup(
-            ModOuterTblContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModOuterTblContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ModTblScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE))
-        );
-        ModOuterTblContainerLayout.setVerticalGroup(
-            ModOuterTblContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ModOuterTblContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ModTblScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        ModifyResultTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                ModifyResultTableMouseReleased(evt);
+            }
+        });
+        ModifyResultTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ModifyResultTableKeyReleased(evt);
+            }
+        });
+        ModifyTableScrollPane.setViewportView(ModifyResultTable);
 
         javax.swing.GroupLayout ModifyTabContainerLayout = new javax.swing.GroupLayout(ModifyTabContainer);
         ModifyTabContainer.setLayout(ModifyTabContainerLayout);
@@ -639,18 +713,19 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(ModifyTabContainerLayout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addComponent(ModSidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(ModOuterTblContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(36, 36, 36)
+                .addComponent(ModifyTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 947, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         ModifyTabContainerLayout.setVerticalGroup(
             ModifyTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifyTabContainerLayout.createSequentialGroup()
+            .addGroup(ModifyTabContainerLayout.createSequentialGroup()
                 .addGap(3, 3, 3)
-                .addGroup(ModifyTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ModOuterTblContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ModSidePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(ModSidePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(ModifyTabContainerLayout.createSequentialGroup()
+                .addComponent(ModifyTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 40, Short.MAX_VALUE))
         );
 
         MainMenuTab.addTab("Modify Templates", ModifyTabContainer);
@@ -685,7 +760,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(InsertMHBELogo1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStartTabLayout.createSequentialGroup()
-                .addGap(0, 139, Short.MAX_VALUE)
+                .addGap(0, 288, Short.MAX_VALUE)
                 .addGroup(InsertStartTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblInsertInstructions2)
                     .addComponent(lblInsertInstructions1)
@@ -802,7 +877,7 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(jScrollPane1)
                         .addContainerGap())
                     .addGroup(InsertStp1TabLayout.createSequentialGroup()
-                        .addGap(10, 536, Short.MAX_VALUE)
+                        .addGap(10, 685, Short.MAX_VALUE)
                         .addComponent(btnInsertINSERT1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
                         .addComponent(btnInsertNEXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -947,7 +1022,7 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(lblInsertStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPlanName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblMetalLevel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
                         .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(InsertPlanName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(InsertStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1263,7 +1338,7 @@ public class MainMenu extends javax.swing.JFrame {
                                         .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(InsertAgeRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(InsertIndivRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 30, Short.MAX_VALUE)))
+                                .addGap(0, 179, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InsertStep3TabLayout.createSequentialGroup()
@@ -2124,7 +2199,7 @@ public class MainMenu extends javax.swing.JFrame {
         InsertTabContainer.setLayout(InsertTabContainerLayout);
         InsertTabContainerLayout.setHorizontalGroup(
             InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1157, Short.MAX_VALUE)
+            .addGap(0, 1306, Short.MAX_VALUE)
             .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(InsertTabOuterContainer))
         );
@@ -2154,13 +2229,16 @@ public class MainMenu extends javax.swing.JFrame {
 
         lblCustomSQLQueryBtn.setForeground(new java.awt.Color(255, 0, 0));
         lblCustomSQLQueryBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCustomSQLQueryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/warning-icon.png"))); // NOI18N
         lblCustomSQLQueryBtn.setText("<html><b>WARNING!</b> Only use \"Custom SQL Query\" option if you are familiar with SQL programming language!</html>");
+        lblCustomSQLQueryBtn.setToolTipText("WARNING!");
+        lblCustomSQLQueryBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.red, java.awt.Color.darkGray));
 
         lblQueryTabIntro.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblQueryTabIntro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/MHBElogo.jpg"))); // NOI18N
         lblQueryTabIntro.setText("<html>This tab allows users to ask specific questions of the database. Please select one of the pre-defined query options to the right and a pop-up will open allowing you to set parameters for your query.</html>");
 
-        QueryDropdownList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Display Query", "Find Min/Max Query", "Comparison Query", "Print Table Query", "Custom SQL Query" }));
+        QueryDropdownList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Display Query", "Find Min Query", "Find Max Query", "Comparison Query", "Print Table Query", "Custom SQL Query" }));
         QueryDropdownList.setToolTipText("Select a predefined query and input parameters.");
         QueryDropdownList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2178,15 +2256,15 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueryTabContainerLayout.createSequentialGroup()
                 .addGroup(QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(QueryTabContainerLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(lblCustomSQLQueryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueryTabContainerLayout.createSequentialGroup()
                         .addGap(65, 65, 65)
-                        .addGroup(QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblQueryDropdown)
-                            .addComponent(QueryDropdownList, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(QueryTableContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 837, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(QueryDropdownList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblQueryDropdown, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)))
+                    .addGroup(QueryTabContainerLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(lblCustomSQLQueryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(QueryTableContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(QueryTabContainerLayout.createSequentialGroup()
                 .addContainerGap()
@@ -2200,16 +2278,17 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(lblQueryTabIntro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(QueryTabContainerLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(QueryTableContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(QueryTabContainerLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(lblQueryDropdown)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(QueryDropdownList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(188, 188, 188)
-                        .addComponent(lblCustomSQLQueryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(184, 184, 184)
+                        .addComponent(lblCustomSQLQueryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(QueryTabContainerLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(QueryTableContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         MainMenuTab.addTab("Query Database", QueryTabContainer);
@@ -2234,19 +2313,19 @@ public class MainMenu extends javax.swing.JFrame {
 
         HelpDropdown.setText("Help");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/help-file-icon.png"))); // NOI18N
-        jMenuItem1.setText("Help PDF");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        HelpMenuOption.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        HelpMenuOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/help-file-icon.png"))); // NOI18N
+        HelpMenuOption.setText("Help PDF");
+        HelpMenuOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                HelpMenuOptionActionPerformed(evt);
             }
         });
-        HelpDropdown.add(jMenuItem1);
+        HelpDropdown.add(HelpMenuOption);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Actions-help-about-icon.png"))); // NOI18N
-        jMenuItem2.setText("About");
-        HelpDropdown.add(jMenuItem2);
+        AboutMenuOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Actions-help-about-icon.png"))); // NOI18N
+        AboutMenuOption.setText("About");
+        HelpDropdown.add(AboutMenuOption);
 
         FileMenu.add(HelpDropdown);
 
@@ -2256,7 +2335,9 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainMenuTab, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(MainMenuTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2268,124 +2349,6 @@ public class MainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ModifyTableListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTableListActionPerformed
-        
-        String[] columnNames=null;
-        String sql = null;
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Provider Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Provider";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Plan Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Plan";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Plan Level Programs Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Plan_lvl_programs";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Benefit Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Benefits";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Cost Sharing Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Cost_sharing";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Service Cost Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Service_cost";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Dates Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Dates";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Exclusions Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Exclusions";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Geographic Coverage Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Geo_covarage";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("In Network Deductible Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM In_network_deductible";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Out-of-Network Deductible Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Out_network_deductible";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Out-of-pocket Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Out_of_pocket";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Referral Required Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Referral_required";            
-        }
-        if((ModifyTableList.getSelectedItem().toString()).equalsIgnoreCase("Maximum Out-of-pocket Table")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM MOOP";            
-        }
-        Object[] columns = null;
-        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
-        
-        try {
-            //PREPARED STMT
-            Statement s = objDBConnection.prepareStatement(sql);
-            ResultSet rs = s.executeQuery(sql);
-            ResultSetMetaData meta = rs.getMetaData();
-            //columns = new Object[rs.getFetchSize()];
-            //LOOP THRU GETTING ALL VALUES
-            Integer columncount = meta.getColumnCount();
-            columnNames = new String[columncount];
-            
-            for (int i = 1; i <= columncount; i++) {                
-                //System.out.println(meta.getColumnName(i));
-                columnNames[i-1] = meta.getColumnName(i);
-              }
-            columns = columnNames;
-            model.setColumnIdentifiers(columns);
-            
-            model.setRowCount(0);
-            
-            while(rs.next()) {
-                String[] obj = new String[columncount];
-                for(int j=0; j<columncount; j++){
-                    obj[j] = rs.getString(j+1);
-                }
-                model.addRow(obj);
-            }
-            }catch (Exception ex) {
-                ex.printStackTrace();
-            } 
-        
-        
-        
-        // set the model to the table
-        ModifyResultTable.setModel(model);
-    }//GEN-LAST:event_ModifyTableListActionPerformed
-
-    private void deleteTblDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTblDataActionPerformed
-        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) ModifyResultTable.getModel();
-
-       // get selected row index
-
-       try{
-       int SelectedRowIndex = ModifyResultTable.getSelectedRow();
-       model.removeRow(SelectedRowIndex);
-       }catch(Exception ex)
-       {
-           JOptionPane.showMessageDialog(this, ex);
-           //ex.printStackTrace();
-       }
-    }//GEN-LAST:event_deleteTblDataActionPerformed
-
-    private void updateTblDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateTblDataActionPerformed
-        
-    }//GEN-LAST:event_updateTblDataActionPerformed
-
     private void QueryDropdownListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QueryDropdownListActionPerformed
     String[] columnNames=null;
         String sql = null;
@@ -2393,9 +2356,13 @@ public class MainMenu extends javax.swing.JFrame {
             // create a pop-up window to take input 
             DisplayDialog.setVisible(true);
         }
-        if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Find Min/Max Query")) {
+        if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Find Min Query")) {
             // create a pop-up window to take input 
-            FindMinMaxDialog.setVisible(true);
+            FindMinDialog.setVisible(true);
+        }
+        if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Max Query")) {
+            // create a pop-up window to take input
+            FindMaxDialog.setVisible(true);
         }
         if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Comparison Query")) {
             // create a pop-up window to take input
@@ -2416,9 +2383,9 @@ public class MainMenu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void HelpMenuOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpMenuOptionActionPerformed
                 // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_HelpMenuOptionActionPerformed
 
     private void DisplayTblSelectionMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisplayTblSelectionMenuActionPerformed
         String[] columnNames=null;
@@ -2598,87 +2565,65 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInsertSAVEActionPerformed
 
-    private void MinMaxTblListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinMaxTblListActionPerformed
+    private void MinTblListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinTblListActionPerformed
         String[] columnNames=null;
+        String Table = null;
         String sql = null;
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Provider")) {
+        
+
+        if((MinTblList.getSelectedItem().toString()).equalsIgnoreCase("Plan")) {
             // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Provider";            
+            Table = "Plan";
         }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Plan")) {
+ 
+        if((MinTblList.getSelectedItem().toString()).equalsIgnoreCase("Cost Sharing")) {
             // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Plan";            
+            Table = "Cost_sharing";   
         }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Plan-Level Programs")) {
+        if((MinTblList.getSelectedItem().toString()).equalsIgnoreCase("Service Cost")) {
             // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Plan_lvl_programs";            
+            Table = "Service_cost";        
+        }           
+        
+        if((MinTblList.getSelectedItem().toString()).equalsIgnoreCase("In-Network Deductible")) {
+            // create a table model and set a Column Identifiers to this model 
+            Table = "In_network_deductible";    
         }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Benefits")) {
+        if((MinTblList.getSelectedItem().toString()).equalsIgnoreCase("Out-of-Network Deductible")) {
             // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Benefits";            
+            Table = "Out_network_deductible";    
         }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Cost Sharing")) {
+        if((MinTblList.getSelectedItem().toString()).equalsIgnoreCase("Out-of-pocket Costs")) {
             // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Cost_sharing";            
+            Table = "Out_of_pocket";   
         }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Service Cost")) {
+        if((MinTblList.getSelectedItem().toString()).equalsIgnoreCase("Maximum Out-of-pocket")) {
             // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Service_cost";            
+            Table = "MOOP";   
         }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Dates")) {
+        if((MinTblList.getSelectedItem().toString()).equalsIgnoreCase("Premium")) {
             // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Dates";            
-        }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Exclusions")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Exclusions";            
-        }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Geographic Coverage")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Geo_covarage";            
-        }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("In-Network Deductible")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM In_network_deductible";            
-        }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Out-of-Network Deductible")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Out_network_deductible";            
-        }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Out-of-pocket Costs")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Out_of_pocket";            
-        }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Referral Required")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Referral_required";            
-        }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Maximum Out-of-pocket")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM MOOP";            
-        }
-        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Premium")) {
-            // create a table model and set a Column Identifiers to this model 
-            sql = "SELECT * FROM Premium";            
+            Table = "Premium";        
         }
         Object[] columns = null;
         javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
         
         try {
             //PREPARED STMT
-            Statement s = objDBConnection.prepareStatement(sql);
-            ResultSet rs = s.executeQuery(sql);
-            ResultSetMetaData meta = rs.getMetaData();
+            
+            
             //columns = new Object[rs.getFetchSize()];
             //LOOP THRU GETTING ALL VALUES
-            Integer columncount = meta.getColumnCount();
-            columnNames = new String[columncount];
+            int columncount = columnNames.length;
+            for (int j=0; j<columncount; j++){
+                sql = "" + columnNames[j] + ", " ;
+            }
+            sql = "Select MIN(" + sql + ") FROM " + Table + ";";
+            Statement s = objDBConnection.prepareStatement(sql);
+            System.out.println(s);
+            ResultSet rs = s.executeQuery(sql);
             
-            for (int i = 1; i <= columncount; i++) {                
-                //System.out.println(meta.getColumnName(i));
-                columnNames[i-1] = meta.getColumnName(i);
-              }
-            columns = columnNames;
+            columns=columnNames;
             model.setColumnIdentifiers(columns);
             
             model.setRowCount(0);
@@ -2698,7 +2643,7 @@ public class MainMenu extends javax.swing.JFrame {
         
         // set the model to the table
         QueryResultTable.setModel(model);
-    }//GEN-LAST:event_MinMaxTblListActionPerformed
+    }//GEN-LAST:event_MinTblListActionPerformed
 
     private void InsertTabOuterContainerFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InsertTabOuterContainerFocusGained
                 // TODO add your handling code here:
@@ -3249,6 +3194,409 @@ public class MainMenu extends javax.swing.JFrame {
         // set the model to the table
         InsertResultTable6.setModel(model);
     }//GEN-LAST:event_PopulateINnetDeductTableActionPerformed
+    private void loadTableData(String tblName) {
+        model = new javax.swing.table.DefaultTableModel();
+        selectSQL = "SELECT * FROM " +tableName;
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(selectSQL);
+            ResultSet rs = s.executeQuery(selectSQL);
+            ResultSetMetaData meta = rs.getMetaData();
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            
+            model.setColumnIdentifiers(columnNames);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            }        
+        
+        // set the model to the table
+        ModifyResultTable.setModel(model);
+    }
+    private void deleteTblDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTblDataActionPerformed
+
+        model = (javax.swing.table.DefaultTableModel) ModifyResultTable.getModel();
+        
+       // get selected row index
+       int rowCount = ModifyResultTable.getSelectedRowCount();
+       
+       if(rowCount == 0) {
+        JOptionPane.showMessageDialog(this, "Please select a record to delete", "Row not selected", JOptionPane.WARNING_MESSAGE);    
+       }
+       
+       if (rowCount == 1) {
+        int response = JOptionPane.showConfirmDialog(null, "Do you want to continue?", "Confirm",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.NO_OPTION) {
+        System.out.println("No button clicked");
+        } else if (response == JOptionPane.YES_OPTION){
+       try{
+       
+        int SelectedRowIndex = ModifyResultTable.getSelectedRow();
+        deleteSQL = "DELETE FROM "+tableName+" WHERE ";
+        
+        for(int i=0; i < columnNames.length; i++) {
+            deleteSQL = deleteSQL + columnNames[i] + " = '" +
+                    ModifyResultTable.getModel().getValueAt(ModifyResultTable.getSelectedRow(), i) + "' ";
+            if (i < columnNames.length-1)
+                deleteSQL = deleteSQL + " AND ";
+        }
+        
+        PreparedStatement preparedStatement = objDBConnection.prepareStatement(deleteSQL);
+        int result = preparedStatement.executeUpdate();
+        
+        if(result == 1) {
+            model.removeRow(SelectedRowIndex);       
+            JOptionPane.showMessageDialog(this, "Record is deleted successfully.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Record deletion is unsuccessful.");
+        }
+       
+       }catch(Exception ex)
+       {
+           JOptionPane.showMessageDialog(this, ex);
+           //ex.printStackTrace();
+       }
+       }
+        else if (response == JOptionPane.CLOSED_OPTION) {
+      System.out.println("JOptionPane closed");
+        }
+       }
+       
+       if (rowCount > 1) {
+           JOptionPane.showMessageDialog(this, "Please select only one record to delete", "Many rows selected", JOptionPane.WARNING_MESSAGE);    
+       }
+    }//GEN-LAST:event_deleteTblDataActionPerformed
+
+    private void updateTblDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateTblDataActionPerformed
+        //this.setVisible(true);
+        
+        
+        model = (javax.swing.table.DefaultTableModel) ModifyResultTable.getModel();
+        
+       // get selected row index
+       int rowCount = ModifyResultTable.getSelectedRowCount();
+       
+       if(rowCount == 0) {
+        JOptionPane.showMessageDialog(this, "Please select a record to update", "Row not selected", JOptionPane.WARNING_MESSAGE);    
+       }
+       
+       if (rowCount == 1) {
+        
+       try{
+       
+        //int SelectedRowIndex = ModifyResultTable.getSelectedRow();
+        UpdateDataDialog.strTableName = tableName;
+	UpdateDataDialog.strColNames = columnNames;
+        UpdateDataDialog.objUDDBConnection = objDBConnection;
+		
+        Object[] objColValues = new Object[columnNames.length];
+        for(int i=0; i < columnNames.length; i++) {
+            objColValues[i] = ModifyResultTable.getModel().getValueAt(ModifyResultTable.getSelectedRow(), i);
+//            deleteSQL = deleteSQL + columnNames[i] + " = '" +
+//                    ModifyResultTable.getModel().getValueAt(ModifyResultTable.getSelectedRow(), i) + "' ";
+//            if (i < columnNames.length-1)
+//                deleteSQL = deleteSQL + " AND ";
+        }
+		UpdateDataDialog.objColValues = objColValues;
+		objUpdateData = new UpdateDataDialog(MainMenu.this, true);
+        objUpdateData.loadData(tableName, columnNames, objColValues);
+//        objUpdateData.setVisible(true);
+           loadTableData(tableName);
+//        this.ModifyResultTable.repaint();
+        //objUpdateData.getParent().repaint();
+        /*deleteSQL = "DELETE FROM "+tableName+" WHERE ";
+        
+        for(int i=0; i < columnNames.length; i++) {
+            deleteSQL = deleteSQL + columnNames[i] + " = '" +
+                    ModifyResultTable.getModel().getValueAt(ModifyResultTable.getSelectedRow(), i) + "' ";
+            if (i < columnNames.length-1)
+                deleteSQL = deleteSQL + " AND ";
+        }
+        
+        PreparedStatement preparedStatement = objDBConnection.prepareStatement(deleteSQL);
+        int result = preparedStatement.executeUpdate();
+        
+        if(result == 1) {
+            model.removeRow(SelectedRowIndex);       
+            JOptionPane.showMessageDialog(this, "Record is deleted successfully.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Record deletion is unsuccessful.");
+        } */
+       
+       }catch(Exception ex)
+       {
+           JOptionPane.showMessageDialog(this, ex);
+           //ex.printStackTrace();
+       }
+       
+       }
+       
+       if (rowCount > 1) {
+           JOptionPane.showMessageDialog(this, "Please select only one record to update", "Many rows selected", JOptionPane.WARNING_MESSAGE);    
+       }
+    }//GEN-LAST:event_updateTblDataActionPerformed
+
+    private void ModifyResultTableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModifyResultTableMouseReleased
+        updateTblData.setEnabled(true);
+        deleteTblData.setEnabled(true);
+    }//GEN-LAST:event_ModifyResultTableMouseReleased
+
+    private void ModifyResultTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ModifyResultTableKeyReleased
+        updateTblData.setEnabled(true);
+        deleteTblData.setEnabled(true);
+    }//GEN-LAST:event_ModifyResultTableKeyReleased
+
+    private void ModifyTableDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTableDropdownActionPerformed
+
+        if(ModifyTableDropdown.getSelectedIndex() > -1) {
+
+            ModifyResultTable.setDefaultEditor(Object.class, null);
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Provider Table")) {
+
+            tableName = "Provider";
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Plan Table")) {
+
+            tableName = "Plan";
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Plan Level Programs Table")) {
+
+            tableName ="Plan_lvl_programs";
+
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Benefit Table")) {
+
+            tableName = "Benefits";
+
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Cost Sharing Table")) {
+
+            tableName = "Cost_sharing";
+
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Service Cost Table")) {
+
+            tableName = "Service_cost";
+
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Dates Table")) {
+
+            tableName = "Dates";
+
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Exclusions Table")) {
+
+            tableName = "Exclusions";
+
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Geographic Coverage Table")) {
+
+            tableName = "Geo_covarage";
+
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("In Network Deductible Table")) {
+
+            tableName = "In_network_deductible";
+
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Out-of-Network Deductible Table")) {
+
+            tableName = "Out_network_deductible";
+
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Out-of-pocket Table")) {
+
+            tableName = "Out_of_pocket";
+
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Referral Required Table")) {
+
+            tableName = "Referral_required";
+
+        }
+        if((ModifyTableDropdown.getSelectedItem().toString()).equalsIgnoreCase("Maximum Out-of-pocket Table")) {
+
+            tableName = "MOOP";
+
+        }
+        //
+        loadTableData(tableName);
+    }//GEN-LAST:event_ModifyTableDropdownActionPerformed
+
+    private void MaxTblListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaxTblListActionPerformed
+        String[] columnName=null;
+        String Table = null;
+        String sql = null;
+        int i=1;
+
+        if((MaxTblList.getSelectedItem().toString()).equalsIgnoreCase("Plan")) {
+            // create a table model and set a Column Identifiers to this model 
+            Table = "Plan";
+            MinColList.addItem("EHB Percent of Premium");
+            columnName[i] = "EHB_Perc_Premium";
+        }
+ 
+        if((MaxTblList.getSelectedItem().toString()).equalsIgnoreCase("Cost Sharing")) {
+            // create a table model and set a Column Identifiers to this model 
+            Table = "Cost_sharing";   
+            MaxColList.addItem("Issuer Actuarial Value");
+            MaxColList.addItem("Advanced payment for Cost-sharing Variant");
+            columnName[i] = "IssuerActuarialValue";
+            columnName[i+1]= "Adv_payment";
+        }
+        if((MaxTblList.getSelectedItem().toString()).equalsIgnoreCase("Service Cost")) {
+            // create a table model and set a Column Identifiers to this model 
+            Table = "Service_cost";        
+            MaxColList.addItem("Copay");
+            MaxColList.addItem("Coinsurance");
+            columnName[i] = "Copay";
+            columnName[i+1]="Coinsurance";
+        }           
+        
+        if((MaxTblList.getSelectedItem().toString()).equalsIgnoreCase("In-Network Deductible")) {
+            // create a table model and set a Column Identifiers to this model 
+            Table = "In_network_deductible";    
+            MaxColList.addItem("In-Network Pediatric Dental Deductable");
+            MaxColList.addItem("In-Network Medical Deductable");
+            MaxColList.addItem("In-Network Drug Deductable");
+            MaxColList.addItem("In-Network Combined Deductable");
+            columnName[i] = "In_net_ped_dent_deduct";
+            columnName[i+1]="In_net_med";
+            columnName[i+2]="In_network_drug";
+            columnName[i+3]="In_net_combined";
+        }
+        if((MaxTblList.getSelectedItem().toString()).equalsIgnoreCase("Out-of-Network Deductible")) {
+            // create a table model and set a Column Identifiers to this model 
+            Table = "Out_network_deductible";    
+            MaxColList.addItem("Out-of-Network Pediatric Dental Deductable");
+            MaxColList.addItem("Out-of-Network Medical Deductable");
+            MaxColList.addItem("Out-of-Network Drug Deductable");
+            MaxColList.addItem("Out-of-Network Combined Deductable");
+            columnName[i] = "Out_net_ped_dent_deduct";
+            columnName[i+1]="Out_net_medical";
+            columnName[i+2]="Out_net_drug";
+            columnName[i+3]="Out_net_combined";
+        }
+        if((MaxTblList.getSelectedItem().toString()).equalsIgnoreCase("Out-of-pocket Costs")) {
+            // create a table model and set a Column Identifiers to this model 
+            Table = "Out_of_pocket";   
+            MaxColList.addItem("Default Coinsurance");
+            MaxColList.addItem("Default Copay");
+            columnName[i]="Default_Coins";
+            columnName[i+1]="Default_Copay";
+        }
+        if((MaxTblList.getSelectedItem().toString()).equalsIgnoreCase("Maximum Out-of-pocket")) {
+            // create a table model and set a Column Identifiers to this model 
+            Table = "MOOP";   
+            MaxColList.addItem("In-network Maximum Out-of-pocket");
+            MaxColList.addItem("Out-of-network Maximum Out-of-pocket");
+            columnName[i]="In_net_MOOP";
+            columnName[i+1]="Out_net_MOOP";
+        }
+        if((MaxTblList.getSelectedItem().toString()).equalsIgnoreCase("Premium")) {
+            // create a table model and set a Column Identifiers to this model 
+            Table = "Premium";        
+            MaxColList.addItem("Individual Insurance Premium Rate");
+            MaxColList.addItem("Age Range");
+            columnName[i]="Indiv_Rate";
+            columnName[i+1]="Age_Range";
+        }
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
+        try {
+            //PREPARED STMT
+            
+            
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            int columncount = columnName.length;
+            for (int j=1; j<=columncount; j++){
+                sql = sql + ", " + columnName[j];
+            }
+            sql = "Select MAX(" + sql + ") FROM " + Table + ";";
+            Statement s = objDBConnection.prepareStatement(sql);
+            ResultSet rs = s.executeQuery(sql);
+            
+            columns = columnName;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        QueryResultTable.setModel(model);
+    }//GEN-LAST:event_MaxTblListActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        String columns[]=null;
+        String sql = CustomSQLQuery.getText();  
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(sql);
+            ResultSet rs = s.executeQuery(sql);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        QueryResultTable.setModel(model);// TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3288,6 +3636,7 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AboutMenuOption;
     private javax.swing.JTextField BeneQuantServ;
     private javax.swing.JCheckBox CombinedDeductCheck;
     private javax.swing.JDialog CompareDialog;
@@ -3298,9 +3647,12 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem Exit;
     private javax.swing.JMenu FileDropdown;
     private javax.swing.JMenuBar FileMenu;
-    private javax.swing.JDialog FindMinMaxDialog;
+    private javax.swing.JDialog FindMaxDialog;
+    private javax.swing.JLabel FindMaxMHBELogo;
+    private javax.swing.JDialog FindMinDialog;
     private javax.swing.JLabel FindMinMaxMHBELogo;
     private javax.swing.JMenu HelpDropdown;
+    private javax.swing.JMenuItem HelpMenuOption;
     private javax.swing.JTextField InsertActuarialValue;
     private javax.swing.JTextField InsertAdvancedPayment;
     private javax.swing.JTextField InsertAgeRange;
@@ -3393,16 +3745,17 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel MMinnerContainer;
     private javax.swing.JLabel MMintroText;
     private javax.swing.JTabbedPane MainMenuTab;
-    private javax.swing.JComboBox<String> MinMaxColList;
-    private javax.swing.JComboBox<String> MinMaxTblList;
-    private javax.swing.JPanel ModOuterTblContainer;
+    private javax.swing.JComboBox<String> MaxColList;
+    private javax.swing.JComboBox<String> MaxTblList;
+    private javax.swing.JComboBox<String> MinColList;
+    private javax.swing.JComboBox<String> MinTblList;
     private javax.swing.JPanel ModSidePanel;
-    private javax.swing.JScrollPane ModTblScrollPane;
     private javax.swing.JLabel ModifyMHBELogo;
     private javax.swing.JTable ModifyResultTable;
     private javax.swing.JPanel ModifyTabContainer;
     private javax.swing.JLabel ModifyTabDescription;
-    private javax.swing.JComboBox<String> ModifyTableList;
+    private javax.swing.JComboBox<String> ModifyTableDropdown;
+    private javax.swing.JScrollPane ModifyTableScrollPane;
     private javax.swing.JCheckBox NationalNetCoverageCheck;
     private javax.swing.JTextField PlanID;
     private javax.swing.JToggleButton PopulateBenefitCostTable;
@@ -3432,8 +3785,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnInsertNEXT2;
     private javax.swing.JButton btnInsertNEXT5;
     private javax.swing.JButton btnInsertSAVE;
-    private javax.swing.JRadioButton btnMax;
-    private javax.swing.JRadioButton btnMin;
     private javax.swing.JButton deleteTblData;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
@@ -3441,9 +3792,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton22;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -3452,6 +3803,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAdvPayment;
     private javax.swing.JLabel lblAgeRange;
     private javax.swing.JLabel lblBeneCoin;
@@ -3496,10 +3848,11 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel lblInsertStatus;
     private javax.swing.JLabel lblIssuerActuarial;
     private javax.swing.JLabel lblMOOPplanID;
+    private javax.swing.JLabel lblMaxColList;
+    private javax.swing.JLabel lblMaxTblList;
     private javax.swing.JLabel lblMetalLevel;
     private javax.swing.JLabel lblMinMaxColList;
     private javax.swing.JLabel lblMinMaxTblList;
-    private javax.swing.JLabel lblMinOrMax;
     private javax.swing.JLabel lblModifyTableList;
     private javax.swing.JLabel lblModifyWarning;
     private javax.swing.JLabel lblOOCcoverage;
