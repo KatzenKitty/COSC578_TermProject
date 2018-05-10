@@ -98,6 +98,7 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         DisplayDialog.setBackground(new java.awt.Color(51, 153, 255));
+        DisplayDialog.setMinimumSize(new java.awt.Dimension(340, 200));
 
         lblSelectDisplayTable.setText("Please select the table(s) you wish to display:");
 
@@ -835,7 +836,7 @@ public class MainMenu extends javax.swing.JFrame {
         String sql = null;
         if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Display Query")) {
             // create a pop-up window to take input 
-            
+            DisplayDialog.setVisible(true);
         }
         if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Find Min/Max Query")) {
             // create a pop-up window to take input 
