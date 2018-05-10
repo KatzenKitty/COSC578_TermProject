@@ -43,6 +43,19 @@ public class MainMenu extends javax.swing.JFrame {
         DisplayDialog = new javax.swing.JDialog();
         lblSelectDisplayTable = new javax.swing.JLabel();
         DisplayTblSelectionMenu = new javax.swing.JComboBox<>();
+        DisplayMHBELogo = new javax.swing.JLabel();
+        FindMinMaxDialog = new javax.swing.JDialog();
+        lblMinMaxTblList = new javax.swing.JLabel();
+        lblMinMaxColList = new javax.swing.JLabel();
+        lblMinOrMax = new javax.swing.JLabel();
+        MinMaxTblList = new javax.swing.JComboBox<>();
+        MinMaxColList = new javax.swing.JComboBox<>();
+        btnMin = new javax.swing.JRadioButton();
+        btnMax = new javax.swing.JRadioButton();
+        FindMinMaxMHBELogo = new javax.swing.JLabel();
+        CompareDialog = new javax.swing.JDialog();
+        PrintTableDIalog = new javax.swing.JDialog();
+        CustomSQLdialog = new javax.swing.JDialog();
         MainMenuTab = new javax.swing.JTabbedPane();
         MMOuterContainer = new javax.swing.JPanel();
         MMWelcome = new javax.swing.JLabel();
@@ -63,26 +76,176 @@ public class MainMenu extends javax.swing.JFrame {
         ModTblScrollPane = new javax.swing.JScrollPane();
         ModifyResultTable = new javax.swing.JTable();
         InsertTabContainer = new javax.swing.JPanel();
-        InsertInstructions = new javax.swing.JLabel();
-        buttonProviderTbl = new javax.swing.JButton();
-        buttonPlanTbl = new javax.swing.JButton();
-        buttonBenefitsTbl = new javax.swing.JButton();
-        buttonPlanlvlProgramsTbl = new javax.swing.JButton();
-        buttonCostShareTbl = new javax.swing.JButton();
-        buttonPremiumTbl = new javax.swing.JButton();
-        buttonGeoCovTbl = new javax.swing.JButton();
-        buttonMOOPTbl = new javax.swing.JButton();
-        buttonRefReqTbl = new javax.swing.JButton();
-        buttonInNetDeductTbl = new javax.swing.JButton();
-        buttonOutNetDeductTbl = new javax.swing.JButton();
-        buttonBenefitCostTbl = new javax.swing.JButton();
-        lvlStep1 = new javax.swing.JLabel();
-        lblStep2 = new javax.swing.JLabel();
-        lblStep3 = new javax.swing.JLabel();
-        lblStep4 = new javax.swing.JLabel();
-        lblStep5 = new javax.swing.JLabel();
-        buttonOutPocketCostsTbl = new javax.swing.JButton();
-        lblStep6 = new javax.swing.JLabel();
+        InsertTabOuterContainer = new javax.swing.JTabbedPane();
+        InsertStartTab = new javax.swing.JPanel();
+        lblInsertIntro = new javax.swing.JLabel();
+        lblInsertInstructions1 = new javax.swing.JLabel();
+        lblInsertInstructions2 = new javax.swing.JLabel();
+        InsertMHBELogo1 = new javax.swing.JLabel();
+        InsertStp1Tab = new javax.swing.JPanel();
+        InsertStp1Header = new javax.swing.JLabel();
+        lblInsertIssuerID = new javax.swing.JLabel();
+        InsertIssuerName = new javax.swing.JTextField();
+        lblInsertIssuerName = new javax.swing.JLabel();
+        InsertIssuerID = new javax.swing.JTextField();
+        lblInsertServiceArea = new javax.swing.JLabel();
+        InsertServiceArea = new javax.swing.JTextField();
+        btnInsertINSERT1 = new javax.swing.JButton();
+        btnInsertNEXT1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        InsertProviderTable = new javax.swing.JTable();
+        InsertStp2Tab = new javax.swing.JPanel();
+        InsertStp2Header = new javax.swing.JLabel();
+        lblInsertPlanID = new javax.swing.JLabel();
+        lblInsertPlanURL = new javax.swing.JLabel();
+        lblInsertPlanType = new javax.swing.JLabel();
+        lblInsertQHPStatus = new javax.swing.JLabel();
+        lblInsertStatus = new javax.swing.JLabel();
+        lblPlanName = new javax.swing.JLabel();
+        lblMetalLevel = new javax.swing.JLabel();
+        InsertChildOnlyCheck = new javax.swing.JCheckBox();
+        lblChildOnlyPlanID = new javax.swing.JLabel();
+        lblPlanServiceArea = new javax.swing.JLabel();
+        lblEHBPercentPremium = new javax.swing.JLabel();
+        lblPlanIssuerID = new javax.swing.JLabel();
+        btnInsertINSERT2 = new javax.swing.JButton();
+        btnInsertNEXT2 = new javax.swing.JButton();
+        PlanID = new javax.swing.JTextField();
+        InsertPlanURL = new javax.swing.JTextField();
+        InsertPlanType = new javax.swing.JTextField();
+        InsertQHPStatus = new javax.swing.JTextField();
+        InsertStatus = new javax.swing.JTextField();
+        InsertPlanName = new javax.swing.JTextField();
+        InsertMetalLvl = new javax.swing.JTextField();
+        InsertChildPlan = new javax.swing.JTextField();
+        InsertPlanServArea = new javax.swing.JTextField();
+        InsertEHBPercPremium = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        InsertResultTable2 = new javax.swing.JTable();
+        IssuerIDdropdown = new javax.swing.JComboBox<>();
+        InsertStep3Tab = new javax.swing.JPanel();
+        lblInsertPremium = new javax.swing.JLabel();
+        lblInsertPlanID3 = new javax.swing.JLabel();
+        lblIndivRate = new javax.swing.JLabel();
+        lblAgeRange = new javax.swing.JLabel();
+        InsertBeneHeader = new javax.swing.JLabel();
+        lblBenePlanID = new javax.swing.JLabel();
+        lblBeneService = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        lblBeneDescrip = new javax.swing.JLabel();
+        lblReasonEHB = new javax.swing.JLabel();
+        lblQuantServ = new javax.swing.JLabel();
+        InsertBeneCoveredCheck = new javax.swing.JCheckBox();
+        InsertBeneEHBCheck = new javax.swing.JCheckBox();
+        InsertCostShareHeader = new javax.swing.JLabel();
+        lblInsertCSPlanID = new javax.swing.JLabel();
+        lblCSRvar = new javax.swing.JLabel();
+        lblAdvPayment = new javax.swing.JLabel();
+        lblIssuerActuarial = new javax.swing.JLabel();
+        jButton16 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        InsertBeneServ = new javax.swing.JTextField();
+        InsertAgeRange = new javax.swing.JTextField();
+        InsertIndivRate = new javax.swing.JTextField();
+        InsertBeneReasonEHB = new javax.swing.JTextField();
+        BeneQuantServ = new javax.swing.JTextField();
+        InsertBeneDescrip = new javax.swing.JTextField();
+        InsertCSRvar = new javax.swing.JTextField();
+        InsertAdvancedPayment = new javax.swing.JTextField();
+        InsertActuarialValue = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        InsertResultTable3 = new javax.swing.JTable();
+        InsertPlanID3 = new javax.swing.JComboBox<>();
+        InsertBenePlanID = new javax.swing.JComboBox<>();
+        InsertCSPlanID = new javax.swing.JComboBox<>();
+        InsertStep4Tab = new javax.swing.JPanel();
+        InsertRefReqHeader = new javax.swing.JLabel();
+        lblInsertRefPlanID = new javax.swing.JLabel();
+        lblSpecReq = new javax.swing.JLabel();
+        lblRefReq = new javax.swing.JLabel();
+        InsertBeneCostHeader = new javax.swing.JLabel();
+        InsertPlanlvlProgramsHeader = new javax.swing.JLabel();
+        lblInsertBeneServ = new javax.swing.JLabel();
+        lblInsertCopay = new javax.swing.JLabel();
+        lblBeneCoin = new javax.swing.JLabel();
+        lblBeneCostPlanID = new javax.swing.JLabel();
+        lblPlanLvlPlanID = new javax.swing.JLabel();
+        lblTabaccoWell = new javax.swing.JLabel();
+        lblDiseaseMgmt = new javax.swing.JLabel();
+        jButton17 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
+        InsertRefPlanID = new javax.swing.JComboBox<>();
+        InsertRefReq = new javax.swing.JTextField();
+        InsertPlanLvlPlanID = new javax.swing.JComboBox<>();
+        InsertTabaccoWellness = new javax.swing.JTextField();
+        InsertBeneCostService = new javax.swing.JComboBox<>();
+        InsertBeneCopay = new javax.swing.JTextField();
+        InsertBeneCostPlanID = new javax.swing.JComboBox<>();
+        InsertBeneCoinsurance = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        InsertResultTable4 = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        InsertDiseaseMgmt = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        InsertSpecialistsRequired = new javax.swing.JTextArea();
+        InsertStep5Tab = new javax.swing.JPanel();
+        InsertMOOPHeader = new javax.swing.JLabel();
+        lblMOOPplanID = new javax.swing.JLabel();
+        lblInNetMOOP = new javax.swing.JLabel();
+        lblOutNetMOOP = new javax.swing.JLabel();
+        InsertGeoHeader = new javax.swing.JLabel();
+        lblOOCcoverage = new javax.swing.JLabel();
+        lblOOScoverage = new javax.swing.JLabel();
+        lblGeoPlanID = new javax.swing.JLabel();
+        NationalNetCoverageCheck = new javax.swing.JCheckBox();
+        btnInsertINSERT5 = new javax.swing.JButton();
+        btnInsertNEXT5 = new javax.swing.JButton();
+        InsertInNetMOOP = new javax.swing.JTextField();
+        InsertOutNetMOOP = new javax.swing.JTextField();
+        InsertOOScoverage = new javax.swing.JTextField();
+        InsertOOCcoverage = new javax.swing.JTextField();
+        InsertMOOPplanID = new javax.swing.JComboBox<>();
+        InsertGeoPlanID = new javax.swing.JComboBox<>();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        InsertResultTable5 = new javax.swing.JTable();
+        InsertOOPHeader = new javax.swing.JLabel();
+        lblOOPPlanID = new javax.swing.JLabel();
+        InsertOOPplanID = new javax.swing.JComboBox<>();
+        lblInsertOOPCoin = new javax.swing.JLabel();
+        InsertOOPcoinsurance = new javax.swing.JTextField();
+        lblOOPCopay = new javax.swing.JLabel();
+        InsertOOPcopay = new javax.swing.JTextField();
+        lblInsertHSAHRA = new javax.swing.JLabel();
+        InsertOOPHSAHRA = new javax.swing.JTextField();
+        InsertStep6Tab = new javax.swing.JPanel();
+        InsertINDeductHeader = new javax.swing.JLabel();
+        lblINnetPlanID = new javax.swing.JLabel();
+        lblINnetPedDentDeduct = new javax.swing.JLabel();
+        lblINnetMedDeduct = new javax.swing.JLabel();
+        lblINnetDrugDeduct = new javax.swing.JLabel();
+        InsertINdeductcheck = new javax.swing.JCheckBox();
+        lblINnetComboDeduct = new javax.swing.JLabel();
+        btnInsertINSERT6 = new javax.swing.JButton();
+        InsertINnetPedDentDeduct = new javax.swing.JTextField();
+        InsertINnetMedDeduct = new javax.swing.JTextField();
+        InsertINnetDrugDeduct = new javax.swing.JTextField();
+        InsertINnetComboDeduct = new javax.swing.JTextField();
+        btnInsertSAVE = new javax.swing.JButton();
+        InsertInNetworPlanID = new javax.swing.JComboBox<>();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        InsertResultTable6 = new javax.swing.JTable();
+        InsertOONDeductHeader = new javax.swing.JLabel();
+        lblOONPlanID = new javax.swing.JLabel();
+        InsertOONDeduct = new javax.swing.JComboBox<>();
+        lblinNetPedDent = new javax.swing.JLabel();
+        InsertOONPedDent = new javax.swing.JTextField();
+        lblInNetMed = new javax.swing.JLabel();
+        InsertOONnetMed = new javax.swing.JTextField();
+        lblINnetDrug = new javax.swing.JLabel();
+        InsertOONDrugDeduct = new javax.swing.JTextField();
+        CombinedDeductCheck = new javax.swing.JCheckBox();
+        lblINnetCombined = new javax.swing.JLabel();
+        InsertOONComboDeduct = new javax.swing.JTextField();
         QueryTabContainer = new javax.swing.JPanel();
         QueryTableContainer = new javax.swing.JScrollPane();
         QueryResultTable = new javax.swing.JTable();
@@ -98,8 +261,9 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         DisplayDialog.setBackground(new java.awt.Color(51, 153, 255));
-        DisplayDialog.setMinimumSize(new java.awt.Dimension(340, 200));
+        DisplayDialog.setMinimumSize(new java.awt.Dimension(320, 200));
 
+        lblSelectDisplayTable.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblSelectDisplayTable.setText("Please select the table(s) you wish to display:");
 
         DisplayTblSelectionMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Benefits", "Cost Sharing", "Dates", "Exclusions", "Geographic Coverage", "In-Network Deductible", "Maximum Out-of-Pocket", "Out-of-Network Deductible", "Out-of-Pocket Costs", "Plan", "Plan-Level Programs", "Premium", "Provider", "Referral Required", "Service Cost" }));
@@ -109,25 +273,141 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        DisplayMHBELogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/mhbelogo_thumb.png"))); // NOI18N
+
         javax.swing.GroupLayout DisplayDialogLayout = new javax.swing.GroupLayout(DisplayDialog.getContentPane());
         DisplayDialog.getContentPane().setLayout(DisplayDialogLayout);
         DisplayDialogLayout.setHorizontalGroup(
             DisplayDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DisplayDialogLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(DisplayDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblSelectDisplayTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DisplayTblSelectionMenu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(33, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DisplayDialogLayout.createSequentialGroup()
+                .addGap(0, 22, Short.MAX_VALUE)
+                .addGroup(DisplayDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSelectDisplayTable, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(DisplayTblSelectionMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(DisplayMHBELogo))
         );
         DisplayDialogLayout.setVerticalGroup(
             DisplayDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DisplayDialogLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(lblSelectDisplayTable, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(DisplayDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DisplayMHBELogo)
+                    .addGroup(DisplayDialogLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(lblSelectDisplayTable, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DisplayTblSelectionMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        FindMinMaxDialog.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblMinMaxTblList.setBackground(new java.awt.Color(255, 255, 255));
+        lblMinMaxTblList.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblMinMaxTblList.setText("Please choose a table to query:");
+
+        lblMinMaxColList.setBackground(new java.awt.Color(255, 255, 255));
+        lblMinMaxColList.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblMinMaxColList.setText("Please select a column:");
+
+        lblMinOrMax.setBackground(new java.awt.Color(255, 255, 255));
+        lblMinOrMax.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblMinOrMax.setText("Would you like to find the minimum or maximum value?");
+
+        MinMaxTblList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Premium", "Cost Sharing", "In-network deductible", "Out-of-network deductible", "Out-of-pocket costs", "Service Cost" }));
+        MinMaxTblList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MinMaxTblListActionPerformed(evt);
+            }
+        });
+
+        MinMaxColList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnMin.setBackground(new java.awt.Color(255, 255, 255));
+        btnMin.setText("Minimum");
+
+        btnMax.setBackground(new java.awt.Color(255, 255, 255));
+        btnMax.setText("Maximum");
+
+        FindMinMaxMHBELogo.setBackground(new java.awt.Color(255, 255, 255));
+        FindMinMaxMHBELogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/mhbelogo_thumb.png"))); // NOI18N
+
+        javax.swing.GroupLayout FindMinMaxDialogLayout = new javax.swing.GroupLayout(FindMinMaxDialog.getContentPane());
+        FindMinMaxDialog.getContentPane().setLayout(FindMinMaxDialogLayout);
+        FindMinMaxDialogLayout.setHorizontalGroup(
+            FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FindMinMaxDialogLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FindMinMaxDialogLayout.createSequentialGroup()
+                        .addGroup(FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMinMaxTblList)
+                            .addComponent(MinMaxTblList, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(FindMinMaxMHBELogo))
+                    .addGroup(FindMinMaxDialogLayout.createSequentialGroup()
+                        .addGroup(FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnMax)
+                            .addComponent(btnMin)
+                            .addComponent(lblMinOrMax)
+                            .addComponent(lblMinMaxColList)
+                            .addComponent(MinMaxColList, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
+        );
+        FindMinMaxDialogLayout.setVerticalGroup(
+            FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FindMinMaxDialogLayout.createSequentialGroup()
+                .addGroup(FindMinMaxDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(FindMinMaxMHBELogo)
+                    .addGroup(FindMinMaxDialogLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblMinMaxTblList)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MinMaxTblList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(40, 40, 40)
+                .addComponent(lblMinMaxColList)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DisplayTblSelectionMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addComponent(MinMaxColList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addComponent(lblMinOrMax)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMax)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout CompareDialogLayout = new javax.swing.GroupLayout(CompareDialog.getContentPane());
+        CompareDialog.getContentPane().setLayout(CompareDialogLayout);
+        CompareDialogLayout.setHorizontalGroup(
+            CompareDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        CompareDialogLayout.setVerticalGroup(
+            CompareDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout PrintTableDIalogLayout = new javax.swing.GroupLayout(PrintTableDIalog.getContentPane());
+        PrintTableDIalog.getContentPane().setLayout(PrintTableDIalogLayout);
+        PrintTableDIalogLayout.setHorizontalGroup(
+            PrintTableDIalogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        PrintTableDIalogLayout.setVerticalGroup(
+            PrintTableDIalogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout CustomSQLdialogLayout = new javax.swing.GroupLayout(CustomSQLdialog.getContentPane());
+        CustomSQLdialog.getContentPane().setLayout(CustomSQLdialogLayout);
+        CustomSQLdialogLayout.setHorizontalGroup(
+            CustomSQLdialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        CustomSQLdialogLayout.setVerticalGroup(
+            CustomSQLdialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -187,7 +467,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(InsertTabDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(QueryTabDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 115, Short.MAX_VALUE))
+                .addGap(0, 155, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MMOuterContainerLayout = new javax.swing.GroupLayout(MMOuterContainer);
@@ -310,7 +590,7 @@ public class MainMenu extends javax.swing.JFrame {
             ModOuterTblContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ModOuterTblContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ModTblScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+                .addComponent(ModTblScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -337,195 +617,1277 @@ public class MainMenu extends javax.swing.JFrame {
 
         MainMenuTab.addTab("Modify Templates", ModifyTabContainer);
 
-        InsertInstructions.setText("<html>Template data must be entered in a specific order to maintain database integrity.</br> \nPlease add data to the tables in the order provided below.</html>");
+        InsertStartTab.setBackground(new java.awt.Color(255, 255, 255));
 
-        buttonProviderTbl.setText("Provider Table");
-        buttonProviderTbl.addActionListener(new java.awt.event.ActionListener() {
+        lblInsertIntro.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblInsertIntro.setText("<html>Template data must be entered in a specific order to maintain database integrity.</br></br></html>");
+
+        lblInsertInstructions1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblInsertInstructions1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/mhbelogo_thumb.png"))); // NOI18N
+        lblInsertInstructions1.setText("Please add data to the tables in the order listed in the tabs.");
+
+        lblInsertInstructions2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblInsertInstructions2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/mhbelogo_thumb.png"))); // NOI18N
+        lblInsertInstructions2.setText("Note: Hit \"Insert\" before hitting \"Next\"");
+
+        InsertMHBELogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/MHBElogo.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout InsertStartTabLayout = new javax.swing.GroupLayout(InsertStartTab);
+        InsertStartTab.setLayout(InsertStartTabLayout);
+        InsertStartTabLayout.setHorizontalGroup(
+            InsertStartTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStartTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(InsertMHBELogo1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStartTabLayout.createSequentialGroup()
+                .addGap(0, 131, Short.MAX_VALUE)
+                .addGroup(InsertStartTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblInsertInstructions2)
+                    .addComponent(lblInsertInstructions1)
+                    .addComponent(lblInsertIntro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45))
+        );
+        InsertStartTabLayout.setVerticalGroup(
+            InsertStartTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStartTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(InsertMHBELogo1)
+                .addGap(82, 82, 82)
+                .addComponent(lblInsertIntro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblInsertInstructions1)
+                .addGap(18, 18, 18)
+                .addComponent(lblInsertInstructions2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        InsertTabOuterContainer.addTab("Getting Started", InsertStartTab);
+
+        InsertStp1Header.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        InsertStp1Header.setText("Insert into Provider Table");
+
+        lblInsertIssuerID.setText("Issuer ID");
+
+        InsertIssuerName.setText("                                                   ");
+        InsertIssuerName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonProviderTblActionPerformed(evt);
+                InsertIssuerNameActionPerformed(evt);
             }
         });
 
-        buttonPlanTbl.setText("Plan Table");
-        buttonPlanTbl.addActionListener(new java.awt.event.ActionListener() {
+        lblInsertIssuerName.setText("Name");
+
+        InsertIssuerID.setText("                                                   ");
+        InsertIssuerID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPlanTblActionPerformed(evt);
+                InsertIssuerIDActionPerformed(evt);
             }
         });
 
-        buttonBenefitsTbl.setText("Benefits Table");
-        buttonBenefitsTbl.addActionListener(new java.awt.event.ActionListener() {
+        lblInsertServiceArea.setText("Service Area");
+
+        InsertServiceArea.setText("                                                   ");
+        InsertServiceArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonBenefitsTblActionPerformed(evt);
+                InsertServiceAreaActionPerformed(evt);
             }
         });
 
-        buttonPlanlvlProgramsTbl.setText("Plan Level Programs Table");
-        buttonPlanlvlProgramsTbl.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertINSERT1.setText("Insert");
+
+        btnInsertNEXT1.setText("Next");
+        btnInsertNEXT1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPlanlvlProgramsTblActionPerformed(evt);
+                btnInsertNEXT1ActionPerformed(evt);
             }
         });
 
-        buttonCostShareTbl.setText("Cost Sharing Table");
-        buttonCostShareTbl.addActionListener(new java.awt.event.ActionListener() {
+        InsertProviderTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(InsertProviderTable);
+
+        javax.swing.GroupLayout InsertStp1TabLayout = new javax.swing.GroupLayout(InsertStp1Tab);
+        InsertStp1Tab.setLayout(InsertStp1TabLayout);
+        InsertStp1TabLayout.setHorizontalGroup(
+            InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStp1TabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(InsertStp1Header)
+                    .addGroup(InsertStp1TabLayout.createSequentialGroup()
+                        .addComponent(lblInsertServiceArea)
+                        .addGap(18, 18, 18)
+                        .addComponent(InsertServiceArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InsertStp1TabLayout.createSequentialGroup()
+                        .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblInsertIssuerID)
+                            .addComponent(lblInsertIssuerName))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InsertIssuerID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InsertIssuerName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(51, 51, 51)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStp1TabLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnInsertINSERT1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnInsertNEXT1)
+                .addGap(49, 49, 49))
+        );
+        InsertStp1TabLayout.setVerticalGroup(
+            InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStp1TabLayout.createSequentialGroup()
+                .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStp1TabLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(InsertStp1Header)
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInsertIssuerID)
+                            .addComponent(InsertIssuerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInsertIssuerName)
+                            .addComponent(InsertIssuerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInsertServiceArea)
+                            .addComponent(InsertServiceArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(InsertStp1TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInsertINSERT1)
+                    .addComponent(btnInsertNEXT1))
+                .addGap(40, 40, 40))
+        );
+
+        InsertTabOuterContainer.addTab("Step 1", InsertStp1Tab);
+
+        InsertStp2Header.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        InsertStp2Header.setText("Insert into Plan Table");
+
+        lblInsertPlanID.setText("Plan ID");
+
+        lblInsertPlanURL.setText("Plan URL");
+
+        lblInsertPlanType.setText("Plan Type");
+
+        lblInsertQHPStatus.setText("QHP Status");
+
+        lblInsertStatus.setText("Status");
+
+        lblPlanName.setText("Plan Name");
+
+        lblMetalLevel.setText("Metal Level");
+
+        InsertChildOnlyCheck.setText("Select if this is a Child only Plan");
+        InsertChildOnlyCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCostShareTblActionPerformed(evt);
+                InsertChildOnlyCheckActionPerformed(evt);
             }
         });
 
-        buttonPremiumTbl.setText("Premium Table");
-        buttonPremiumTbl.addActionListener(new java.awt.event.ActionListener() {
+        lblChildOnlyPlanID.setText("Child Only Plan ID");
+
+        lblPlanServiceArea.setText("Service Area");
+
+        lblEHBPercentPremium.setText("EHB Perc Premium");
+
+        lblPlanIssuerID.setText("Issuer ID");
+
+        btnInsertINSERT2.setText("Insert");
+        btnInsertINSERT2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPremiumTblActionPerformed(evt);
+                btnInsertINSERT2ActionPerformed(evt);
             }
         });
 
-        buttonGeoCovTbl.setText("Geographic Coverage Table");
-        buttonGeoCovTbl.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertNEXT2.setText("Next");
+        btnInsertNEXT2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonGeoCovTblActionPerformed(evt);
+                btnInsertNEXT2ActionPerformed(evt);
             }
         });
 
-        buttonMOOPTbl.setText("Max Out of Pocket Table");
-        buttonMOOPTbl.addActionListener(new java.awt.event.ActionListener() {
+        PlanID.setText("                                           ");
+        PlanID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonMOOPTblActionPerformed(evt);
+                PlanIDActionPerformed(evt);
             }
         });
 
-        buttonRefReqTbl.setText("Referral Required Table");
-        buttonRefReqTbl.addActionListener(new java.awt.event.ActionListener() {
+        InsertPlanURL.setText("                                           ");
+
+        InsertPlanType.setText("                                           ");
+
+        InsertQHPStatus.setText("                                           ");
+
+        InsertStatus.setText("                                           ");
+
+        InsertPlanName.setText("                                           ");
+
+        InsertMetalLvl.setText("                                           ");
+
+        InsertChildPlan.setText("                                           ");
+
+        InsertPlanServArea.setText("                                           ");
+
+        InsertEHBPercPremium.setText("                                           ");
+
+        InsertResultTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(InsertResultTable2);
+
+        IssuerIDdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout InsertStp2TabLayout = new javax.swing.GroupLayout(InsertStp2Tab);
+        InsertStp2Tab.setLayout(InsertStp2TabLayout);
+        InsertStp2TabLayout.setHorizontalGroup(
+            InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                                .addComponent(lblInsertPlanID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(PlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStp2TabLayout.createSequentialGroup()
+                                .addComponent(lblInsertPlanType, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(InsertPlanType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStp2TabLayout.createSequentialGroup()
+                                .addComponent(lblInsertQHPStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(InsertQHPStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                                .addComponent(lblInsertPlanURL)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(InsertPlanURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                                .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEHBPercentPremium)
+                                    .addComponent(lblPlanServiceArea)
+                                    .addComponent(lblPlanIssuerID))
+                                .addGap(13, 13, 13)
+                                .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(InsertEHBPercPremium)
+                                    .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                                        .addComponent(InsertPlanServArea, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(IssuerIDdropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                                .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(InsertChildOnlyCheck)
+                                    .addComponent(InsertStp2Header)
+                                    .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                                        .addComponent(lblChildOnlyPlanID)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(InsertChildPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(InsertStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblInsertStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPlanName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblMetalLevel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InsertMetalLvl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InsertPlanName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStp2TabLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnInsertINSERT2)
+                .addGap(32, 32, 32)
+                .addComponent(btnInsertNEXT2)
+                .addGap(35, 35, 35))
+        );
+        InsertStp2TabLayout.setVerticalGroup(
+            InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStp2TabLayout.createSequentialGroup()
+                        .addComponent(InsertStp2Header)
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInsertPlanID)
+                            .addComponent(PlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInsertPlanURL)
+                            .addComponent(InsertPlanURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInsertPlanType)
+                            .addComponent(InsertPlanType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInsertQHPStatus)
+                            .addComponent(InsertQHPStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InsertStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblInsertStatus))
+                        .addGap(13, 13, 13)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPlanName)
+                            .addComponent(InsertPlanName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMetalLevel)
+                            .addComponent(InsertMetalLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
+                        .addComponent(InsertChildOnlyCheck)
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblChildOnlyPlanID)
+                            .addComponent(InsertChildPlan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPlanServiceArea)
+                            .addComponent(InsertPlanServArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEHBPercentPremium)
+                            .addComponent(InsertEHBPercPremium, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
+                        .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPlanIssuerID)
+                            .addComponent(IssuerIDdropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InsertStp2TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInsertINSERT2)
+                    .addComponent(btnInsertNEXT2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        InsertTabOuterContainer.addTab("Step 2", InsertStp2Tab);
+
+        lblInsertPremium.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblInsertPremium.setText("Insert into Premium Table");
+
+        lblInsertPlanID3.setText("Plan ID");
+
+        lblIndivRate.setText("Individual Rate");
+
+        lblAgeRange.setText("Age Range");
+
+        InsertBeneHeader.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        InsertBeneHeader.setText("Insert into Benefits Table");
+
+        lblBenePlanID.setText("Plan ID");
+
+        lblBeneService.setText("Benefits Service");
+
+        lblBeneDescrip.setText("Benefits Description");
+
+        lblReasonEHB.setText("Reason for EHB Variance");
+
+        lblQuantServ.setText("Qaunity Service Limit");
+
+        InsertBeneCoveredCheck.setText("Check this box if the patient is covered");
+        InsertBeneCoveredCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRefReqTblActionPerformed(evt);
+                InsertBeneCoveredCheckActionPerformed(evt);
             }
         });
 
-        buttonInNetDeductTbl.setText("In Network Deductible Table");
-        buttonInNetDeductTbl.addActionListener(new java.awt.event.ActionListener() {
+        InsertBeneEHBCheck.setText("Check this box if there is an EHB Flag");
+        InsertBeneEHBCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonInNetDeductTblActionPerformed(evt);
+                InsertBeneEHBCheckActionPerformed(evt);
             }
         });
 
-        buttonOutNetDeductTbl.setText("Out-of-Network Deductible Table");
-        buttonOutNetDeductTbl.addActionListener(new java.awt.event.ActionListener() {
+        InsertCostShareHeader.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        InsertCostShareHeader.setText("Insert into Cost Sharing Table");
+
+        lblInsertCSPlanID.setText("Plan ID");
+
+        lblCSRvar.setText("CSR Variation");
+
+        lblAdvPayment.setText("Advance Payment");
+
+        lblIssuerActuarial.setText("Issuer Acturial Value");
+
+        jButton16.setText("Insert");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonOutNetDeductTblActionPerformed(evt);
+                jButton16ActionPerformed(evt);
             }
         });
 
-        buttonBenefitCostTbl.setText("Benefit Service Cost Table");
-        buttonBenefitCostTbl.addActionListener(new java.awt.event.ActionListener() {
+        jButton21.setText("Next");
+
+        InsertBeneServ.setText("                                           ");
+
+        InsertAgeRange.setText("                                           ");
+
+        InsertIndivRate.setText("                                           ");
+
+        InsertBeneReasonEHB.setText("                                           ");
+
+        BeneQuantServ.setText("                                           ");
+
+        InsertBeneDescrip.setText("                                           ");
+
+        InsertCSRvar.setText("                                           ");
+
+        InsertAdvancedPayment.setText("                                           ");
+
+        InsertActuarialValue.setText("                                           ");
+
+        InsertResultTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(InsertResultTable3);
+
+        InsertPlanID3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        InsertBenePlanID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        InsertCSPlanID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout InsertStep3TabLayout = new javax.swing.GroupLayout(InsertStep3Tab);
+        InsertStep3Tab.setLayout(InsertStep3TabLayout);
+        InsertStep3TabLayout.setHorizontalGroup(
+            InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                        .addComponent(lblInsertPlanID3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(InsertPlanID3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(91, 91, 91))
+                    .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblBeneService)
+                                    .addComponent(lblBenePlanID))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(InsertBenePlanID, 0, 171, Short.MAX_VALUE)
+                                    .addComponent(InsertBeneServ, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
+                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblReasonEHB)
+                                    .addComponent(lblQuantServ)
+                                    .addComponent(lblBeneDescrip))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(InsertBeneDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(BeneQuantServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(InsertBeneReasonEHB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                .addComponent(lblIssuerActuarial)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InsertActuarialValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(InsertCostShareHeader)
+                            .addComponent(lblInsertPremium)
+                            .addComponent(InsertBeneHeader)
+                            .addComponent(InsertBeneEHBCheck)
+                            .addComponent(InsertBeneCoveredCheck)
+                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblInsertCSPlanID)
+                                    .addComponent(lblCSRvar)
+                                    .addComponent(lblAdvPayment))
+                                .addGap(22, 22, 22)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(InsertAdvancedPayment)
+                                    .addComponent(InsertCSRvar)
+                                    .addComponent(InsertCSPlanID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblIndivRate)
+                                    .addComponent(lblAgeRange))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(InsertAgeRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(InsertIndivRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep3TabLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton21)
+                .addGap(54, 54, 54))
+        );
+        InsertStep3TabLayout.setVerticalGroup(
+            InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3)
+                    .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(lblInsertPremium)
+                        .addGap(5, 5, 5)
+                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InsertPlanID3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblInsertPlanID3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InsertIndivRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblIndivRate))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAgeRange)
+                            .addComponent(InsertAgeRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(InsertBeneHeader)
+                        .addGap(9, 9, 9)
+                        .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblBenePlanID)
+                                    .addComponent(InsertBenePlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblBeneService)
+                                    .addComponent(InsertBeneServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InsertBeneCoveredCheck)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InsertBeneEHBCheck)
+                                .addGap(1, 1, 1)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblReasonEHB)
+                                    .addComponent(InsertBeneReasonEHB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(BeneQuantServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblQuantServ))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(InsertBeneDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblBeneDescrip))
+                                .addGap(18, 18, 18)
+                                .addComponent(InsertCostShareHeader)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblInsertCSPlanID)
+                                    .addComponent(InsertCSPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(InsertCSRvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCSRvar))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblAdvPayment)
+                                    .addComponent(InsertAdvancedPayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblIssuerActuarial)
+                                    .addComponent(InsertActuarialValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(InsertStep3TabLayout.createSequentialGroup()
+                                .addGap(158, 158, 158)
+                                .addComponent(jLabel33)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InsertStep3TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton16)
+                    .addComponent(jButton21))
+                .addGap(0, 70, Short.MAX_VALUE))
+        );
+
+        InsertTabOuterContainer.addTab("Step 3", InsertStep3Tab);
+
+        InsertRefReqHeader.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        InsertRefReqHeader.setText("Insert into Referal Required Table");
+
+        lblInsertRefPlanID.setText("Plan ID");
+
+        lblSpecReq.setText("Specialist Required");
+
+        lblRefReq.setText("Referal Required");
+
+        InsertBeneCostHeader.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        InsertBeneCostHeader.setText("Insert into Benefit Service Cost Table");
+
+        InsertPlanlvlProgramsHeader.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        InsertPlanlvlProgramsHeader.setText("Insert into Plan Level Programs Table");
+
+        lblInsertBeneServ.setText("Benefits Service");
+
+        lblInsertCopay.setText("Copay");
+
+        lblBeneCoin.setText("Coinsurance");
+
+        lblBeneCostPlanID.setText("Plan ID");
+
+        lblPlanLvlPlanID.setText("Plan ID");
+
+        lblTabaccoWell.setText("Tobacco Wellness");
+
+        lblDiseaseMgmt.setText("Disease Management");
+
+        jButton17.setText("Insert");
+
+        jButton22.setText("Next");
+
+        InsertRefPlanID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        InsertRefReq.setText("jTextField2");
+
+        InsertPlanLvlPlanID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        InsertTabaccoWellness.setText("jTextField3");
+
+        InsertBeneCostService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        InsertBeneCopay.setText("jTextField31");
+
+        InsertBeneCostPlanID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        InsertBeneCoinsurance.setText("jTextField35");
+
+        InsertResultTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(InsertResultTable4);
+
+        InsertDiseaseMgmt.setColumns(20);
+        InsertDiseaseMgmt.setRows(5);
+        jScrollPane5.setViewportView(InsertDiseaseMgmt);
+
+        InsertSpecialistsRequired.setColumns(20);
+        InsertSpecialistsRequired.setRows(5);
+        InsertSpecialistsRequired.setToolTipText("Please list the specialists that require a referral.");
+        jScrollPane6.setViewportView(InsertSpecialistsRequired);
+
+        javax.swing.GroupLayout InsertStep4TabLayout = new javax.swing.GroupLayout(InsertStep4Tab);
+        InsertStep4Tab.setLayout(InsertStep4TabLayout);
+        InsertStep4TabLayout.setHorizontalGroup(
+            InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InsertRefReqHeader)
+                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addComponent(lblInsertRefPlanID)
+                        .addGap(18, 18, 18)
+                        .addComponent(InsertRefPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(InsertBeneCostHeader)
+                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addComponent(lblDiseaseMgmt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
+                            .addComponent(lblBeneCostPlanID)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InsertBeneCostPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                            .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblBeneCoin)
+                                .addComponent(lblInsertCopay))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                            .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(InsertBeneCopay, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(InsertBeneCoinsurance, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
+                            .addComponent(lblInsertBeneServ)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InsertBeneCostService, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
+                            .addComponent(lblPlanLvlPlanID)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InsertPlanLvlPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(InsertPlanlvlProgramsHeader, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
+                            .addComponent(lblRefReq)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InsertRefReq, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep4TabLayout.createSequentialGroup()
+                            .addComponent(lblTabaccoWell)
+                            .addGap(18, 18, 18)
+                            .addComponent(InsertTabaccoWellness, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addComponent(lblSpecReq)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(13, 13, 13)
+                .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton22)
+                        .addGap(144, 144, 144))
+                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE)
+                        .addContainerGap())))
+        );
+        InsertStep4TabLayout.setVerticalGroup(
+            InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep4TabLayout.createSequentialGroup()
+                .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(InsertRefReqHeader)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InsertRefPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblInsertRefPlanID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                                .addComponent(lblSpecReq)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRefReq, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(InsertRefReq, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 47, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(InsertBeneCostHeader)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblInsertBeneServ, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(InsertBeneCostService, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblInsertCopay, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(InsertBeneCopay, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblBeneCoin, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(InsertBeneCoinsurance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblBeneCostPlanID, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(InsertBeneCostPlanID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(InsertPlanlvlProgramsHeader)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPlanLvlPlanID, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(InsertPlanLvlPlanID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTabaccoWell)
+                            .addComponent(InsertTabaccoWellness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDiseaseMgmt)))
+                    .addGroup(InsertStep4TabLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4)
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStep4TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton17)
+                            .addComponent(jButton22))))
+                .addGap(47, 47, 47))
+        );
+
+        InsertTabOuterContainer.addTab("Step 4", InsertStep4Tab);
+
+        InsertMOOPHeader.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        InsertMOOPHeader.setText("Insert into Max out of Pocket Table");
+
+        lblMOOPplanID.setText("Plan ID");
+
+        lblInNetMOOP.setText("In Network MOOP");
+
+        lblOutNetMOOP.setText("Out of Network MOOP");
+
+        InsertGeoHeader.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        InsertGeoHeader.setText("Insert into Geographic Coverage Table");
+
+        lblOOCcoverage.setText("Out of Country Coverage");
+
+        lblOOScoverage.setText("Out of Service Area Coverage");
+
+        lblGeoPlanID.setText("Plan ID");
+
+        NationalNetCoverageCheck.setText("Check this box if the coverage is in the national Network");
+
+        btnInsertINSERT5.setText("Insert");
+
+        btnInsertNEXT5.setText("Next");
+
+        InsertInNetMOOP.setText("                                                         ");
+
+        InsertOutNetMOOP.setText("                                                         ");
+        InsertOutNetMOOP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonBenefitCostTblActionPerformed(evt);
+                InsertOutNetMOOPActionPerformed(evt);
             }
         });
 
-        lvlStep1.setText("Step 1:");
+        InsertOOScoverage.setText("                                                         ");
 
-        lblStep2.setText("Step 2:");
+        InsertOOCcoverage.setText("                                                         ");
 
-        lblStep3.setText("Step 3:");
+        InsertMOOPplanID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblStep4.setText("Step 4:");
+        InsertGeoPlanID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblStep5.setText("Step 5:");
+        InsertResultTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(InsertResultTable5);
 
-        buttonOutPocketCostsTbl.setText("Out of Pocket Table");
-        buttonOutPocketCostsTbl.addActionListener(new java.awt.event.ActionListener() {
+        InsertOOPHeader.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        InsertOOPHeader.setText("Insert into Out-of-Pocket Costs Table");
+
+        lblOOPPlanID.setText("Plan ID");
+
+        InsertOOPplanID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblInsertOOPCoin.setText("Default Coins");
+
+        InsertOOPcoinsurance.setText("                                            ");
+        InsertOOPcoinsurance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonOutPocketCostsTblActionPerformed(evt);
+                InsertOOPcoinsuranceActionPerformed(evt);
             }
         });
 
-        lblStep6.setText("Step 6:");
+        lblOOPCopay.setText("Default Copay");
+
+        InsertOOPcopay.setText("                                            ");
+
+        lblInsertHSAHRA.setText("HSA or HRA?");
+
+        InsertOOPHSAHRA.setText("                                            ");
+        InsertOOPHSAHRA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertOOPHSAHRAActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout InsertStep5TabLayout = new javax.swing.GroupLayout(InsertStep5Tab);
+        InsertStep5Tab.setLayout(InsertStep5TabLayout);
+        InsertStep5TabLayout.setHorizontalGroup(
+            InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InsertMOOPHeader)
+                            .addComponent(InsertGeoHeader)
+                            .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblOOScoverage)
+                                    .addComponent(lblOOCcoverage))
+                                .addGap(18, 18, 18)
+                                .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(InsertOOScoverage, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                                    .addComponent(InsertOOCcoverage, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
+                            .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                    .addComponent(lblMOOPplanID)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(InsertMOOPplanID, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                    .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblOutNetMOOP)
+                                        .addComponent(lblInNetMOOP))
+                                    .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(InsertOutNetMOOP, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep5TabLayout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(InsertInNetMOOP, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep5TabLayout.createSequentialGroup()
+                                    .addComponent(lblGeoPlanID)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(InsertGeoPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(NationalNetCoverageCheck)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE))
+                    .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(InsertOOPHeader)
+                            .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                .addComponent(lblOOPPlanID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(InsertOOPplanID, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                .addComponent(lblInsertHSAHRA)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(InsertOOPHSAHRA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                .addComponent(lblOOPCopay)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(InsertOOPcopay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                                .addComponent(lblInsertOOPCoin)
+                                .addGap(42, 42, 42)
+                                .addComponent(InsertOOPcoinsurance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                        .addGap(551, 551, 551)
+                        .addComponent(btnInsertINSERT5)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnInsertNEXT5)
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep5TabLayout.createSequentialGroup()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+        InsertStep5TabLayout.setVerticalGroup(
+            InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnInsertNEXT5)
+                            .addComponent(btnInsertINSERT5))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(InsertStep5TabLayout.createSequentialGroup()
+                        .addComponent(InsertMOOPHeader)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InsertMOOPplanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMOOPplanID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInNetMOOP)
+                            .addComponent(InsertInNetMOOP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblOutNetMOOP)
+                            .addComponent(InsertOutNetMOOP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(InsertOOPHeader)
+                        .addGap(21, 21, 21)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblOOPPlanID)
+                            .addComponent(InsertOOPplanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInsertOOPCoin)
+                            .addComponent(InsertOOPcoinsurance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblOOPCopay)
+                            .addComponent(InsertOOPcopay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInsertHSAHRA)
+                            .addComponent(InsertOOPHSAHRA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addComponent(InsertGeoHeader)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblGeoPlanID)
+                            .addComponent(InsertGeoPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(NationalNetCoverageCheck)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblOOScoverage)
+                            .addComponent(InsertOOScoverage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep5TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblOOCcoverage)
+                            .addComponent(InsertOOCcoverage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
+        InsertTabOuterContainer.addTab("Step 5", InsertStep5Tab);
+
+        InsertINDeductHeader.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        InsertINDeductHeader.setText("Insert Into In-Network Deductable Table");
+
+        lblINnetPlanID.setText("Plan ID");
+
+        lblINnetPedDentDeduct.setText("In-network Pediatric Dental Deductable");
+
+        lblINnetMedDeduct.setText("In-network Medical Deductable");
+
+        lblINnetDrugDeduct.setText("In-network Drug Deductable ");
+
+        InsertINdeductcheck.setText("Check if it is a combined deductable");
+
+        lblINnetComboDeduct.setText("In-network Combined Deductable");
+
+        btnInsertINSERT6.setText("Insert");
+
+        InsertINnetPedDentDeduct.setText("                                            ");
+        InsertINnetPedDentDeduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertINnetPedDentDeductActionPerformed(evt);
+            }
+        });
+
+        InsertINnetMedDeduct.setText("                                            ");
+        InsertINnetMedDeduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertINnetMedDeductActionPerformed(evt);
+            }
+        });
+
+        InsertINnetDrugDeduct.setText("                                            ");
+
+        InsertINnetComboDeduct.setText("                                            ");
+
+        btnInsertSAVE.setBackground(new java.awt.Color(0, 204, 204));
+        btnInsertSAVE.setText("Save");
+        btnInsertSAVE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertSAVEActionPerformed(evt);
+            }
+        });
+
+        InsertInNetworPlanID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        InsertResultTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane8.setViewportView(InsertResultTable6);
+
+        InsertOONDeductHeader.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        InsertOONDeductHeader.setText("Insert into Out-Of-Network Deductable Table");
+
+        lblOONPlanID.setText("Plan ID");
+
+        InsertOONDeduct.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblinNetPedDent.setText("Out-of-network Pediatric Dental");
+
+        InsertOONPedDent.setText("                                                         ");
+
+        lblInNetMed.setText("Out-of-network Medical Deductable");
+
+        InsertOONnetMed.setText("                                                         ");
+
+        lblINnetDrug.setText("Out-of-network Drug Deductable");
+
+        InsertOONDrugDeduct.setText("                                                         ");
+
+        CombinedDeductCheck.setText("Check if it's a combined deductable");
+        CombinedDeductCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CombinedDeductCheckActionPerformed(evt);
+            }
+        });
+
+        lblINnetCombined.setText("Out-of-network Combined Deductable");
+
+        InsertOONComboDeduct.setText("                                                         ");
+        InsertOONComboDeduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertOONComboDeductActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout InsertStep6TabLayout = new javax.swing.GroupLayout(InsertStep6Tab);
+        InsertStep6Tab.setLayout(InsertStep6TabLayout);
+        InsertStep6TabLayout.setHorizontalGroup(
+            InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                            .addComponent(lblINnetPedDentDeduct)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(InsertINnetPedDentDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                        .addComponent(InsertINdeductcheck)
+                        .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                            .addComponent(lblINnetComboDeduct)
+                            .addGap(18, 18, 18)
+                            .addComponent(InsertINnetComboDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                                .addComponent(lblINnetPlanID)
+                                .addGap(18, 18, 18)
+                                .addComponent(InsertInNetworPlanID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(InsertINDeductHeader, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep6TabLayout.createSequentialGroup()
+                            .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblINnetMedDeduct)
+                                .addComponent(lblINnetDrugDeduct))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(InsertINnetDrugDeduct)
+                                .addComponent(InsertINnetMedDeduct))))
+                    .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                            .addComponent(lblOONPlanID)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InsertOONDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(InsertOONDeductHeader, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                            .addComponent(lblINnetCombined)
+                            .addGap(18, 18, 18)
+                            .addComponent(InsertOONComboDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                        .addComponent(CombinedDeductCheck, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                            .addComponent(lblINnetDrug)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InsertOONDrugDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                            .addComponent(lblInNetMed)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(InsertOONnetMed, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsertStep6TabLayout.createSequentialGroup()
+                            .addComponent(lblinNetPedDent)
+                            .addGap(26, 26, 26)
+                            .addComponent(InsertOONPedDent, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertStep6TabLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnInsertINSERT6)
+                .addGap(33, 33, 33)
+                .addComponent(btnInsertSAVE)
+                .addGap(92, 92, 92))
+        );
+        InsertStep6TabLayout.setVerticalGroup(
+            InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(InsertStep6TabLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(InsertOONDeductHeader)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblOONPlanID)
+                            .addComponent(InsertOONDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblinNetPedDent)
+                            .addComponent(InsertOONPedDent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInNetMed)
+                            .addComponent(InsertOONnetMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblINnetDrug)
+                            .addComponent(InsertOONDrugDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CombinedDeductCheck)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblINnetCombined)
+                            .addComponent(InsertOONComboDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addComponent(InsertINDeductHeader)
+                        .addGap(23, 23, 23)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblINnetPlanID)
+                            .addComponent(InsertInNetworPlanID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblINnetPedDentDeduct)
+                            .addComponent(InsertINnetPedDentDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblINnetMedDeduct)
+                            .addComponent(InsertINnetMedDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblINnetDrugDeduct)
+                            .addComponent(InsertINnetDrugDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addComponent(InsertINdeductcheck)
+                        .addGap(18, 18, 18)
+                        .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblINnetComboDeduct)
+                            .addComponent(InsertINnetComboDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane8))
+                .addGap(20, 20, 20)
+                .addGroup(InsertStep6TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInsertINSERT6)
+                    .addComponent(btnInsertSAVE))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        InsertTabOuterContainer.addTab("Step 6", InsertStep6Tab);
 
         javax.swing.GroupLayout InsertTabContainerLayout = new javax.swing.GroupLayout(InsertTabContainer);
         InsertTabContainer.setLayout(InsertTabContainerLayout);
         InsertTabContainerLayout.setHorizontalGroup(
             InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InsertTabContainerLayout.createSequentialGroup()
-                .addGap(290, 290, 290)
-                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(InsertTabContainerLayout.createSequentialGroup()
-                        .addComponent(lblStep2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonPlanTbl, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(InsertTabContainerLayout.createSequentialGroup()
-                        .addComponent(lvlStep1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonProviderTbl, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertTabContainerLayout.createSequentialGroup()
-                .addContainerGap(311, Short.MAX_VALUE)
-                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertTabContainerLayout.createSequentialGroup()
-                        .addComponent(InsertInstructions, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertTabContainerLayout.createSequentialGroup()
-                        .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblStep3)
-                            .addComponent(lblStep4)
-                            .addComponent(lblStep5)
-                            .addComponent(lblStep6))
-                        .addGap(5, 5, 5)
-                        .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonMOOPTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonRefReqTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonPremiumTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonOutPocketCostsTbl, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
-                        .addGap(55, 55, 55)
-                        .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonBenefitCostTbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonOutNetDeductTbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonInNetDeductTbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonBenefitsTbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(60, 60, 60)
-                        .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonPlanlvlProgramsTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonGeoCovTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonCostShareTbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(81, 81, 81))))
+            .addGap(0, 1149, Short.MAX_VALUE)
+            .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(InsertTabOuterContainer))
         );
         InsertTabContainerLayout.setVerticalGroup(
             InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InsertTabContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(InsertInstructions, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonProviderTbl)
-                    .addComponent(lvlStep1))
-                .addGap(18, 18, 18)
-                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonPlanTbl)
-                    .addComponent(lblStep2))
-                .addGap(38, 38, 38)
-                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonPremiumTbl)
-                    .addComponent(buttonBenefitsTbl)
-                    .addComponent(lblStep3)
-                    .addComponent(buttonCostShareTbl))
-                .addGap(51, 51, 51)
-                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonBenefitCostTbl)
-                    .addComponent(lblStep4)
-                    .addComponent(buttonRefReqTbl)
-                    .addComponent(buttonPlanlvlProgramsTbl))
-                .addGap(55, 55, 55)
-                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonOutNetDeductTbl)
-                    .addComponent(lblStep5)
-                    .addComponent(buttonMOOPTbl)
-                    .addComponent(buttonGeoCovTbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonOutPocketCostsTbl)
-                    .addComponent(buttonInNetDeductTbl)
-                    .addComponent(lblStep6))
-                .addGap(74, 74, 74))
+            .addGap(0, 625, Short.MAX_VALUE)
+            .addGroup(InsertTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(InsertTabOuterContainer))
         );
 
         MainMenuTab.addTab("Insert Template", InsertTabContainer);
@@ -779,58 +2141,6 @@ public class MainMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_updateTblDataActionPerformed
 
-    private void buttonProviderTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProviderTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonProviderTblActionPerformed
-
-    private void buttonPlanTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlanTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonPlanTblActionPerformed
-
-    private void buttonBenefitsTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBenefitsTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonBenefitsTblActionPerformed
-
-    private void buttonPlanlvlProgramsTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlanlvlProgramsTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonPlanlvlProgramsTblActionPerformed
-
-    private void buttonCostShareTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCostShareTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCostShareTblActionPerformed
-
-    private void buttonPremiumTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPremiumTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonPremiumTblActionPerformed
-
-    private void buttonGeoCovTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGeoCovTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonGeoCovTblActionPerformed
-
-    private void buttonMOOPTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMOOPTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonMOOPTblActionPerformed
-
-    private void buttonRefReqTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefReqTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonRefReqTblActionPerformed
-
-    private void buttonInNetDeductTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInNetDeductTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonInNetDeductTblActionPerformed
-
-    private void buttonOutNetDeductTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOutNetDeductTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonOutNetDeductTblActionPerformed
-
-    private void buttonBenefitCostTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBenefitCostTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonBenefitCostTblActionPerformed
-
-    private void buttonOutPocketCostsTblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOutPocketCostsTblActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonOutPocketCostsTblActionPerformed
-
     private void QueryDropdownListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QueryDropdownListActionPerformed
     String[] columnNames=null;
         String sql = null;
@@ -840,25 +2150,25 @@ public class MainMenu extends javax.swing.JFrame {
         }
         if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Find Min/Max Query")) {
             // create a pop-up window to take input 
-                       
+            FindMinMaxDialog.setVisible(true);
         }
         if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Comparison Query")) {
             // create a pop-up window to take input
-                        
+            CompareDialog.setVisible(true);            
         }
         if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Print Table Query")) {
             // create a pop-up window to take input 
-                      
+            PrintTableDIalog.setVisible(true);          
         }
         if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Custom SQL Query")) {
             // create a pop-up window to take input 
-                        
+            CustomSQLdialog.setVisible(true);            
         }
         
     }//GEN-LAST:event_QueryDropdownListActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
-    System.exit(0);        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -967,6 +2277,86 @@ public class MainMenu extends javax.swing.JFrame {
         QueryResultTable.setModel(model);
     }//GEN-LAST:event_DisplayTblSelectionMenuActionPerformed
 
+    private void InsertIssuerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertIssuerNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertIssuerNameActionPerformed
+
+    private void InsertIssuerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertIssuerIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertIssuerIDActionPerformed
+
+    private void InsertServiceAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertServiceAreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertServiceAreaActionPerformed
+
+    private void btnInsertNEXT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertNEXT1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInsertNEXT1ActionPerformed
+
+    private void InsertChildOnlyCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertChildOnlyCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertChildOnlyCheckActionPerformed
+
+    private void btnInsertINSERT2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertINSERT2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInsertINSERT2ActionPerformed
+
+    private void btnInsertNEXT2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertNEXT2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInsertNEXT2ActionPerformed
+
+    private void PlanIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlanIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PlanIDActionPerformed
+
+    private void InsertBeneCoveredCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertBeneCoveredCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertBeneCoveredCheckActionPerformed
+
+    private void InsertBeneEHBCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertBeneEHBCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertBeneEHBCheckActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void CombinedDeductCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CombinedDeductCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CombinedDeductCheckActionPerformed
+
+    private void InsertOutNetMOOPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOutNetMOOPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertOutNetMOOPActionPerformed
+
+    private void InsertOONComboDeductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOONComboDeductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertOONComboDeductActionPerformed
+
+    private void InsertOOPcoinsuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOOPcoinsuranceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertOOPcoinsuranceActionPerformed
+
+    private void InsertOOPHSAHRAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOOPHSAHRAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertOOPHSAHRAActionPerformed
+
+    private void InsertINnetPedDentDeductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertINnetPedDentDeductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertINnetPedDentDeductActionPerformed
+
+    private void InsertINnetMedDeductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertINnetMedDeductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertINnetMedDeductActionPerformed
+
+    private void btnInsertSAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertSAVEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInsertSAVEActionPerformed
+
+    private void MinMaxTblListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinMaxTblListActionPerformed
+        
+    }//GEN-LAST:event_MinMaxTblListActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1004,20 +2394,113 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField BeneQuantServ;
+    private javax.swing.JCheckBox CombinedDeductCheck;
+    private javax.swing.JDialog CompareDialog;
+    private javax.swing.JDialog CustomSQLdialog;
     private javax.swing.JDialog DisplayDialog;
+    private javax.swing.JLabel DisplayMHBELogo;
     private javax.swing.JComboBox<String> DisplayTblSelectionMenu;
     private javax.swing.JMenuItem Exit;
     private javax.swing.JMenu FileDropdown;
     private javax.swing.JMenuBar FileMenu;
+    private javax.swing.JDialog FindMinMaxDialog;
+    private javax.swing.JLabel FindMinMaxMHBELogo;
     private javax.swing.JMenu HelpDropdown;
-    private javax.swing.JLabel InsertInstructions;
+    private javax.swing.JTextField InsertActuarialValue;
+    private javax.swing.JTextField InsertAdvancedPayment;
+    private javax.swing.JTextField InsertAgeRange;
+    private javax.swing.JTextField InsertBeneCoinsurance;
+    private javax.swing.JTextField InsertBeneCopay;
+    private javax.swing.JLabel InsertBeneCostHeader;
+    private javax.swing.JComboBox<String> InsertBeneCostPlanID;
+    private javax.swing.JComboBox<String> InsertBeneCostService;
+    private javax.swing.JCheckBox InsertBeneCoveredCheck;
+    private javax.swing.JTextField InsertBeneDescrip;
+    private javax.swing.JCheckBox InsertBeneEHBCheck;
+    private javax.swing.JLabel InsertBeneHeader;
+    private javax.swing.JComboBox<String> InsertBenePlanID;
+    private javax.swing.JTextField InsertBeneReasonEHB;
+    private javax.swing.JTextField InsertBeneServ;
+    private javax.swing.JComboBox<String> InsertCSPlanID;
+    private javax.swing.JTextField InsertCSRvar;
+    private javax.swing.JCheckBox InsertChildOnlyCheck;
+    private javax.swing.JTextField InsertChildPlan;
+    private javax.swing.JLabel InsertCostShareHeader;
+    private javax.swing.JTextArea InsertDiseaseMgmt;
+    private javax.swing.JTextField InsertEHBPercPremium;
+    private javax.swing.JLabel InsertGeoHeader;
+    private javax.swing.JComboBox<String> InsertGeoPlanID;
+    private javax.swing.JLabel InsertINDeductHeader;
+    private javax.swing.JCheckBox InsertINdeductcheck;
+    private javax.swing.JTextField InsertINnetComboDeduct;
+    private javax.swing.JTextField InsertINnetDrugDeduct;
+    private javax.swing.JTextField InsertINnetMedDeduct;
+    private javax.swing.JTextField InsertINnetPedDentDeduct;
+    private javax.swing.JTextField InsertInNetMOOP;
+    private javax.swing.JComboBox<String> InsertInNetworPlanID;
+    private javax.swing.JTextField InsertIndivRate;
+    private javax.swing.JTextField InsertIssuerID;
+    private javax.swing.JTextField InsertIssuerName;
+    private javax.swing.JLabel InsertMHBELogo1;
+    private javax.swing.JLabel InsertMOOPHeader;
+    private javax.swing.JComboBox<String> InsertMOOPplanID;
+    private javax.swing.JTextField InsertMetalLvl;
+    private javax.swing.JTextField InsertOOCcoverage;
+    private javax.swing.JTextField InsertOONComboDeduct;
+    private javax.swing.JComboBox<String> InsertOONDeduct;
+    private javax.swing.JLabel InsertOONDeductHeader;
+    private javax.swing.JTextField InsertOONDrugDeduct;
+    private javax.swing.JTextField InsertOONPedDent;
+    private javax.swing.JTextField InsertOONnetMed;
+    private javax.swing.JTextField InsertOOPHSAHRA;
+    private javax.swing.JLabel InsertOOPHeader;
+    private javax.swing.JTextField InsertOOPcoinsurance;
+    private javax.swing.JTextField InsertOOPcopay;
+    private javax.swing.JComboBox<String> InsertOOPplanID;
+    private javax.swing.JTextField InsertOOScoverage;
+    private javax.swing.JTextField InsertOutNetMOOP;
+    private javax.swing.JComboBox<String> InsertPlanID3;
+    private javax.swing.JComboBox<String> InsertPlanLvlPlanID;
+    private javax.swing.JTextField InsertPlanName;
+    private javax.swing.JTextField InsertPlanServArea;
+    private javax.swing.JTextField InsertPlanType;
+    private javax.swing.JTextField InsertPlanURL;
+    private javax.swing.JLabel InsertPlanlvlProgramsHeader;
+    private javax.swing.JTable InsertProviderTable;
+    private javax.swing.JTextField InsertQHPStatus;
+    private javax.swing.JComboBox<String> InsertRefPlanID;
+    private javax.swing.JTextField InsertRefReq;
+    private javax.swing.JLabel InsertRefReqHeader;
+    private javax.swing.JTable InsertResultTable2;
+    private javax.swing.JTable InsertResultTable3;
+    private javax.swing.JTable InsertResultTable4;
+    private javax.swing.JTable InsertResultTable5;
+    private javax.swing.JTable InsertResultTable6;
+    private javax.swing.JTextField InsertServiceArea;
+    private javax.swing.JTextArea InsertSpecialistsRequired;
+    private javax.swing.JPanel InsertStartTab;
+    private javax.swing.JTextField InsertStatus;
+    private javax.swing.JPanel InsertStep3Tab;
+    private javax.swing.JPanel InsertStep4Tab;
+    private javax.swing.JPanel InsertStep5Tab;
+    private javax.swing.JPanel InsertStep6Tab;
+    private javax.swing.JLabel InsertStp1Header;
+    private javax.swing.JPanel InsertStp1Tab;
+    private javax.swing.JLabel InsertStp2Header;
+    private javax.swing.JPanel InsertStp2Tab;
     private javax.swing.JPanel InsertTabContainer;
     private javax.swing.JLabel InsertTabDescription;
+    private javax.swing.JTabbedPane InsertTabOuterContainer;
+    private javax.swing.JTextField InsertTabaccoWellness;
+    private javax.swing.JComboBox<String> IssuerIDdropdown;
     private javax.swing.JPanel MMOuterContainer;
     private javax.swing.JLabel MMWelcome;
     private javax.swing.JPanel MMinnerContainer;
     private javax.swing.JLabel MMintroText;
     private javax.swing.JTabbedPane MainMenuTab;
+    private javax.swing.JComboBox<String> MinMaxColList;
+    private javax.swing.JComboBox<String> MinMaxTblList;
     private javax.swing.JPanel ModOuterTblContainer;
     private javax.swing.JPanel ModSidePanel;
     private javax.swing.JScrollPane ModTblScrollPane;
@@ -1026,39 +2509,109 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel ModifyTabContainer;
     private javax.swing.JLabel ModifyTabDescription;
     private javax.swing.JComboBox<String> ModifyTableList;
+    private javax.swing.JCheckBox NationalNetCoverageCheck;
+    private javax.swing.JTextField PlanID;
+    private javax.swing.JDialog PrintTableDIalog;
     private javax.swing.JComboBox<String> QueryDropdownList;
     private javax.swing.JTable QueryResultTable;
     private javax.swing.JPanel QueryTabContainer;
     private javax.swing.JLabel QueryTabDescription;
     private javax.swing.JScrollPane QueryTableContainer;
-    private javax.swing.JButton buttonBenefitCostTbl;
-    private javax.swing.JButton buttonBenefitsTbl;
-    private javax.swing.JButton buttonCostShareTbl;
-    private javax.swing.JButton buttonGeoCovTbl;
-    private javax.swing.JButton buttonInNetDeductTbl;
-    private javax.swing.JButton buttonMOOPTbl;
-    private javax.swing.JButton buttonOutNetDeductTbl;
-    private javax.swing.JButton buttonOutPocketCostsTbl;
-    private javax.swing.JButton buttonPlanTbl;
-    private javax.swing.JButton buttonPlanlvlProgramsTbl;
-    private javax.swing.JButton buttonPremiumTbl;
-    private javax.swing.JButton buttonProviderTbl;
-    private javax.swing.JButton buttonRefReqTbl;
+    private javax.swing.JButton btnInsertINSERT1;
+    private javax.swing.JButton btnInsertINSERT2;
+    private javax.swing.JButton btnInsertINSERT5;
+    private javax.swing.JButton btnInsertINSERT6;
+    private javax.swing.JButton btnInsertNEXT1;
+    private javax.swing.JButton btnInsertNEXT2;
+    private javax.swing.JButton btnInsertNEXT5;
+    private javax.swing.JButton btnInsertSAVE;
+    private javax.swing.JRadioButton btnMax;
+    private javax.swing.JRadioButton btnMin;
     private javax.swing.JButton deleteTblData;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JLabel lblAdvPayment;
+    private javax.swing.JLabel lblAgeRange;
+    private javax.swing.JLabel lblBeneCoin;
+    private javax.swing.JLabel lblBeneCostPlanID;
+    private javax.swing.JLabel lblBeneDescrip;
+    private javax.swing.JLabel lblBenePlanID;
+    private javax.swing.JLabel lblBeneService;
+    private javax.swing.JLabel lblCSRvar;
+    private javax.swing.JLabel lblChildOnlyPlanID;
     private javax.swing.JLabel lblCustomSQLQueryBtn;
+    private javax.swing.JLabel lblDiseaseMgmt;
+    private javax.swing.JLabel lblEHBPercentPremium;
+    private javax.swing.JLabel lblGeoPlanID;
+    private javax.swing.JLabel lblINnetCombined;
+    private javax.swing.JLabel lblINnetComboDeduct;
+    private javax.swing.JLabel lblINnetDrug;
+    private javax.swing.JLabel lblINnetDrugDeduct;
+    private javax.swing.JLabel lblINnetMedDeduct;
+    private javax.swing.JLabel lblINnetPedDentDeduct;
+    private javax.swing.JLabel lblINnetPlanID;
+    private javax.swing.JLabel lblInNetMOOP;
+    private javax.swing.JLabel lblInNetMed;
+    private javax.swing.JLabel lblIndivRate;
+    private javax.swing.JLabel lblInsertBeneServ;
+    private javax.swing.JLabel lblInsertCSPlanID;
+    private javax.swing.JLabel lblInsertCopay;
+    private javax.swing.JLabel lblInsertHSAHRA;
+    private javax.swing.JLabel lblInsertInstructions1;
+    private javax.swing.JLabel lblInsertInstructions2;
+    private javax.swing.JLabel lblInsertIntro;
+    private javax.swing.JLabel lblInsertIssuerID;
+    private javax.swing.JLabel lblInsertIssuerName;
+    private javax.swing.JLabel lblInsertOOPCoin;
+    private javax.swing.JLabel lblInsertPlanID;
+    private javax.swing.JLabel lblInsertPlanID3;
+    private javax.swing.JLabel lblInsertPlanType;
+    private javax.swing.JLabel lblInsertPlanURL;
+    private javax.swing.JLabel lblInsertPremium;
+    private javax.swing.JLabel lblInsertQHPStatus;
+    private javax.swing.JLabel lblInsertRefPlanID;
+    private javax.swing.JLabel lblInsertServiceArea;
+    private javax.swing.JLabel lblInsertStatus;
+    private javax.swing.JLabel lblIssuerActuarial;
+    private javax.swing.JLabel lblMOOPplanID;
+    private javax.swing.JLabel lblMetalLevel;
+    private javax.swing.JLabel lblMinMaxColList;
+    private javax.swing.JLabel lblMinMaxTblList;
+    private javax.swing.JLabel lblMinOrMax;
     private javax.swing.JLabel lblModifyTableList;
     private javax.swing.JLabel lblModifyWarning;
+    private javax.swing.JLabel lblOOCcoverage;
+    private javax.swing.JLabel lblOONPlanID;
+    private javax.swing.JLabel lblOOPCopay;
+    private javax.swing.JLabel lblOOPPlanID;
+    private javax.swing.JLabel lblOOScoverage;
+    private javax.swing.JLabel lblOutNetMOOP;
+    private javax.swing.JLabel lblPlanIssuerID;
+    private javax.swing.JLabel lblPlanLvlPlanID;
+    private javax.swing.JLabel lblPlanName;
+    private javax.swing.JLabel lblPlanServiceArea;
+    private javax.swing.JLabel lblQuantServ;
     private javax.swing.JLabel lblQueryDropdown;
     private javax.swing.JLabel lblQueryTabIntro;
+    private javax.swing.JLabel lblReasonEHB;
+    private javax.swing.JLabel lblRefReq;
     private javax.swing.JLabel lblSelectDisplayTable;
-    private javax.swing.JLabel lblStep2;
-    private javax.swing.JLabel lblStep3;
-    private javax.swing.JLabel lblStep4;
-    private javax.swing.JLabel lblStep5;
-    private javax.swing.JLabel lblStep6;
-    private javax.swing.JLabel lvlStep1;
+    private javax.swing.JLabel lblSpecReq;
+    private javax.swing.JLabel lblTabaccoWell;
+    private javax.swing.JLabel lblinNetPedDent;
     private javax.swing.JButton updateTblData;
     // End of variables declaration//GEN-END:variables
 }

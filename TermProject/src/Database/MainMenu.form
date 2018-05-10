@@ -8,31 +8,37 @@
           <Color blue="ff" green="99" red="33" type="rgb"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[340, 200]"/>
+          <Dimension value="[320, 200]"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblSelectDisplayTable" max="32767" attributes="0"/>
-                      <Component id="DisplayTblSelectionMenu" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblSelectDisplayTable" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="DisplayTblSelectionMenu" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="33" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="DisplayMHBELogo" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="lblSelectDisplayTable" min="-2" pref="24" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="DisplayTblSelectionMenu" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="DisplayMHBELogo" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblSelectDisplayTable" min="-2" pref="24" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="DisplayTblSelectionMenu" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -40,6 +46,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblSelectDisplayTable">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="13" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Please select the table(s) you wish to display:"/>
           </Properties>
         </Component>
@@ -72,7 +81,218 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
+        <Component class="javax.swing.JLabel" name="DisplayMHBELogo">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Database/mhbelogo_thumb.png"/>
+            </Property>
+          </Properties>
+        </Component>
       </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="FindMinMaxDialog">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblMinMaxTblList" min="-2" max="-2" attributes="0"/>
+                              <Component id="MinMaxTblList" min="-2" pref="143" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="FindMinMaxMHBELogo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnMax" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnMin" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMinOrMax" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMinMaxColList" min="-2" max="-2" attributes="0"/>
+                              <Component id="MinMaxColList" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="FindMinMaxMHBELogo" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblMinMaxTblList" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="MinMaxTblList" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="lblMinMaxColList" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="MinMaxColList" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                  <Component id="lblMinOrMax" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnMin" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnMax" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="31" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblMinMaxTblList">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="13" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Please choose a table to query:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblMinMaxColList">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="13" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Please select a column:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblMinOrMax">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="13" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Would you like to find the minimum or maximum value?"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="MinMaxTblList">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="6">
+                <StringItem index="0" value="Premium"/>
+                <StringItem index="1" value="Cost Sharing"/>
+                <StringItem index="2" value="In-network deductible"/>
+                <StringItem index="3" value="Out-of-network deductible"/>
+                <StringItem index="4" value="Out-of-pocket costs"/>
+                <StringItem index="5" value="Service Cost"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MinMaxTblListActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="MinMaxColList">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="btnMin">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Minimum"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="btnMax">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Maximum"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="FindMinMaxMHBELogo">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Database/mhbelogo_thumb.png"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="CompareDialog">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JDialog" name="PrintTableDIalog">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JDialog" name="CustomSQLdialog">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
     </Container>
     <Menu class="javax.swing.JMenuBar" name="FileMenu">
       <Properties>
@@ -283,7 +503,7 @@
                           <Component id="InsertTabDescription" min="-2" pref="66" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="QueryTabDescription" min="-2" pref="66" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="115" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="155" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -517,7 +737,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ModTblScrollPane" pref="543" max="32767" attributes="0"/>
+                          <Component id="ModTblScrollPane" pref="583" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -566,249 +786,2202 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblStep2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonPlanTbl" min="-2" pref="185" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lvlStep1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonProviderTbl" min="-2" pref="185" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="311" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="InsertInstructions" min="-2" pref="744" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblStep3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblStep4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblStep5" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblStep6" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="buttonMOOPTbl" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="buttonRefReqTbl" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="buttonPremiumTbl" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="buttonOutPocketCostsTbl" alignment="0" pref="185" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="buttonBenefitCostTbl" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="buttonOutNetDeductTbl" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="buttonInNetDeductTbl" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="buttonBenefitsTbl" alignment="1" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="buttonPlanlvlProgramsTbl" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="buttonGeoCovTbl" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="buttonCostShareTbl" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <EmptySpace min="0" pref="1149" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Component id="InsertTabOuterContainer" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="InsertInstructions" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonProviderTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lvlStep1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonPlanTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblStep2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonPremiumTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonBenefitsTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblStep3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonCostShareTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonBenefitCostTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblStep4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonRefReqTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonPlanlvlProgramsTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonOutNetDeductTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblStep5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonMOOPTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonGeoCovTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="139" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonOutPocketCostsTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonInNetDeductTbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblStep6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="625" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Component id="InsertTabOuterContainer" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="InsertInstructions">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;Template data must be entered in a specific order to maintain database integrity.&lt;/br&gt; &#xa;Please add data to the tables in the order provided below.&lt;/html&gt;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonProviderTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Provider Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonProviderTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonPlanTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Plan Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPlanTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonBenefitsTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Benefits Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonBenefitsTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonPlanlvlProgramsTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Plan Level Programs Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPlanlvlProgramsTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonCostShareTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cost Sharing Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCostShareTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonPremiumTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Premium Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPremiumTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonGeoCovTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Geographic Coverage Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGeoCovTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonMOOPTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Max Out of Pocket Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMOOPTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonRefReqTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Referral Required Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefReqTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonInNetDeductTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="In Network Deductible Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonInNetDeductTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonOutNetDeductTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Out-of-Network Deductible Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOutNetDeductTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonBenefitCostTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Benefit Service Cost Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonBenefitCostTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lvlStep1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Step 1:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblStep2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Step 2:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblStep3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Step 3:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblStep4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Step 4:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblStep5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Step 5:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonOutPocketCostsTbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Out of Pocket Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOutPocketCostsTblActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblStep6">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Step 6:"/>
-              </Properties>
-            </Component>
+            <Container class="javax.swing.JTabbedPane" name="InsertTabOuterContainer">
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="InsertStartTab">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Getting Started">
+                        <Property name="tabTitle" type="java.lang.String" value="Getting Started"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="InsertMHBELogo1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="131" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblInsertInstructions2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblInsertInstructions1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblInsertIntro" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="InsertMHBELogo1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="lblInsertIntro" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblInsertInstructions1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblInsertInstructions2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="lblInsertIntro">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="24" style="3"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="&lt;html&gt;Template data must be entered in a specific order to maintain database integrity.&lt;/br&gt;&lt;/br&gt;&lt;/html&gt;"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertInstructions1">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="24" style="0"/>
+                        </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/Database/mhbelogo_thumb.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Please add data to the tables in the order listed in the tabs."/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertInstructions2">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="24" style="0"/>
+                        </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/Database/mhbelogo_thumb.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Note: Hit &quot;Insert&quot; before hitting &quot;Next&quot;"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InsertMHBELogo1">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/Database/MHBElogo.jpg"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="InsertStp1Tab">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Step 1">
+                        <Property name="tabTitle" type="java.lang.String" value="Step 1"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="InsertStp1Header" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblInsertServiceArea" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="InsertServiceArea" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblInsertIssuerID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblInsertIssuerName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="InsertIssuerID" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertIssuerName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" pref="768" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnInsertINSERT1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnInsertNEXT1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="InsertStp1Header" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblInsertIssuerID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertIssuerID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblInsertIssuerName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertIssuerName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblInsertServiceArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertServiceArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jScrollPane1" alignment="0" min="-2" pref="489" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnInsertINSERT1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnInsertNEXT1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="InsertStp1Header">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="12" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Provider Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertIssuerID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Issuer ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertIssuerName">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                                   "/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertIssuerNameActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertIssuerName">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Name"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertIssuerID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                                   "/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertIssuerIDActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertServiceArea">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Service Area"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertServiceArea">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                                   "/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertServiceAreaActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnInsertINSERT1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Insert"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnInsertNEXT1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Next"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertNEXT1ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="InsertProviderTable">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="4" rowCount="4">
+                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                              </Table>
+                            </Property>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="InsertStp2Tab">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Step 2">
+                        <Property name="tabTitle" type="java.lang.String" value="Step 2"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblInsertPlanID" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="PlanID" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="lblInsertPlanType" min="-2" pref="56" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="InsertPlanType" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="lblInsertQHPStatus" min="-2" pref="64" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="InsertQHPStatus" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblInsertPlanURL" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="InsertPlanURL" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblEHBPercentPremium" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblPlanServiceArea" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblPlanIssuerID" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="InsertEHBPercPremium" max="32767" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="InsertPlanServArea" min="-2" pref="178" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="IssuerIDdropdown" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="InsertChildOnlyCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InsertStp2Header" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="lblChildOnlyPlanID" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="InsertChildPlan" min="-2" pref="178" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="InsertStatus" alignment="1" min="-2" pref="178" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="lblInsertStatus" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                                          <Component id="lblPlanName" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="lblMetalLevel" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="InsertMetalLvl" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertPlanName" alignment="1" min="-2" pref="178" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" pref="768" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="btnInsertINSERT2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="btnInsertNEXT2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="InsertStp2Header" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblInsertPlanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="PlanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblInsertPlanURL" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertPlanURL" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblInsertPlanType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertPlanType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblInsertQHPStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertQHPStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="InsertStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblInsertStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblPlanName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertPlanName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblMetalLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertMetalLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="InsertChildOnlyCheck" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblChildOnlyPlanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertChildPlan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblPlanServiceArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertPlanServArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblEHBPercentPremium" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertEHBPercPremium" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblPlanIssuerID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="IssuerIDdropdown" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jScrollPane2" min="-2" pref="489" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnInsertINSERT2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnInsertNEXT2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="InsertStp2Header">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Plan Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertPlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertPlanURL">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan URL"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertPlanType">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan Type"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertQHPStatus">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="QHP Status"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertStatus">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Status"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblPlanName">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan Name"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblMetalLevel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Metal Level"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="InsertChildOnlyCheck">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Select if this is a Child only Plan"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertChildOnlyCheckActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblChildOnlyPlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Child Only Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblPlanServiceArea">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Service Area"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblEHBPercentPremium">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="EHB Perc Premium"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblPlanIssuerID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Issuer ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnInsertINSERT2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Insert"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertINSERT2ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnInsertNEXT2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Next"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertNEXT2ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="PlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PlanIDActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertPlanURL">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertPlanType">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertQHPStatus">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertStatus">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertPlanName">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertMetalLvl">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertChildPlan">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertPlanServArea">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertEHBPercPremium">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="InsertResultTable2">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="4" rowCount="4">
+                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                              </Table>
+                            </Property>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JComboBox" name="IssuerIDdropdown">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="InsertStep3Tab">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Step 3">
+                        <Property name="tabTitle" type="java.lang.String" value="Step 3"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblInsertPlanID3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="InsertPlanID3" min="-2" pref="178" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblBeneService" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblBenePlanID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="InsertBenePlanID" pref="171" max="32767" attributes="0"/>
+                                                  <Component id="InsertBeneServ" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblReasonEHB" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblQuantServ" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblBeneDescrip" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="InsertBeneDescrip" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="BeneQuantServ" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InsertBeneReasonEHB" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblIssuerActuarial" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="InsertActuarialValue" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="InsertCostShareHeader" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblInsertPremium" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertBeneHeader" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertBeneEHBCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertBeneCoveredCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblInsertCSPlanID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblCSRvar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblAdvPayment" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="InsertAdvancedPayment" max="32767" attributes="0"/>
+                                                  <Component id="InsertCSRvar" max="32767" attributes="0"/>
+                                                  <Component id="InsertCSPlanID" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblIndivRate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblAgeRange" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="InsertAgeRange" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InsertIndivRate" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="jScrollPane3" min="-2" pref="739" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButton16" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jButton21" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jScrollPane3" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="lblInsertPremium" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="InsertPlanID3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblInsertPlanID3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="InsertIndivRate" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblIndivRate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblAgeRange" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertAgeRange" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="InsertBeneHeader" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="lblBenePlanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InsertBenePlanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="lblBeneService" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InsertBeneServ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="InsertBeneCoveredCheck" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="InsertBeneEHBCheck" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="lblReasonEHB" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InsertBeneReasonEHB" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="BeneQuantServ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblQuantServ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="InsertBeneDescrip" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblBeneDescrip" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="InsertCostShareHeader" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="lblInsertCSPlanID" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InsertCSPlanID" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="InsertCSRvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblCSRvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="lblAdvPayment" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InsertAdvancedPayment" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="lblIssuerActuarial" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InsertActuarialValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                                              <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jButton16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton21" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="lblInsertPremium">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Premium Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertPlanID3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblIndivRate">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Individual Rate"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblAgeRange">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Age Range"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InsertBeneHeader">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Benefits Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblBenePlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblBeneService">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Benefits Service"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel33">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblBeneDescrip">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Benefits Description"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblReasonEHB">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Reason for EHB Variance"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblQuantServ">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Qaunity Service Limit"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="InsertBeneCoveredCheck">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Check this box if the patient is covered"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertBeneCoveredCheckActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="InsertBeneEHBCheck">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Check this box if there is an EHB Flag"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertBeneEHBCheckActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InsertCostShareHeader">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Cost Sharing Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertCSPlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblCSRvar">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="CSR Variation"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblAdvPayment">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Advance Payment"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblIssuerActuarial">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Issuer Acturial Value"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jButton16">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Insert"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton16ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jButton21">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Next"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertBeneServ">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertAgeRange">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertIndivRate">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertBeneReasonEHB">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="BeneQuantServ">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertBeneDescrip">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertCSRvar">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertAdvancedPayment">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertActuarialValue">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                           "/>
+                      </Properties>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="InsertResultTable3">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="4" rowCount="4">
+                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                              </Table>
+                            </Property>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JComboBox" name="InsertPlanID3">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="InsertBenePlanID">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="InsertCSPlanID">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="InsertStep4Tab">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Step 4">
+                        <Property name="tabTitle" type="java.lang.String" value="Step 4"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="InsertRefReqHeader" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblInsertRefPlanID" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="InsertRefPlanID" min="-2" pref="126" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="InsertBeneCostHeader" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblDiseaseMgmt" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblBeneCostPlanID" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="InsertBeneCostPlanID" min="-2" pref="125" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblBeneCoin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblInsertCopay" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace pref="18" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="InsertBeneCopay" min="-2" pref="120" max="-2" attributes="0"/>
+                                              <Component id="InsertBeneCoinsurance" min="-2" pref="122" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblInsertBeneServ" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="InsertBeneCostService" min="-2" pref="118" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblPlanLvlPlanID" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="InsertPlanLvlPlanID" min="-2" pref="151" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="InsertPlanlvlProgramsHeader" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblRefReq" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="InsertRefReq" min="-2" pref="170" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblTabaccoWell" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="InsertTabaccoWellness" min="-2" pref="170" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblSpecReq" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane6" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jButton17" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jButton22" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane4" pref="814" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="InsertRefReqHeader" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="InsertRefPlanID" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblInsertRefPlanID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblSpecReq" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblRefReq" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InsertRefReq" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jScrollPane6" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="InsertBeneCostHeader" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblInsertBeneServ" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertBeneCostService" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblInsertCopay" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertBeneCopay" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblBeneCoin" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertBeneCoinsurance" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblBeneCostPlanID" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertBeneCostPlanID" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="InsertPlanlvlProgramsHeader" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblPlanLvlPlanID" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertPlanLvlPlanID" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblTabaccoWell" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertTabaccoWellness" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDiseaseMgmt" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jScrollPane4" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jButton17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButton22" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="InsertRefReqHeader">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Referal Required Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertRefPlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblSpecReq">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Specialist Required"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblRefReq">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Referal Required"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InsertBeneCostHeader">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Benefit Service Cost Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InsertPlanlvlProgramsHeader">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Plan Level Programs Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertBeneServ">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Benefits Service"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertCopay">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Copay"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblBeneCoin">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Coinsurance"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblBeneCostPlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblPlanLvlPlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblTabaccoWell">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Tobacco Wellness"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblDiseaseMgmt">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Disease Management"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jButton17">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Insert"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jButton22">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Next"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="InsertRefPlanID">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertRefReq">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jTextField2"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="InsertPlanLvlPlanID">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertTabaccoWellness">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jTextField3"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="InsertBeneCostService">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertBeneCopay">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jTextField31"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="InsertBeneCostPlanID">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertBeneCoinsurance">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jTextField35"/>
+                      </Properties>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="InsertResultTable4">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="4" rowCount="4">
+                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                              </Table>
+                            </Property>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextArea" name="InsertDiseaseMgmt">
+                          <Properties>
+                            <Property name="columns" type="int" value="20"/>
+                            <Property name="rows" type="int" value="5"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane6">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextArea" name="InsertSpecialistsRequired">
+                          <Properties>
+                            <Property name="columns" type="int" value="20"/>
+                            <Property name="rows" type="int" value="5"/>
+                            <Property name="toolTipText" type="java.lang.String" value="Please list the specialists that require a referral."/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="InsertStep5Tab">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Step 5">
+                        <Property name="tabTitle" type="java.lang.String" value="Step 5"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="InsertMOOPHeader" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertGeoHeader" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblOOScoverage" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblOOCcoverage" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="InsertOOScoverage" pref="161" max="32767" attributes="0"/>
+                                                  <Component id="InsertOOCcoverage" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="lblMOOPplanID" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="InsertMOOPplanID" min="-2" pref="234" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblOutNetMOOP" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblInNetMOOP" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="InsertOutNetMOOP" min="-2" pref="210" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="InsertInNetMOOP" min="-2" pref="210" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblGeoPlanID" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="InsertGeoPlanID" min="-2" pref="231" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="NationalNetCoverageCheck" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace pref="59" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="InsertOOPHeader" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblOOPPlanID" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="InsertOOPplanID" min="-2" pref="180" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblInsertHSAHRA" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="InsertOOPHSAHRA" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblOOPCopay" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="InsertOOPcopay" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblInsertOOPCoin" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                              <Component id="InsertOOPcoinsurance" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="551" max="-2" attributes="0"/>
+                                      <Component id="btnInsertINSERT5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="btnInsertNEXT5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jScrollPane7" min="-2" pref="712" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jScrollPane7" min="-2" pref="526" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="btnInsertNEXT5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnInsertINSERT5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="InsertMOOPHeader" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="InsertMOOPplanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblMOOPplanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblInNetMOOP" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertInNetMOOP" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblOutNetMOOP" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOutNetMOOP" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="InsertOOPHeader" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblOOPPlanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOOPplanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblInsertOOPCoin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOOPcoinsurance" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblOOPCopay" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOOPcopay" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblInsertHSAHRA" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOOPHSAHRA" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="InsertGeoHeader" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblGeoPlanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertGeoPlanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="NationalNetCoverageCheck" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblOOScoverage" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOOScoverage" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblOOCcoverage" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOOCcoverage" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="25" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="InsertMOOPHeader">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Max out of Pocket Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblMOOPplanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInNetMOOP">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="In Network MOOP"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblOutNetMOOP">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Out of Network MOOP"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InsertGeoHeader">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Geographic Coverage Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblOOCcoverage">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Out of Country Coverage"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblOOScoverage">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Out of Service Area Coverage"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblGeoPlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="NationalNetCoverageCheck">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Check this box if the coverage is in the national Network"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnInsertINSERT5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Insert"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnInsertNEXT5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Next"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertInNetMOOP">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                                         "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertOutNetMOOP">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                                         "/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertOutNetMOOPActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertOOScoverage">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                                         "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertOOCcoverage">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                                         "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="InsertMOOPplanID">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="InsertGeoPlanID">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="InsertResultTable5">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="4" rowCount="4">
+                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                              </Table>
+                            </Property>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JLabel" name="InsertOOPHeader">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Out-of-Pocket Costs Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblOOPPlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="InsertOOPplanID">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertOOPCoin">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Default Coins"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertOOPcoinsurance">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                            "/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertOOPcoinsuranceActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblOOPCopay">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Default Copay"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertOOPcopay">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                            "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInsertHSAHRA">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="HSA or HRA?"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertOOPHSAHRA">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                            "/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertOOPHSAHRAActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="InsertStep6Tab">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Step 6">
+                        <Property name="tabTitle" type="java.lang.String" value="Step 6"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblINnetPedDentDeduct" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="InsertINnetPedDentDeduct" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="InsertINdeductcheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblINnetComboDeduct" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="InsertINnetComboDeduct" min="-2" pref="176" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblINnetPlanID" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="InsertInNetworPlanID" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="InsertINDeductHeader" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblINnetMedDeduct" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblINnetDrugDeduct" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="InsertINnetDrugDeduct" max="32767" attributes="0"/>
+                                              <Component id="InsertINnetMedDeduct" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblOONPlanID" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="InsertOONDeduct" min="-2" pref="198" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="InsertOONDeductHeader" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblINnetCombined" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="InsertOONComboDeduct" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="CombinedDeductCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblINnetDrug" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="InsertOONDrugDeduct" min="-2" pref="174" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblInNetMed" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="InsertOONnetMed" min="-2" pref="174" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblinNetPedDent" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          <Component id="InsertOONPedDent" min="-2" pref="174" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="32767" attributes="0"/>
+                              <Component id="jScrollPane8" min="-2" pref="718" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnInsertINSERT6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="btnInsertSAVE" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="InsertOONDeductHeader" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblOONPlanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOONDeduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblinNetPedDent" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOONPedDent" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblInNetMed" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOONnetMed" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblINnetDrug" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOONDrugDeduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="CombinedDeductCheck" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblINnetCombined" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertOONComboDeduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Component id="InsertINDeductHeader" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblINnetPlanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertInNetworPlanID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblINnetPedDentDeduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertINnetPedDentDeduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblINnetMedDeduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertINnetMedDeduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblINnetDrugDeduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertINnetDrugDeduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="InsertINdeductcheck" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblINnetComboDeduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InsertINnetComboDeduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jScrollPane8" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnInsertINSERT6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnInsertSAVE" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="36" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="InsertINDeductHeader">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert Into In-Network Deductable Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblINnetPlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblINnetPedDentDeduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="In-network Pediatric Dental Deductable"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblINnetMedDeduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="In-network Medical Deductable"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblINnetDrugDeduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="In-network Drug Deductable "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="InsertINdeductcheck">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Check if it is a combined deductable"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblINnetComboDeduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="In-network Combined Deductable"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnInsertINSERT6">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Insert"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertINnetPedDentDeduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                            "/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertINnetPedDentDeductActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertINnetMedDeduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                            "/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertINnetMedDeductActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertINnetDrugDeduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                            "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertINnetComboDeduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                            "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnInsertSAVE">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="cc" green="cc" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Save"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertSAVEActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="InsertInNetworPlanID">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane8">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="InsertResultTable6">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="4" rowCount="4">
+                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                              </Table>
+                            </Property>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JLabel" name="InsertOONDeductHeader">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Insert into Out-Of-Network Deductable Table"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblOONPlanID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Plan ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="InsertOONDeduct">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblinNetPedDent">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Out-of-network Pediatric Dental"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertOONPedDent">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                                         "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblInNetMed">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Out-of-network Medical Deductable"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertOONnetMed">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                                         "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblINnetDrug">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Out-of-network Drug Deductable"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertOONDrugDeduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                                         "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="CombinedDeductCheck">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Check if it&apos;s a combined deductable"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CombinedDeductCheckActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblINnetCombined">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Out-of-network Combined Deductable"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="InsertOONComboDeduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="                                                         "/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertOONComboDeductActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="QueryTabContainer">
