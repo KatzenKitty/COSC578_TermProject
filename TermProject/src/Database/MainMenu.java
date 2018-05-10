@@ -83,13 +83,10 @@ public class MainMenu extends javax.swing.JFrame {
         QueryTabContainer = new javax.swing.JPanel();
         QueryTableContainer = new javax.swing.JScrollPane();
         QueryResultTable = new javax.swing.JTable();
-        btnDisplayQuery = new javax.swing.JButton();
-        btnCompareQuery = new javax.swing.JButton();
-        btnFindMinMaxQuery = new javax.swing.JButton();
-        btnPrintTblQuery = new javax.swing.JButton();
-        btnCustomSQLQuery = new javax.swing.JButton();
         lblCustomSQLQueryBtn = new javax.swing.JLabel();
         lblQueryTabIntro = new javax.swing.JLabel();
+        QueryDropdownList = new javax.swing.JComboBox<>();
+        lblQueryDropdown = new javax.swing.JLabel();
         FileMenu = new javax.swing.JMenuBar();
         FileDropdown = new javax.swing.JMenu();
         HelpDropdown = new javax.swing.JMenu();
@@ -509,37 +506,39 @@ public class MainMenu extends javax.swing.JFrame {
         ));
         QueryTableContainer.setViewportView(QueryResultTable);
 
-        btnDisplayQuery.setText("Display Query");
-
-        btnCompareQuery.setText("Compare Query");
-
-        btnFindMinMaxQuery.setText("Find Min/Max Query");
-
-        btnPrintTblQuery.setText("Print Table Query");
-
-        btnCustomSQLQuery.setText("Custom SQL Query");
-
         lblCustomSQLQueryBtn.setForeground(new java.awt.Color(255, 0, 0));
         lblCustomSQLQueryBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCustomSQLQueryBtn.setText("<html><b>WARNING!</b> Only use this query option if you are familiar with SQL programming language!</html>");
+        lblCustomSQLQueryBtn.setText("<html><b>WARNING!</b> Only use \"Custom SQL Query\" option if you are familiar with SQL programming language!</html>");
 
         lblQueryTabIntro.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblQueryTabIntro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/MHBElogo.jpg"))); // NOI18N
         lblQueryTabIntro.setText("<html>This tab allows users to ask specific questions of the database. Please select one of the pre-defined query options to the right and a pop-up will open allowing you to set parameters for your query.</html>");
+
+        QueryDropdownList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Display Query", "Find Min/Max Query", "Comparison Query", "Print Table Query", "Custom SQL Query" }));
+        QueryDropdownList.setToolTipText("Select a predefined query and input parameters.");
+        QueryDropdownList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QueryDropdownListActionPerformed(evt);
+            }
+        });
+
+        lblQueryDropdown.setLabelFor(QueryDropdownList);
+        lblQueryDropdown.setText("Select a pre-defined Query");
 
         javax.swing.GroupLayout QueryTabContainerLayout = new javax.swing.GroupLayout(QueryTabContainer);
         QueryTabContainer.setLayout(QueryTabContainerLayout);
         QueryTabContainerLayout.setHorizontalGroup(
             QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueryTabContainerLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnFindMinMaxQuery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDisplayQuery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCompareQuery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPrintTblQuery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCustomSQLQuery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCustomSQLQueryBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(QueryTabContainerLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(lblCustomSQLQueryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueryTabContainerLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblQueryDropdown)
+                            .addComponent(QueryDropdownList, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(QueryTableContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 837, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
@@ -555,23 +554,16 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(lblQueryTabIntro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(QueryTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(QueryTabContainerLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDisplayQuery)
-                        .addGap(47, 47, 47)
-                        .addComponent(btnCompareQuery)
-                        .addGap(49, 49, 49)
-                        .addComponent(btnFindMinMaxQuery)
-                        .addGap(52, 52, 52)
-                        .addComponent(btnPrintTblQuery)
-                        .addGap(52, 52, 52)
-                        .addComponent(btnCustomSQLQuery)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCustomSQLQueryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(QueryTableContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(QueryTabContainerLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(lblQueryDropdown)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(QueryTableContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(QueryDropdownList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(188, 188, 188)
+                        .addComponent(lblCustomSQLQueryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         MainMenuTab.addTab("Query Database", QueryTabContainer);
@@ -581,9 +573,27 @@ public class MainMenu extends javax.swing.JFrame {
 
         FileDropdown.setBackground(new java.awt.Color(255, 255, 255));
         FileDropdown.setText("File");
+        FileDropdown.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                FileDropdownMenuSelected(evt);
+            }
+        });
         FileMenu.add(FileDropdown);
 
         HelpDropdown.setText("Edit");
+        HelpDropdown.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                HelpDropdownMenuSelected(evt);
+            }
+        });
         FileMenu.add(HelpDropdown);
 
         setJMenuBar(FileMenu);
@@ -774,6 +784,76 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonOutPocketCostsTblActionPerformed
 
+    private void QueryDropdownListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QueryDropdownListActionPerformed
+    String[] columnNames=null;
+        String sql = null;
+        if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Display Query")) {
+            // create a pop-up window to take input 
+                     
+        }
+        if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Find Min/Max Query")) {
+            // create a pop-up window to take input 
+                       
+        }
+        if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Comparison Query")) {
+            // create a pop-up window to take input
+                        
+        }
+        if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Print Table Query")) {
+            // create a pop-up window to take input 
+                      
+        }
+        if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Custom SQL Query")) {
+            // create a pop-up window to take input 
+                        
+        }
+        
+        Object[] columns = null;
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();       
+        try {
+            //PREPARED STMT
+            Statement s = objDBConnection.prepareStatement(sql);
+            ResultSet rs = s.executeQuery(sql);
+            ResultSetMetaData meta = rs.getMetaData();
+            //columns = new Object[rs.getFetchSize()];
+            //LOOP THRU GETTING ALL VALUES
+            Integer columncount = meta.getColumnCount();
+            columnNames = new String[columncount];
+            
+            for (int i = 1; i <= columncount; i++) {                
+                //System.out.println(meta.getColumnName(i));
+                columnNames[i-1] = meta.getColumnName(i);
+              }
+            columns = columnNames;
+            model.setColumnIdentifiers(columns);
+            
+            model.setRowCount(0);
+            
+            while(rs.next()) {
+                String[] obj = new String[columncount];
+                for(int j=0; j<columncount; j++){
+                    obj[j] = rs.getString(j+1);
+                }
+                model.addRow(obj);
+            }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            } 
+        
+        
+        
+        // set the model to the table
+        jTable1.setModel(model);
+    }//GEN-LAST:event_QueryDropdownListActionPerformed
+
+    private void FileDropdownMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_FileDropdownMenuSelected
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FileDropdownMenuSelected
+
+    private void HelpDropdownMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_HelpDropdownMenuSelected
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HelpDropdownMenuSelected
+
     /**
      * @param args the command line arguments
      */
@@ -828,15 +908,11 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel ModifyTabContainer;
     private javax.swing.JLabel ModifyTabDescription;
     private javax.swing.JComboBox<String> ModifyTableList;
+    private javax.swing.JComboBox<String> QueryDropdownList;
     private javax.swing.JTable QueryResultTable;
     private javax.swing.JPanel QueryTabContainer;
     private javax.swing.JLabel QueryTabDescription;
     private javax.swing.JScrollPane QueryTableContainer;
-    private javax.swing.JButton btnCompareQuery;
-    private javax.swing.JButton btnCustomSQLQuery;
-    private javax.swing.JButton btnDisplayQuery;
-    private javax.swing.JButton btnFindMinMaxQuery;
-    private javax.swing.JButton btnPrintTblQuery;
     private javax.swing.JButton buttonBenefitCostTbl;
     private javax.swing.JButton buttonBenefitsTbl;
     private javax.swing.JButton buttonCostShareTbl;
@@ -857,6 +933,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel lblCustomSQLQueryBtn;
     private javax.swing.JLabel lblModifyTableList;
     private javax.swing.JLabel lblModifyWarning;
+    private javax.swing.JLabel lblQueryDropdown;
     private javax.swing.JLabel lblQueryTabIntro;
     private javax.swing.JLabel lblStep2;
     private javax.swing.JLabel lblStep3;
