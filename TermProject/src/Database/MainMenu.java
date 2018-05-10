@@ -39,7 +39,9 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        DisplayPopup = new javax.swing.JPopupMenu();
+        DisplayDialog = new javax.swing.JDialog();
+        lblSelectDisplayTable = new javax.swing.JLabel();
+        DisplayTblSelectionMenu = new javax.swing.JComboBox<>();
         MainMenuTab = new javax.swing.JTabbedPane();
         MMOuterContainer = new javax.swing.JPanel();
         MMWelcome = new javax.swing.JLabel();
@@ -56,9 +58,9 @@ public class MainMenu extends javax.swing.JFrame {
         updateTblData = new javax.swing.JButton();
         lblModifyWarning = new javax.swing.JLabel();
         ModifyMHBELogo = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ModOuterTblContainer = new javax.swing.JPanel();
+        ModTblScrollPane = new javax.swing.JScrollPane();
+        ModifyResultTable = new javax.swing.JTable();
         InsertTabContainer = new javax.swing.JPanel();
         InsertInstructions = new javax.swing.JLabel();
         buttonProviderTbl = new javax.swing.JButton();
@@ -89,7 +91,42 @@ public class MainMenu extends javax.swing.JFrame {
         lblQueryDropdown = new javax.swing.JLabel();
         FileMenu = new javax.swing.JMenuBar();
         FileDropdown = new javax.swing.JMenu();
+        Exit = new javax.swing.JMenuItem();
         HelpDropdown = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+
+        DisplayDialog.setBackground(new java.awt.Color(51, 153, 255));
+
+        lblSelectDisplayTable.setText("Please select the table(s) you wish to display:");
+
+        DisplayTblSelectionMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Benefits", "Cost Sharing", "Dates", "Exclusions", "Geographic Coverage", "In-Network Deductible", "Maximum Out-of-Pocket", "Out-of-Network Deductible", "Out-of-Pocket Costs", "Plan", "Plan-Level Programs", "Premium", "Provider", "Referral Required", "Service Cost" }));
+        DisplayTblSelectionMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DisplayTblSelectionMenuActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout DisplayDialogLayout = new javax.swing.GroupLayout(DisplayDialog.getContentPane());
+        DisplayDialog.getContentPane().setLayout(DisplayDialogLayout);
+        DisplayDialogLayout.setHorizontalGroup(
+            DisplayDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DisplayDialogLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(DisplayDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblSelectDisplayTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DisplayTblSelectionMenu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        DisplayDialogLayout.setVerticalGroup(
+            DisplayDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DisplayDialogLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lblSelectDisplayTable, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DisplayTblSelectionMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -244,9 +281,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(lblModifyWarning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        ModTblScrollPane.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ModifyResultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -257,21 +294,21 @@ public class MainMenu extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        ModTblScrollPane.setViewportView(ModifyResultTable);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout ModOuterTblContainerLayout = new javax.swing.GroupLayout(ModOuterTblContainer);
+        ModOuterTblContainer.setLayout(ModOuterTblContainerLayout);
+        ModOuterTblContainerLayout.setHorizontalGroup(
+            ModOuterTblContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModOuterTblContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE))
+                .addComponent(ModTblScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        ModOuterTblContainerLayout.setVerticalGroup(
+            ModOuterTblContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModOuterTblContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+                .addComponent(ModTblScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -283,7 +320,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addComponent(ModSidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ModOuterTblContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         ModifyTabContainerLayout.setVerticalGroup(
@@ -291,7 +328,7 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifyTabContainerLayout.createSequentialGroup()
                 .addGap(3, 3, 3)
                 .addGroup(ModifyTabContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ModOuterTblContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ModSidePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -573,27 +610,35 @@ public class MainMenu extends javax.swing.JFrame {
 
         FileDropdown.setBackground(new java.awt.Color(255, 255, 255));
         FileDropdown.setText("File");
-        FileDropdown.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                FileDropdownMenuSelected(evt);
+
+        Exit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Actions-application-exit-icon.png"))); // NOI18N
+        Exit.setText("Exit");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
             }
         });
+        FileDropdown.add(Exit);
+
         FileMenu.add(FileDropdown);
 
-        HelpDropdown.setText("Edit");
-        HelpDropdown.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                HelpDropdownMenuSelected(evt);
+        HelpDropdown.setText("Help");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/help-file-icon.png"))); // NOI18N
+        jMenuItem1.setText("Help PDF");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
             }
         });
+        HelpDropdown.add(jMenuItem1);
+
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Actions-help-about-icon.png"))); // NOI18N
+        jMenuItem2.setText("About");
+        HelpDropdown.add(jMenuItem2);
+
         FileMenu.add(HelpDropdown);
 
         setJMenuBar(FileMenu);
@@ -710,16 +755,16 @@ public class MainMenu extends javax.swing.JFrame {
         
         
         // set the model to the table
-        jTable1.setModel(model);
+        ModifyResultTable.setModel(model);
     }//GEN-LAST:event_ModifyTableListActionPerformed
 
     private void deleteTblDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTblDataActionPerformed
-        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable1.getModel();
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) ModifyResultTable.getModel();
 
        // get selected row index
 
        try{
-       int SelectedRowIndex = jTable1.getSelectedRow();
+       int SelectedRowIndex = ModifyResultTable.getSelectedRow();
        model.removeRow(SelectedRowIndex);
        }catch(Exception ex)
        {
@@ -789,7 +834,7 @@ public class MainMenu extends javax.swing.JFrame {
         String sql = null;
         if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Display Query")) {
             // create a pop-up window to take input 
-                     
+            new DisplayDialog().setVisible(true);
         }
         if((QueryDropdownList.getSelectedItem().toString()).equalsIgnoreCase("Find Min/Max Query")) {
             // create a pop-up window to take input 
@@ -808,8 +853,82 @@ public class MainMenu extends javax.swing.JFrame {
                         
         }
         
+    }//GEN-LAST:event_QueryDropdownListActionPerformed
+
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+    System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_ExitActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+                // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void DisplayTblSelectionMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisplayTblSelectionMenuActionPerformed
+        String[] columnNames=null;
+        String sql = null;
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Provider")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Provider";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Plan")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Plan";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Plan-Level Programs")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Plan_lvl_programs";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Benefits")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Benefits";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Cost Sharing")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Cost_sharing";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Service Cost")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Service_cost";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Dates")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Dates";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Exclusions")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Exclusions";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Geographic Coverage")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Geo_covarage";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("In-Network Deductible")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM In_network_deductible";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Out-of-Network Deductible")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Out_network_deductible";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Out-of-pocket Costs")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Out_of_pocket";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Referral Required")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Referral_required";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Maximum Out-of-pocket")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM MOOP";            
+        }
+        if((DisplayTblSelectionMenu.getSelectedItem().toString()).equalsIgnoreCase("Premium")) {
+            // create a table model and set a Column Identifiers to this model 
+            sql = "SELECT * FROM Premium";            
+        }
         Object[] columns = null;
-        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();       
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
+        
         try {
             //PREPARED STMT
             Statement s = objDBConnection.prepareStatement(sql);
@@ -843,16 +962,8 @@ public class MainMenu extends javax.swing.JFrame {
         
         
         // set the model to the table
-        jTable1.setModel(model);
-    }//GEN-LAST:event_QueryDropdownListActionPerformed
-
-    private void FileDropdownMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_FileDropdownMenuSelected
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FileDropdownMenuSelected
-
-    private void HelpDropdownMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_HelpDropdownMenuSelected
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HelpDropdownMenuSelected
+        QueryResultTable.setModel(model);
+    }//GEN-LAST:event_DisplayTblSelectionMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -891,7 +1002,9 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPopupMenu DisplayPopup;
+    private javax.swing.JDialog DisplayDialog;
+    private javax.swing.JComboBox<String> DisplayTblSelectionMenu;
+    private javax.swing.JMenuItem Exit;
     private javax.swing.JMenu FileDropdown;
     private javax.swing.JMenuBar FileMenu;
     private javax.swing.JMenu HelpDropdown;
@@ -903,8 +1016,11 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel MMinnerContainer;
     private javax.swing.JLabel MMintroText;
     private javax.swing.JTabbedPane MainMenuTab;
+    private javax.swing.JPanel ModOuterTblContainer;
     private javax.swing.JPanel ModSidePanel;
+    private javax.swing.JScrollPane ModTblScrollPane;
     private javax.swing.JLabel ModifyMHBELogo;
+    private javax.swing.JTable ModifyResultTable;
     private javax.swing.JPanel ModifyTabContainer;
     private javax.swing.JLabel ModifyTabDescription;
     private javax.swing.JComboBox<String> ModifyTableList;
@@ -927,14 +1043,14 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton buttonProviderTbl;
     private javax.swing.JButton buttonRefReqTbl;
     private javax.swing.JButton deleteTblData;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel lblCustomSQLQueryBtn;
     private javax.swing.JLabel lblModifyTableList;
     private javax.swing.JLabel lblModifyWarning;
     private javax.swing.JLabel lblQueryDropdown;
     private javax.swing.JLabel lblQueryTabIntro;
+    private javax.swing.JLabel lblSelectDisplayTable;
     private javax.swing.JLabel lblStep2;
     private javax.swing.JLabel lblStep3;
     private javax.swing.JLabel lblStep4;
