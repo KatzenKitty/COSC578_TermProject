@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
-
-    <persistence-unit name="NewPersistenceUnit"/>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+  <persistence-unit name="NewPersistenceUnit">
+    <class>Entities.Costsharing</class>
+    <class>Entities.Premium</class>
+    <class>Entities.Provider</class>
+    <class>Entities.Outofpocket</class>
+    <class>Entities.Moop</class>
+    <class>Entities.Exclusions</class>
+    <class>Entities.Innetworkdeductible</class>
+    <class>Entities.Planlvlprograms</class>
+    <class>Entities.Outnetworkdeductible</class>
+    <class>Entities.Plan</class>
+    <class>Entities.Referralrequired</class>
+    <class>Entities.Benefits</class>
+    <class>Entities.Dates</class>
+    <class>Entities.Geocovarage</class>
+    <class>Entities.Servicecost</class>
+  </persistence-unit>
 </persistence>
